@@ -2,6 +2,11 @@ import { AlignItems, BoxProps, JustifyContent } from '../../../shared/models';
 
 type BoxStyledProps = BoxProps & {
   border?: string;
+  borderTop?: string;
+  borderLeft?: string;
+  borderRight?: string;
+  borderBottom?: string;
+
   isRemoved?: boolean;
   isVertical?: boolean;
   isStretched?: boolean;
