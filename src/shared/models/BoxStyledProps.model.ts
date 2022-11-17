@@ -1,4 +1,4 @@
-import { AlignItems, BoxProps, JustifyContent } from '../../../shared/models';
+import { AlignItems, BoxProps, JustifyContent } from '.';
 
 type BoxStyledProps = BoxProps & {
   border?: string;

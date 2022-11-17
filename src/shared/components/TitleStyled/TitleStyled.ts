@@ -4,16 +4,14 @@ import TitleProps from './TitleStyled.model';
 const TitleStyled = styled.h1<TitleProps>(
   ({
     theme,
-    flex = 'auto',
     maxWidth,
     minWidth,
     maxHeight,
     minHeight,
     textAlign,
+    flex = 'auto',
     isBold = true,
-
     lineHeight = 1.5,
-    fontSize = '2rem',
 
     marginTop = 10,
     marginLeft = 0,
@@ -34,12 +32,13 @@ const TitleStyled = styled.h1<TitleProps>(
     overflowY = 'visible',
     alignItems = 'center',
     fontFamily = 'inherit',
+    fontSizeName = 'default',
     justifyContent = 'center',
+
   }): CSSObject => {
-    const { colors } = theme;
+    const { colors, fontSizes } = theme;
 
     return {
-      fontSize,
       overflowX,
       overflowY,
       alignItems,
@@ -69,6 +68,7 @@ const TitleStyled = styled.h1<TitleProps>(
       display: isFlexible ? 'flex' : 'inline',
 
       fontWeight: isBold ? 'bold' : 'normal',
+      fontSize: `${fontSizes[fontSizeName]}rem`,
       minWidth: isStretched ? 'max-content' : minWidth,
       textTransform: isInUpperCase ? 'uppercase' : 'none',
     };

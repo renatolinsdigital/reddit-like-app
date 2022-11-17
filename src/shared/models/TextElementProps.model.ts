@@ -1,7 +1,9 @@
-import { DefaultTheme } from "styled-components";
-import BoxProps from "./BoxProps.model";
 
-type TextElementProps = BoxProps & {
+import { FontSizeNames } from "src/theme/models";
+import { DefaultTheme } from "styled-components";
+import { BoxStyledProps } from 'src/shared/models';
+
+type TextElementProps = BoxStyledProps & {
   isBold?: boolean;
   alignItems?: string;
   fontFamily?: string;
@@ -14,6 +16,7 @@ type TextElementProps = BoxProps & {
   fontSize?: string | number;
   lineHeight?: string | number;
   fontWeight?: string | number;
+  fontSizeName?: keyof FontSizeNames;
 
   wordWrap?:
   'normal'

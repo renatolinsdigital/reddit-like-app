@@ -1,5 +1,5 @@
+import { BoxStyledProps } from 'src/shared/models';
 import styled, { CSSObject } from 'styled-components';
-import BoxStyledProps from './BoxStyled.model';
 
 const BoxStyled = styled.div<BoxStyledProps>(
   ({
