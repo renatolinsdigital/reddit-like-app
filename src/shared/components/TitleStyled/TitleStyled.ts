@@ -10,7 +10,6 @@ const TitleStyled = styled.h1<TitleProps>(
     minHeight,
     textAlign,
     flex = 'auto',
-    isBold = true,
 
     marginTop = 10,
     marginLeft = 0,
@@ -33,10 +32,11 @@ const TitleStyled = styled.h1<TitleProps>(
     fontFamily = 'inherit',
     fontSizeName = 'default',
     justifyContent = 'center',
+    fontWeightName = 'medium',
     lineHeightName = 'default',
 
   }): CSSObject => {
-    const { colors, fontSizes, lineHeights } = theme;
+    const { colors, fontSizes, lineHeights, fontWeights } = theme;
 
     return {
       overflowX,
@@ -67,7 +67,7 @@ const TitleStyled = styled.h1<TitleProps>(
       display: isFlexible ? 'flex' : 'inline',
 
 
-      fontWeight: isBold ? 'bold' : 'normal',
+      fontWeight: fontWeights[fontWeightName],
       lineHeight: lineHeights[lineHeightName],
       fontSize: `${fontSizes[fontSizeName]}rem`,
       minWidth: isStretched ? 'max-content' : minWidth,

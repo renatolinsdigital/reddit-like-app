@@ -1,4 +1,5 @@
 import { ReactNode } from 'react';
+import { Colors } from 'src/theme/models';
 import { BoxProps, ReactActionEvent } from 'src/shared/models';
 
 interface ButtonEvents {
@@ -8,6 +9,8 @@ interface ButtonEvents {
 
 interface CustomButtonProps {
   isEnabled?: boolean;
+  hoverChildBorderColorName?: keyof Colors;
+  disabledChildBorderColorName?: keyof Colors;
 }
 
 export type ButtonProps = Omit<BoxProps, "theme"> & ButtonEvents & CustomButtonProps & {

@@ -32,6 +32,8 @@ function Button(
     isEnabled = true,
     backgroundColorName,
     hoverBackgroundColorName,
+    hoverChildBorderColorName,
+    disabledChildBorderColorName,
 
     onClick,
     onMouseDown
@@ -74,6 +76,8 @@ function Button(
       borderColorName={borderColorName}
       backgroundColorName={backgroundColorName}
       hoverBackgroundColorName={hoverBackgroundColorName}
+      hoverChildBorderColorName={hoverChildBorderColorName}
+      disabledChildBorderColorName={disabledChildBorderColorName}
 
       onClick={handleClick}
       onMouseDown={handleMouseDown}

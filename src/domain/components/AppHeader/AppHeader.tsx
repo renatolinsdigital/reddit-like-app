@@ -1,6 +1,6 @@
 import { Image } from 'src/domain/components';
-import { SearchIcon, MenuIcon } from 'src/shared/icons';
-import { BoxStyled, TextInput, Button } from 'src/shared/components';
+import { SearchIcon, MenuIcon, PlusIcon } from 'src/shared/icons';
+import { BoxStyled, TextInput, Button, TextStyled } from 'src/shared/components';
 
 function AppHeader() {
   const inputIcon = <SearchIcon colorName='gray3' />;
@@ -38,27 +38,52 @@ function AppHeader() {
             marginRight={15}
             paddingLeft={15}
             paddingRight={15}
-            borderWidth='2px'
+            borderWidth='1px'
             borderStyle='solid'
             borderColorName='gray2'
             backgroundColorName='white'
             hoverBackgroundColorName='gray2'
 
           >
-            <MenuIcon width={20} height={21} />
+            <MenuIcon width={20} height={19} />
           </Button>
           <TextInput
             maxWidth={380}
             borderRadius={4}
             leftIcon={inputIcon}
-            lineHeightName='taller'
+            lineHeightName='tall'
             backgroundColorName='gray2'
             borderColorName='primaryDefault'
           ></TextInput>
         </BoxStyled>
+        <BoxStyled>
+
+          <Button
+            paddingTop={0}
+            paddingLeft={0}
+            paddingRight={10}
+            paddingBottom={0}
+            disabledChildBorderColorName='gray2'
+            hoverChildBorderColorName='primaryDefault'
+          >
+            <BoxStyled
+              minHeight={44}
+              marginRight={5}
+              paddingTop={10}
+              paddingLeft={15}
+              paddingRight={14}
+              paddingBottom={10}
+              borderRight="1px solid"
+              borderColorName='primaryDark'
+            >
+              <PlusIcon width={15} height={15} colorName='white' />
+            </BoxStyled>
+            <TextStyled fontWeightName='medium'>Add Post</TextStyled>
+          </Button>
+        </BoxStyled>
 
       </BoxStyled>
-    </BoxStyled>
+    </BoxStyled >
   );
 }
 
