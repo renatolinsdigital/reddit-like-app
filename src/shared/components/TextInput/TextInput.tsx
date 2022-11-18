@@ -85,7 +85,7 @@ function TextInput(
       marginBottom={marginBottom}
     >
       <BoxStyled
-        left={10}
+        left={12}
         position='absolute'
         isStretched={false}
         top="calc(50% - 10px)"

@@ -54,9 +54,9 @@ export const TextInputStyled = styled.input<TextInputStyledProps>((
     isRightIconRendered,
 
     borderRadius,
+    borderWidth = '1px',
     borderStyle = 'none',
     textColorName = 'dark',
-    borderWidth = 'medium',
     hasFocusOutline = false,
     fontSizeName = 'default',
     lineHeightName = 'default',
@@ -98,8 +98,8 @@ export const TextInputStyled = styled.input<TextInputStyledProps>((
     fontSize: `${fontSizes[fontSizeName]}rem`,
     lineHeight: `${lineHeights[lineHeightName]}`,
     backgroundColor: colors[backgroundColorName],
-    paddingLeft: isLeftIconRendered ? `calc(${parsedPaddingLeft} + 22px)` : paddingLeft,
-    paddingRight: isRightIconRendered ? `calc(${parsedPaddingRight} + 20px)` : paddingRight,
+    paddingLeft: isLeftIconRendered ? `calc(${parsedPaddingLeft} + 24px)` : paddingLeft,
+    paddingRight: isRightIconRendered ? `calc(${parsedPaddingRight} + 22px)` : paddingRight,
 
     '&:focus': {
       outline: hasFocusOutline ? 'solid' : 'none',

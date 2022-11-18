@@ -26,8 +26,11 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     paddingRight = 24,
     paddingBottom = 12,
     position = 'static',
+    borderWidth = '1px',
+    borderStyle = 'none',
     hoverColorName = 'white',
-    hoverBackgroundColorName = 'primaryDark',
+    borderColorName = 'transparent',
+    hoverBackgroundColorName = 'primaryDark'
   }): CSSObject => {
   const { colors, transitions } = theme;
 
@@ -56,8 +59,11 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
 
     minWidth,
     minHeight,
+    borderStyle,
+    borderWidth,
     borderRadius,
     transition: transitions?.default,
+    borderColor: colors[borderColorName],
     cursor: isEnabled ? 'pointer' : 'default',
     color: colorName ? colors[colorName] : colors.white,
     backgroundColor: isEnabled ? enabledBackgroundColor : disabledBackgroundColor,

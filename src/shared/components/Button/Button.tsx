@@ -22,9 +22,13 @@ function Button(
     paddingRight,
     paddingBottom,
 
+    borderWidth,
+    borderStyle,
+    borderRadius,
+    borderColorName,
+
     position,
     colorName,
-    borderRadius,
     isEnabled = true,
     backgroundColorName,
     hoverBackgroundColorName,
@@ -55,6 +59,7 @@ function Button(
       isEnabled={isEnabled}
       disabled={!isEnabled}
       marginLeft={marginLeft}
+      borderWidth={borderWidth}
       marginRight={marginRight}
       marginBottom={marginBottom}
 
@@ -64,7 +69,9 @@ function Button(
       paddingBottom={paddingBottom}
 
       colorName={colorName}
+      borderStyle={borderStyle}
       borderRadius={borderRadius}
+      borderColorName={borderColorName}
       backgroundColorName={backgroundColorName}
       hoverBackgroundColorName={hoverBackgroundColorName}
 

@@ -1,6 +1,6 @@
 import { Image } from 'src/domain/components';
-import { BoxStyled, TextInput } from 'src/shared/components';
-import { SearchIcon } from 'src/shared/icons';
+import { SearchIcon, MenuIcon } from 'src/shared/icons';
+import { BoxStyled, TextInput, Button } from 'src/shared/components';
 
 function AppHeader() {
   const inputIcon = <SearchIcon colorName='gray3' />;
@@ -15,7 +15,7 @@ function AppHeader() {
         paddingTop={20}
         paddingLeft={15}
         paddingRight={15}
-        paddingBottom={20}
+        paddingBottom={25}
         justifyContent="flex-start"
       >
         <BoxStyled
@@ -32,10 +32,26 @@ function AppHeader() {
         </BoxStyled>
         <BoxStyled
           paddingLeft={20}
+          justifyContent='flex-start'
         >
+          <Button
+            marginRight={15}
+            paddingLeft={15}
+            paddingRight={15}
+            borderWidth='2px'
+            borderStyle='solid'
+            borderColorName='gray2'
+            backgroundColorName='white'
+            hoverBackgroundColorName='gray2'
+
+          >
+            <MenuIcon width={20} height={21} />
+          </Button>
           <TextInput
+            maxWidth={380}
             borderRadius={4}
             leftIcon={inputIcon}
+            lineHeightName='taller'
             backgroundColorName='gray2'
             borderColorName='primaryDefault'
           ></TextInput>
