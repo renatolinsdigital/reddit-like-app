@@ -74,7 +74,7 @@ function TextInput(
 
   return (
     <TextInputContainerStyled
-      flex='none'
+      flex={1}
       maxWidth={maxWidth}
       minWidth={minWidth}
       maxHeight={maxHeight}

@@ -1,5 +1,5 @@
 import { Image } from 'src/domain/components';
-import { BoxStyled, TextInput, TextStyled, TitleStyled } from 'src/shared/components';
+import { BoxStyled, TextInput } from 'src/shared/components';
 
 function AppHeader() {
   return (
@@ -16,7 +16,7 @@ function AppHeader() {
         justifyContent="flex-start"
       >
         <BoxStyled
-          paddingRight={15}
+          paddingRight={20}
           isStretched={false}
           borderRight="1px solid"
           borderColorName='gray2'
@@ -27,11 +27,16 @@ function AppHeader() {
             sharedImageFileName="logo.svg"
           />
         </BoxStyled>
-        <TextInput
-          borderRadius={4}
-          backgroundColorName='gray2'
-          borderColorName='primaryDefault'
-        ></TextInput>
+        <BoxStyled
+          paddingLeft={20}
+        >
+          <TextInput
+            borderRadius={4}
+            backgroundColorName='gray2'
+            borderColorName='primaryDefault'
+          ></TextInput>
+        </BoxStyled>
+
       </BoxStyled>
     </BoxStyled>
   );

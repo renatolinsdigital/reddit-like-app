@@ -37,6 +37,10 @@ An interview challenge application for Leroy Merlin
  - Scaling this app's structure is a matter of identifying what the feature will require (e.g component, theme, icon, page, model, etc), and if these pieces will be domain related or shared.
  - Every UI element is a component, which means everything can be easily found, shared, tested, updated, etc. Doing things that way requires more time to craft each component, but later, it becomes faster to create applications. With a good set of battle-tested shared components, interfaces will be more assembled than developed
 
+# Tooling
+
+This application uses CRA for bundling and running in development mode. It also uses a babel plugin (__babel-plugin-styled-components__) for parsing styled components with nicer class names, helping to debug the application. For having babel plugins without ejecting the application, the tools __react-app-rewired__ and __customize-cra__ have been installed as dev dependencies.
+
 ### What this app features
 
  - Component-first approach

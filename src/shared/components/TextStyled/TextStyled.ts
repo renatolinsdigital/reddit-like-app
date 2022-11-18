@@ -27,7 +27,7 @@ const TextStyled = styled.span<TextProps>(
     flex = 1,
     textAlign,
     isBold = false,
-    isFlexible = false,
+    isFlexible = true,
     wordWrap = 'normal',
     isStretched = false,
     isInUpperCase = false,
@@ -47,6 +47,7 @@ const TextStyled = styled.span<TextProps>(
     const { colors, transitions, fontSizes, lineHeights } = theme;
 
     return {
+      flex,
       cursor,
       wordWrap,
       overflow,
@@ -72,7 +73,6 @@ const TextStyled = styled.span<TextProps>(
       justifyContent,
       borderRadius: 4,
       transition: transitions?.default,
-      flex: isStretched ? flex : 'none',
 
       width: isStretched ? '100%' : 'auto',
       height: isStretched ? '100%' : 'auto',
