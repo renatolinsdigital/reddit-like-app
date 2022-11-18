@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { BoxProps } from '../../models';
+import { BoxProps } from 'src/shared/models';
 
 type LinkProps = Omit<BoxProps, "theme"> & {
   label?: string;

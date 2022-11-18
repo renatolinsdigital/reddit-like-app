@@ -1,4 +1,4 @@
-import { PageContainer, BoxStyled } from '../../../shared/components';
+import { PageContainer, BoxStyled } from 'src/shared/components';
 
 function AppBody() {
 

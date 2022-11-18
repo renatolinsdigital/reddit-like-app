@@ -5,4 +5,5 @@ export { default as BoxStyled } from './BoxStyled/BoxStyled';
 export { default as TextStyled } from './TextStyled/TextStyled';
 export { default as TitleStyled } from './TitleStyled/TitleStyled';
 export { default as AnchorStyled } from './AnchorStyled/AnchorStyled';
+export { default as SvgContainer } from './SvgContainer/SvgContainer';
 export { default as PageContainer } from './PageContainer/PageContainer';

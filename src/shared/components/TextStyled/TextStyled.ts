@@ -24,10 +24,10 @@ const TextStyled = styled.span<TextProps>(
     paddingRight = 12,
     paddingBottom = 8,
 
-    flex = 1,
     textAlign,
+    flex = 'none',
     isBold = false,
-    isFlexible = true,
+    isFlexible = false,
     wordWrap = 'normal',
     isStretched = false,
     isInUpperCase = false,

@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { BoxProps, ReactActionEvent } from '../../models';
+import { BoxProps, ReactActionEvent } from 'src/shared/models';
 
 interface ButtonEvents {
   onClick?(event?: ReactActionEvent): void;

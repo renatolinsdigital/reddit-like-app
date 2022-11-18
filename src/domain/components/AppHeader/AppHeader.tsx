@@ -1,7 +1,10 @@
 import { Image } from 'src/domain/components';
 import { BoxStyled, TextInput } from 'src/shared/components';
+import { SearchIcon } from 'src/shared/icons';
 
 function AppHeader() {
+  const inputIcon = <SearchIcon colorName='gray3' />;
+
   return (
     <BoxStyled
       borderColorName='gray2'
@@ -32,6 +35,7 @@ function AppHeader() {
         >
           <TextInput
             borderRadius={4}
+            leftIcon={inputIcon}
             backgroundColorName='gray2'
             borderColorName='primaryDefault'
           ></TextInput>
