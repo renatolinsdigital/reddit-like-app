@@ -39,11 +39,11 @@ export const TextInputStyled = styled.input<TextInputStyledProps>((
   {
     flex,
     theme,
+
     maxWidth,
     minWidth,
     maxHeight,
     minHeight,
-    fontWeight,
 
     paddingTop,
     paddingLeft,
@@ -52,12 +52,22 @@ export const TextInputStyled = styled.input<TextInputStyledProps>((
 
     isLeftIconRendered,
     isRightIconRendered,
+
+    borderRadius,
+    borderStyle = 'none',
     textColorName = 'dark',
+    borderWidth = 'medium',
+    hasFocusOutline = false,
     fontSizeName = 'default',
+    lineHeightName = 'default',
+    fontWeightName = 'regular',
+    backgroundColorName = 'white',
     placeHolderColorName = 'gray3',
+    borderColorName = 'transparent'
+
   }
 ): CSSObject => {
-  const { colors, fontSizes } = theme;
+  const { colors, fontSizes, lineHeights, fontWeights } = theme;
 
   const parsedPaddingLeft =
     typeof paddingLeft === 'number'
@@ -75,14 +85,25 @@ export const TextInputStyled = styled.input<TextInputStyledProps>((
     minWidth,
     maxHeight,
     minHeight,
-    fontWeight,
     paddingTop,
     paddingBottom,
+
+    borderStyle,
+    borderWidth,
+    borderRadius,
     display: 'flex',
     color: colors[textColorName],
+    borderColor: colors[borderColorName],
+    fontWeight: fontWeights[fontWeightName],
     fontSize: `${fontSizes[fontSizeName]}rem`,
+    lineHeight: `${lineHeights[lineHeightName]}`,
+    backgroundColor: colors[backgroundColorName],
     paddingLeft: isLeftIconRendered ? `calc(${parsedPaddingLeft} + 22px)` : paddingLeft,
     paddingRight: isRightIconRendered ? `calc(${parsedPaddingRight} + 20px)` : paddingRight,
+
+    '&:focus': {
+      outline: hasFocusOutline ? 'solid' : 'none',
+    },
 
     '&::placeholder': { /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: colors[placeHolderColorName],

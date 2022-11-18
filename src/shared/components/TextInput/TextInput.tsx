@@ -36,9 +36,16 @@ function TextInput(
     paddingBottom = 10,
 
     isReadOnly,
+    borderStyle,
+    borderWidth,
     fontSizeName,
+    borderRadius,
     textColorName,
-    fontWeight = 'normal', // TODO: This can be lifted to a theme
+    lineHeightName,
+    fontWeightName,
+    borderColorName,
+    hasFocusOutline,
+    backgroundColorName,
     placeHolderColorName,
     placeHolder = 'Type here',
   }: TextInputProps) {
@@ -99,17 +106,24 @@ function TextInput(
         maxLength={maxLength}
         onKeyUp={handleKeyUp}
         disabled={isDisabled}
-        fontWeight={fontWeight}
         paddingTop={paddingTop}
+        borderStyle={borderStyle}
         onKeyDown={handleKeyDown}
         onChange={handleOnChange}
         paddingLeft={paddingLeft}
         placeholder={placeHolder}
+        borderWidth={borderWidth}
+        borderRadius={borderRadius}
         fontSizeName={fontSizeName}
         paddingRight={paddingRight}
         onKeyPress={handleKeyPress}
         textColorName={textColorName}
         paddingBottom={paddingBottom}
+        lineHeightName={lineHeightName}
+        fontWeightName={fontWeightName}
+        hasFocusOutline={hasFocusOutline}
+        borderColorName={borderColorName}
+        backgroundColorName={backgroundColorName}
         placeHolderColorName={placeHolderColorName}
         isLeftIconRendered={leftIcon !== undefined}
         isRightIconRendered={rightIcon !== undefined}

@@ -1,4 +1,4 @@
-interface FontSizeNames { // from smallest to biggest in order
+interface FontSizeNames {
   smallest: number;
   small: number;
   default: number;

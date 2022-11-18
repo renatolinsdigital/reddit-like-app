@@ -1,9 +1,10 @@
 import Cursor from './Cursor.model';
-import { ColorNames } from 'src/theme/models';
+import { Colors } from 'src/theme/models';
 import BoxPositions from './BoxPositions.model';
 import { DefaultTheme } from "styled-components";
 
 interface BoxProps {
+
   id?: string;
   cursor?: Cursor;
   transform?: string;
@@ -30,15 +31,30 @@ interface BoxProps {
   paddingRight?: number | string;
   paddingBottom?: number | string;
 
-  colorName?: keyof ColorNames;
-  hoverColorName?: keyof ColorNames;
-  borderColorName?: keyof ColorNames;
-  backgroundColorName?: keyof ColorNames;
-  hoverBackgroundColorName?: keyof ColorNames;
+  colorName?: keyof Colors;
+  hoverColorName?: keyof Colors;
+  borderColorName?: keyof Colors;
+  backgroundColorName?: keyof Colors;
+  hoverBackgroundColorName?: keyof Colors;
+
+  borderStyle?:
+  'dotted'
+  | 'dashed'
+  | 'solid'
+  | 'double'
+  | 'groove'
+  | 'ridge'
+  | 'inset'
+  | 'outset'
+  | 'none'
+  | 'hidden';
 
   overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
   overflowX?: 'visible' | 'hidden' | 'scroll' | 'auto';
   overflowY?: 'visible' | 'hidden' | 'scroll' | 'auto';
+
+  borderWidth?: 'medium' | 'thin' | 'thick' | 'length' | 'initial' | 'inherit' | string;
+
 }
 
 export default BoxProps;

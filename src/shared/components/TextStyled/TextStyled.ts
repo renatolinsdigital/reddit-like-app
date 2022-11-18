@@ -27,7 +27,6 @@ const TextStyled = styled.span<TextProps>(
     flex = 1,
     textAlign,
     isBold = false,
-    lineHeight = 1.2,
     isFlexible = false,
     wordWrap = 'normal',
     isStretched = false,
@@ -36,6 +35,7 @@ const TextStyled = styled.span<TextProps>(
     colorName,
     hoverColorName,
     fontSizeName = 'default',
+    lineHeightName = 'small',
     backgroundColorName = 'transparent',
     hoverBackgroundColorName = 'transparent',
 
@@ -44,7 +44,7 @@ const TextStyled = styled.span<TextProps>(
     fontFamily = 'inherit',
     justifyContent = 'flex-start',
   }): CSSObject => {
-    const { colors, transitions, fontSizes } = theme;
+    const { colors, transitions, fontSizes, lineHeights } = theme;
 
     return {
       cursor,
@@ -56,7 +56,6 @@ const TextStyled = styled.span<TextProps>(
       maxHeight,
       minHeight,
       alignItems,
-      lineHeight,
       fontFamily,
 
       paddingTop,
@@ -80,6 +79,7 @@ const TextStyled = styled.span<TextProps>(
       maxWidth: maxWidth ? maxWidth : '100%',
       fontWeight: isBold ? 'bold' : 'normal',
       display: isFlexible ? 'flex' : 'inline',
+      lineHeight: lineHeights[lineHeightName],
       fontSize: `${fontSizes[fontSizeName]}rem`,
       backgroundColor: colors[backgroundColorName],
       color: colorName ? colors[colorName] : 'inherit',

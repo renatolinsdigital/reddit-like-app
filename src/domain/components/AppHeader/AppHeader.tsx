@@ -4,8 +4,8 @@ import { BoxStyled, TextInput, TextStyled, TitleStyled } from 'src/shared/compon
 function AppHeader() {
   return (
     <BoxStyled
-      borderBottom="1px solid"
       borderColorName='gray2'
+      borderBottom="1px solid"
     >
       <BoxStyled
         maxWidth={1600}
@@ -16,10 +16,10 @@ function AppHeader() {
         justifyContent="flex-start"
       >
         <BoxStyled
+          paddingRight={15}
           isStretched={false}
           borderRight="1px solid"
           borderColorName='gray2'
-          paddingRight={15}
         >
           <Image
             width='50'
@@ -27,9 +27,11 @@ function AppHeader() {
             sharedImageFileName="logo.svg"
           />
         </BoxStyled>
-        <TextInput fontWeight="normal"></TextInput>
-        <TitleStyled fontSizeName='jumbo'>Title text</TitleStyled>
-        <TextStyled fontSizeName='jumbo'>Normal text</TextStyled>
+        <TextInput
+          borderRadius={4}
+          backgroundColorName='gray2'
+          borderColorName='primaryDefault'
+        ></TextInput>
       </BoxStyled>
     </BoxStyled>
   );

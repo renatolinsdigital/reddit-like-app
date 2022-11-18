@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { DefaultTheme } from 'styled-components';
-import { ColorNames, FontSizeNames } from 'src/theme/models';
+import { Colors, FontSizes, FontWeights, LineHeights } from 'src/theme/models';
 import { BoxProps, ReactInputEvent } from 'src/shared/models';
 
 // For the React component
@@ -24,11 +24,13 @@ type CustomInputProps = {
   placeHolder?: string;
   isDisabled?: boolean;
   rightIcon?: ReactNode;
+  hasFocusOutline?: boolean;
   placeHolderColor?: string;
-  fontWeight?: string | number;
-  textColorName?: keyof ColorNames;
-  fontSizeName?: keyof FontSizeNames;
-  placeHolderColorName?: keyof ColorNames;
+  textColorName?: keyof Colors;
+  fontSizeName?: keyof FontSizes;
+  fontWeightName?: keyof FontWeights;
+  lineHeightName?: keyof LineHeights;
+  placeHolderColorName?: keyof Colors;
 }
 
 export type TextInputProps = Omit<BoxProps, "theme"> & InputEvents & CustomInputProps;
@@ -42,9 +44,8 @@ export interface CommonStyledProps {
   minWidth?: number | string;
   maxHeight?: number | string;
   minHeight?: number | string;
-
-  textColorName?: keyof ColorNames;
-  placeHolderColorName?: keyof ColorNames;
+  textColorName?: keyof Colors;
+  placeHolderColorName?: keyof Colors;
 }
 
 export type TextInputContainerStyledProps = CommonStyledProps & {
@@ -54,17 +55,14 @@ export type TextInputContainerStyledProps = CommonStyledProps & {
   marginBottom?: string | number;
 }
 
-export type TextInputStyledProps = CommonStyledProps & {
-  paddingTop?: string | number;
-  paddingLeft?: string | number;
-  paddingRight?: string | number;
-  paddingBottom?: string | number;
-
+export type TextInputStyledProps = CommonStyledProps & BoxProps & {
+  hasFocusOutline?: boolean;
   placeHolderColor?: string;
-  fontWeight: string | number;
   isLeftIconRendered?: boolean;
   isRightIconRendered?: boolean;
-  fontSizeName?: keyof FontSizeNames;
+  fontSizeName?: keyof FontSizes;
+  lineHeightName?: keyof LineHeights;
+  fontWeightName?: keyof FontWeights;
 }
 
 

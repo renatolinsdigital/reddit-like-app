@@ -1,7 +1,7 @@
 
-import { FontSizeNames } from "src/theme/models";
 import { DefaultTheme } from "styled-components";
 import { BoxStyledProps } from 'src/shared/models';
+import { FontSizes, LineHeights } from "src/theme/models";
 
 type TextElementProps = BoxStyledProps & {
   isBold?: boolean;
@@ -13,10 +13,9 @@ type TextElementProps = BoxStyledProps & {
   flex?: number | string;
   justifyContent?: string;
   isInUpperCase?: boolean;
-  fontSize?: string | number;
-  lineHeight?: string | number;
   fontWeight?: string | number;
-  fontSizeName?: keyof FontSizeNames;
+  fontSizeName?: keyof FontSizes;
+  lineHeightName?: keyof LineHeights;
 
   wordWrap?:
   'normal'

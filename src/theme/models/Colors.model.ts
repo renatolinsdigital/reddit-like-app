@@ -1,4 +1,4 @@
-interface ColorNames {
+interface Colors {
   dark: string;
   gray1: string;
   gray2: string;
@@ -15,4 +15,4 @@ interface ColorNames {
   primaryDefault: string;
 }
 
-export default ColorNames;
+export default Colors;
