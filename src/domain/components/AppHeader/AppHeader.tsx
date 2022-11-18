@@ -1,4 +1,4 @@
-import { Image } from 'src/domain/components';
+import { Image, UserInfo } from 'src/domain/components';
 import { SearchIcon, MenuIcon, PlusIcon } from 'src/shared/icons';
 import { BoxStyled, TextInput, Button, TextStyled } from 'src/shared/components';
 
@@ -19,6 +19,7 @@ function AppHeader() {
         justifyContent="flex-start"
       >
         <BoxStyled
+          cursor='pointer'
           paddingRight={20}
           isStretched={false}
           borderRight="1px solid"
@@ -56,8 +57,7 @@ function AppHeader() {
             borderColorName='primaryDefault'
           ></TextInput>
         </BoxStyled>
-        <BoxStyled>
-
+        <BoxStyled justifyContent='flex-end' paddingRight={20}>
           <Button
             paddingTop={0}
             paddingLeft={0}
@@ -81,6 +81,8 @@ function AppHeader() {
             <TextStyled fontWeightName='medium'>Add Post</TextStyled>
           </Button>
         </BoxStyled>
+
+        <UserInfo />
 
       </BoxStyled>
     </BoxStyled >

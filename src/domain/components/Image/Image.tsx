@@ -1,29 +1,41 @@
+import ImageStyled from './ImageStyled';
+import { ImageProps } from './Image.model';
+import { TextStyled } from 'src/shared/components';
 import { useImportAppImages } from 'src/domain/hooks';
-import ImageProps from './Image.model';
-
 
 const Image = (
   {
+    id,
     className,
+    isVisible,
     alternativeText,
     sharedImageFileName,
+    domainImageFileName,
     ...rest
   }: ImageProps) => {
-  const { isLoading, error, staticImageUrl } = useImportAppImages(sharedImageFileName);
-  if (error) return (<p>alternativeText</p>);
+
+  const imageData = useImportAppImages(sharedImageFileName, domainImageFileName);
+
+  if (!imageData || imageData.error) return (<TextStyled>{alternativeText}</TextStyled>);
+
+  const { isLoading, staticImageUrl } = imageData;
+
   return (
     <>
       {
         isLoading ? (
-          <><p>Loading...</p></>
+          <><TextStyled>Loading...</TextStyled></>
         ) : (
-          <img
+          <ImageStyled
+            id={id}
             {...rest}
             src={staticImageUrl}
+            isVisible={isVisible}
             className={className}
             alt={alternativeText}
           />
-        )}
+        )
+      }
     </>
   )
 }

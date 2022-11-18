@@ -49,7 +49,7 @@ const BoxStyled = styled.div<BoxStyledProps>(
     justifyContent = 'center',
     borderColorName = 'transparent',
     backgroundColorName = 'transparent',
-  }: BoxStyledProps): CSSObject => {
+  }): CSSObject => {
     const { colors } = theme;
 
     return {

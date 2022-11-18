@@ -1,7 +1,7 @@
 import styled, { CSSObject } from 'styled-components';
 import { TextInputContainerStyledProps, TextInputStyledProps } from './TextInput.model';
 
-export const TextInputContainerStyled = styled.div((
+export const TextInputContainerStyled = styled.div<TextInputContainerStyledProps>((
   {
     flex,
     maxWidth,
@@ -12,7 +12,7 @@ export const TextInputContainerStyled = styled.div((
     marginLeft,
     marginRight,
     marginBottom,
-  }: TextInputContainerStyledProps
+  }
 ): CSSObject => {
   return {
     flex,
@@ -64,7 +64,6 @@ export const TextInputStyled = styled.input<TextInputStyledProps>((
     backgroundColorName = 'white',
     placeHolderColorName = 'gray3',
     borderColorName = 'transparent'
-
   }
 ): CSSObject => {
   const { colors, fontSizes, lineHeights, fontWeights } = theme;

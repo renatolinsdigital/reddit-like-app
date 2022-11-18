@@ -25,10 +25,10 @@ An interview challenge application for Leroy Merlin
 
 ### Top-level folders
 
- - domain: Holds code tied to this application only
+ - domain: Holds code tied to this application only. If the application scales for dealing with multiple domains (also known as system/application modules), this type of folder would be created for each domain. That way, we could have a domain folder called __users__ (for example) and its components, icons, hooks, etc., another folder called __payment__ and its components, icons, hooks, etc.
  - global-styles: Will reset/default core styling properties across the entire app 
- - theme: Holds data for a 'themeable' styling approach, that can be the base for dark/light mode, switching themes on the fly, etc  
- - shared: This folder represent anything that could be shared between other applications. This folder holds the potential to becoming a private/internal library of components
+ - theme: Holds data for a 'themeable' styling approach, that can be the base for dark/light mode, switching themes on the fly, etc. A theme is to be shared between all application domains and is considered a company's product. That way, multiple applications within the company can have the same theme (look and feel) AND/OR one single app can have multiple themes selectable under a single format agreement (object/properties/tokens) between business, designers and developers
+ - shared: This folder represent anything that could be shared between other applications (also known as the common folder). This folder holds the potential to becoming a private/internal library of components
 
 ### Overall comments
 

@@ -1,15 +1,18 @@
 import { useEffect, useState } from 'react';
 
-const useImportAppImages = (sharedImageFileName: string) => {
+const useImportAppImages = (sharedImageFileName?: string, domainImageFileName?: string) => {
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<Error | string>();
+  const [error, setError] = useState<Error | string>('');
   const [staticImageUrl, setStaticImageUrl] = useState<string>('');
+
+  const isShared = sharedImageFileName !== undefined;
 
   useEffect(() => {
 
     const createStaticImageUrl = async () => {
       try {
-        const importResponse = await import(`/src/shared/images/${sharedImageFileName}`);
+        const importResponse =
+          await import(`/src/${isShared ? 'shared' : 'domain'}/images/${isShared ? sharedImageFileName : domainImageFileName}`);
         setStaticImageUrl(importResponse.default);
       } catch (error) {
         setError(String(error));
@@ -19,7 +22,7 @@ const useImportAppImages = (sharedImageFileName: string) => {
     }
 
     createStaticImageUrl();
-  }, [sharedImageFileName]);
+  }, [sharedImageFileName, domainImageFileName, isShared]);
 
   return {
     error,

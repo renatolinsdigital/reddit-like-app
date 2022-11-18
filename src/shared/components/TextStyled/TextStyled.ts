@@ -5,6 +5,11 @@ const TextStyled = styled.span<TextProps>(
   ({
     theme,
 
+    top,
+    left,
+    right,
+    bottom,
+
     maxWidth,
     minWidth,
     maxHeight,
@@ -33,6 +38,7 @@ const TextStyled = styled.span<TextProps>(
 
     colorName,
     hoverColorName,
+    position = 'static',
     fontSizeName = 'default',
     lineHeightName = 'small',
     fontWeightName = 'regular',
@@ -47,9 +53,15 @@ const TextStyled = styled.span<TextProps>(
     const { colors, transitions, fontSizes, lineHeights, fontWeights } = theme;
 
     return {
+      top,
+      left,
+      right,
+      bottom,
+
       flex,
       cursor,
       wordWrap,
+
       overflow,
       overflowX,
       overflowY,
@@ -69,11 +81,12 @@ const TextStyled = styled.span<TextProps>(
       marginRight,
       marginBottom,
 
+      position,
       textAlign,
       justifyContent,
       borderRadius: 4,
-      transition: transitions?.default,
 
+      transition: transitions?.default,
       width: isStretched ? '100%' : 'auto',
       height: isStretched ? '100%' : 'auto',
       maxWidth: maxWidth ? maxWidth : '100%',
