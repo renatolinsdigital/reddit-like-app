@@ -19,6 +19,12 @@ const TextStyled = styled.span<TextProps>(
     overflowX,
     overflowY,
 
+    border,
+    borderTop,
+    borderLeft,
+    borderRight,
+    borderBottom,
+
     marginTop = 0,
     marginLeft = 0,
     marginRight = 0,
@@ -30,25 +36,27 @@ const TextStyled = styled.span<TextProps>(
     paddingBottom = 8,
 
     textAlign,
-    flex = 'none',
+    borderRadius = 0,
     isFlexible = false,
-    wordWrap = 'normal',
     isStretched = false,
     isInUpperCase = false,
 
-    colorName,
-    hoverColorName,
+    flex = 'none',
+    cursor = 'inherit',
+    colorName = 'dark',
+    wordWrap = 'normal',
     position = 'static',
+    alignItems = 'center',
+    fontFamily = 'inherit',
+    hoverColorName = 'dark',
     fontSizeName = 'default',
     lineHeightName = 'small',
     fontWeightName = 'regular',
+    justifyContent = 'flex-start',
+    borderColorName = 'transparent',
     backgroundColorName = 'transparent',
     hoverBackgroundColorName = 'transparent',
 
-    cursor = 'inherit',
-    alignItems = 'center',
-    fontFamily = 'inherit',
-    justifyContent = 'flex-start',
   }): CSSObject => {
     const { colors, transitions, fontSizes, lineHeights, fontWeights } = theme;
 
@@ -81,12 +89,19 @@ const TextStyled = styled.span<TextProps>(
       marginRight,
       marginBottom,
 
+      border,
+      borderTop,
+      borderLeft,
+      borderRight,
+      borderBottom,
+
       position,
       textAlign,
+      borderRadius,
       justifyContent,
-      borderRadius: 4,
 
       transition: transitions?.default,
+      borderColor: colors[borderColorName],
       width: isStretched ? '100%' : 'auto',
       height: isStretched ? '100%' : 'auto',
       maxWidth: maxWidth ? maxWidth : '100%',

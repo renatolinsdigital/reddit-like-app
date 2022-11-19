@@ -53,7 +53,7 @@ interface BoxProps {
   overflowX?: 'visible' | 'hidden' | 'scroll' | 'auto';
   overflowY?: 'visible' | 'hidden' | 'scroll' | 'auto';
 
-  borderWidth?: 'medium' | 'thin' | 'thick' | 'length' | 'initial' | 'inherit' | string;
+  borderWidth?: 'medium' | 'thin' | 'thick' | 'length' | 'initial' | 'inherit' | string | number;
 
 }
 

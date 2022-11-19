@@ -26,11 +26,12 @@ function MenuIcon({
   const styles = {
     width,
     height,
-    fill: colors[colorName],
-    stroke: colors[colorName],
     strokeWidth: 5.6195,
     strokeMiterlimit: 10,
+    fill: colors[colorName],
+    stroke: colors[colorName],
   };
+
   return (
     <SvgContainer
       id={id}

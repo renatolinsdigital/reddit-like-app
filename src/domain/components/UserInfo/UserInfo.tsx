@@ -17,6 +17,7 @@ function UserInfo() {
         paddingTop={4}
         paddingLeft={8}
         paddingRight={8}
+        borderRadius={4}
         paddingBottom={4}
 
         colorName='white'

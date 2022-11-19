@@ -28,6 +28,7 @@ function PlusIcon({
       id={id}
       width={width}
       height={height}
+      viewBox="0 0 31 31"
       marginTop={marginTop}
       marginLeft={marginLeft}
       paddingTop={paddingTop}
@@ -35,7 +36,6 @@ function PlusIcon({
       marginRight={marginRight}
       paddingRight={paddingRight}
       marginBottom={marginBottom}
-      viewBox="0 0 31 31"
       paddingBottom={paddingBottom}
       rotationDegrees={rotationDegrees}
     >

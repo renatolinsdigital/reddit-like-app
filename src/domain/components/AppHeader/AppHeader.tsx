@@ -1,6 +1,6 @@
-import { Image, UserInfo } from 'src/domain/components';
-import { SearchIcon, MenuIcon, PlusIcon } from 'src/shared/icons';
-import { BoxStyled, TextInput, Button, TextStyled } from 'src/shared/components';
+import { Image, UserInfo, AddPostButton } from 'src/domain/components';
+import { SearchIcon, MenuIcon } from 'src/shared/icons';
+import { BoxStyled, TextInput, Button } from 'src/shared/components';
 
 function AppHeader() {
   const inputIcon = <SearchIcon colorName='gray3' />;
@@ -33,9 +33,11 @@ function AppHeader() {
         </BoxStyled>
         <BoxStyled
           paddingLeft={20}
+          isStretched={false}
           justifyContent='flex-start'
         >
           <Button
+            minWidth={52}
             marginRight={15}
             paddingLeft={15}
             paddingRight={15}
@@ -44,7 +46,6 @@ function AppHeader() {
             borderColorName='gray2'
             backgroundColorName='white'
             hoverBackgroundColorName='gray2'
-
           >
             <MenuIcon width={20} height={19} />
           </Button>
@@ -57,29 +58,9 @@ function AppHeader() {
             borderColorName='primaryDefault'
           ></TextInput>
         </BoxStyled>
+
         <BoxStyled justifyContent='flex-end' paddingRight={20}>
-          <Button
-            paddingTop={0}
-            paddingLeft={0}
-            paddingRight={10}
-            paddingBottom={0}
-            disabledChildBorderColorName='gray2'
-            hoverChildBorderColorName='primaryDefault'
-          >
-            <BoxStyled
-              minHeight={44}
-              marginRight={5}
-              paddingTop={10}
-              paddingLeft={15}
-              paddingRight={14}
-              paddingBottom={10}
-              borderRight="1px solid"
-              borderColorName='primaryDark'
-            >
-              <PlusIcon width={15} height={15} colorName='white' />
-            </BoxStyled>
-            <TextStyled fontWeightName='medium'>Add Post</TextStyled>
-          </Button>
+          <AddPostButton />
         </BoxStyled>
 
         <UserInfo />

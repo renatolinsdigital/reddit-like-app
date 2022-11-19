@@ -1,12 +1,14 @@
+import { PostEntry } from 'src/domain/components';
 import { PageContainer, BoxStyled } from 'src/shared/components';
 
 function AppBody() {
-
-
   return (
     <PageContainer>
-      <BoxStyled >
-        This is the body
+      <BoxStyled
+        paddingTop={40}
+        paddingBottom={40}
+      >
+        <PostEntry />
       </BoxStyled>
     </PageContainer>
   );

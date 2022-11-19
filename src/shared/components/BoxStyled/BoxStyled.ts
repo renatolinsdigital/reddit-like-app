@@ -38,12 +38,14 @@ const BoxStyled = styled.div<BoxStyledProps>(
     marginRight = 0,
     marginBottom = 0,
 
+    borderWidth,
     isRemoved = false,
     isVertical = false,
     isStretched = true,
     position = 'relative',
 
     verticalBreakPoint,
+    borderStyle = 'solid',
     alignItems = 'center',
     isFlexWrapping = false,
     justifyContent = 'center',
@@ -83,6 +85,8 @@ const BoxStyled = styled.div<BoxStyledProps>(
       overflowY,
       transform,
       alignItems,
+      borderStyle,
+      borderWidth,
       borderRadius,
       justifyContent,
       borderColor: colors[borderColorName],

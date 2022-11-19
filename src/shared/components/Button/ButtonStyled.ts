@@ -66,20 +66,21 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     borderRadius,
     display: 'flex',
     alignItems: 'center',
+    justifyContent: 'center',
     transition: transitions?.default,
     borderColor: colors[borderColorName],
     cursor: isEnabled ? 'pointer' : 'default',
     color: colorName ? colors[colorName] : colors.white,
     backgroundColor: isEnabled ? enabledBackgroundColor : disabledBackgroundColor,
 
-    '> div': {
+    ' div': {
       borderColor: isEnabled ? undefined : colors[disabledChildBorderColorName],
     },
 
     '&:hover': {
       color: isEnabled ? colors[hoverColorName] : colors.white,
       backgroundColor: isEnabled ? colors[hoverBackgroundColorName] : disabledBackgroundColor,
-      '> *': {
+      ' *': {
         borderColor: isEnabled ? colors[hoverChildBorderColorName] : colors[disabledChildBorderColorName],
       }
     },
