@@ -1,33 +1,63 @@
+import { TextElementProps } from 'src/shared/models';
 import styled, { CSSObject } from 'styled-components';
-import AnchorProps from './AnchorStyled.model';
 
-const AnchorStyled = styled.a<AnchorProps>((
+const AnchorStyled = styled.a<TextElementProps>((
   {
     theme,
-    isTextBold,
+    isInUpperCase,
+
+    marginTop = 0,
+    marginLeft = 0,
+    marginRight = 0,
+    marginBottom = 0,
+
     paddingTop = 2,
     paddingLeft = 4,
     paddingRight = 4,
     paddingBottom = 2,
+
+    flex = 'none',
+    cursor = 'pointer',
     colorName = 'dark',
-    fontSize = 'inherit',
-    hoverColorName = 'primaryDark',
+    wordWrap = 'normal',
+    position = 'static',
+    alignItems = 'center',
+    fontFamily = 'inherit',
+    fontSizeName = 'default',
+    lineHeightName = 'small',
+    fontWeightName = 'regular',
+    justifyContent = 'flex-start',
+    hoverColorName = 'primaryDefault',
   }
 ): CSSObject => {
-  const { colors, transitions } = theme;
-
+  const { colors, transitions, fontWeights, fontSizes, lineHeights } = theme;
 
   return {
-    fontSize,
+    flex,
+    position,
+    wordWrap,
+    marginTop,
+    marginLeft,
+    marginRight,
+    marginBottom,
+
     paddingTop,
     paddingLeft,
     paddingRight,
     paddingBottom,
-    lineHeight: 1.5,
-    cursor: 'pointer',
+
+    cursor,
+    alignItems,
+    fontFamily,
+    justifyContent,
     color: colors[colorName],
     transition: transitions?.default,
-    fontWeight: isTextBold ? 'bold' : 'normal',
+
+    fontWeight: fontWeights[fontWeightName],
+    lineHeight: lineHeights[lineHeightName],
+    fontSize: `${fontSizes[fontSizeName]}rem`,
+    textTransform: isInUpperCase ? 'uppercase' : 'none',
+
     '&:hover': {
       color: colors[hoverColorName]
     },

@@ -3,30 +3,64 @@ import AnchorStyled from '../AnchorStyled/AnchorStyled';
 
 function Link(
   {
+    id,
+    flex,
     label,
-    fontSize,
+    cursor,
+    position,
+    wordWrap,
     location,
     children,
     colorName,
+    alignItems,
+
+    marginTop,
+    marginLeft,
+    marginRight,
+    marginBottom,
+
     paddingTop,
-    isTextBold,
     paddingLeft,
     paddingRight,
     paddingBottom,
+
+    fontFamily,
+    fontSizeName,
+    isInUpperCase,
     hoverColorName,
+    lineHeightName,
+    fontWeightName,
+    justifyContent,
     isOpeningInNewTab,
   }: LinkProps) {
   return (
     <AnchorStyled
-      fontSize={fontSize}
+      id={id}
+      flex={flex}
+      cursor={cursor}
+      position={position}
+      wordWrap={wordWrap}
       href={`${location}`}
       colorName={colorName}
+      fontFamily={fontFamily}
+      alignItems={alignItems}
+
+      marginTop={marginTop}
+      marginLeft={marginLeft}
+      marginRight={marginRight}
+      marginBottom={marginBottom}
+
       paddingTop={paddingTop}
-      isTextBold={isTextBold}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
       paddingBottom={paddingBottom}
+
+      fontSizeName={fontSizeName}
+      isInUpperCase={isInUpperCase}
+      justifyContent={justifyContent}
+      lineHeightName={lineHeightName}
       hoverColorName={hoverColorName}
+      fontWeightName={fontWeightName}
       target={isOpeningInNewTab ? '_blank' : '_self'}
     >
       <>

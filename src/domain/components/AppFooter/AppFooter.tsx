@@ -20,11 +20,12 @@ function AppFooter() {
         Developed by
       </TextStyled>
       <Link
-        isTextBold
         colorName='white'
         isOpeningInNewTab
+        fontWeightName='bold'
         hoverColorName='gray2'
-        location='https://www.linkedin.com/in/renatolinsdigital'>
+        location='https://www.linkedin.com/in/renatolinsdigital'
+      >
         Renato Lins
       </Link>
     </BoxStyled>

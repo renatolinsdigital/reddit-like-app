@@ -1,12 +1,10 @@
 import { ReactNode } from 'react';
-import { BoxProps } from 'src/shared/models';
+import { TextElementProps } from 'src/shared/models';
 
-type LinkProps = Omit<BoxProps, "theme"> & {
+type LinkProps = Omit<TextElementProps, "theme"> & {
   label?: string;
   location?: string;
   children?: ReactNode;
-  isTextBold?: boolean;
-  fontSize?: string | number;
   isOpeningInNewTab?: boolean;
 }
 

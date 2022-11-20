@@ -2,7 +2,12 @@ import UpVoteProps from './UpVote.model';
 import { ChevronIcon } from 'src/shared/icons';
 import { BoxStyled, Button, TextStyled } from 'src/shared/components';
 
-function UpVote({ votesCount }: UpVoteProps) {
+function UpVote({ postId, votesCount, onVoted }: UpVoteProps) {
+
+  const handleUpVote = () => {
+    onVoted(postId);
+  }
+
   return (
     <BoxStyled
       isVertical
@@ -21,6 +26,7 @@ function UpVote({ votesCount }: UpVoteProps) {
         paddingRight={8}
         borderRadius={0}
         paddingBottom={10}
+        onClick={handleUpVote}
         backgroundColorName='white'
         hoverBackgroundColorName='gray2'
       >
@@ -33,8 +39,8 @@ function UpVote({ votesCount }: UpVoteProps) {
       </Button>
       <TextStyled
         minWidth="100%"
-        paddingLeft={8}
         paddingTop={10}
+        paddingLeft={8}
         paddingRight={8}
         paddingBottom={10}
         textAlign='center'

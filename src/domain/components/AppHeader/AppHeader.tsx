@@ -27,8 +27,8 @@ function AppHeader() {
         >
           <Image
             width='50'
-            alternativeText='App logo'
-            sharedImageFileName="logo.svg"
+            alternativeText='Company logo'
+            sharedImageFileName="company_logo.svg"
           />
         </BoxStyled>
         <BoxStyled
