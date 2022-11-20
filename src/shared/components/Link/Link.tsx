@@ -24,6 +24,7 @@ function Link(
     paddingRight,
     paddingBottom,
 
+    isFlexible,
     fontFamily,
     fontSizeName,
     isInUpperCase,
@@ -42,6 +43,7 @@ function Link(
       wordWrap={wordWrap}
       href={`${location}`}
       colorName={colorName}
+      isFlexible={isFlexible}
       fontFamily={fontFamily}
       alignItems={alignItems}
 

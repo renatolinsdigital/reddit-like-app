@@ -19,6 +19,7 @@ const AnchorStyled = styled.a<TextElementProps>((
     flex = 'none',
     cursor = 'pointer',
     colorName = 'dark',
+    isFlexible = false,
     wordWrap = 'normal',
     position = 'static',
     alignItems = 'center',
@@ -52,6 +53,7 @@ const AnchorStyled = styled.a<TextElementProps>((
     justifyContent,
     color: colors[colorName],
     transition: transitions?.default,
+    display: isFlexible ? 'flex' : 'inline',
 
     fontWeight: fontWeights[fontWeightName],
     lineHeight: lineHeights[lineHeightName],
