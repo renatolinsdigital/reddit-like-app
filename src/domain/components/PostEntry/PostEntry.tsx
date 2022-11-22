@@ -1,5 +1,5 @@
 
-import { BoxStyled, Link } from 'src/shared/components';
+import { Badge, BoxStyled, Link } from 'src/shared/components';
 import { UpVote } from './sub-components';
 
 function PostEntry() {
@@ -32,7 +32,7 @@ function PostEntry() {
         onVoted={handleUpVote}
         isVotedByCurrentUser={true}
       />
-      <BoxStyled paddingLeft={20} paddingRight={20}>
+      <BoxStyled isVertical paddingLeft={20} paddingRight={20}>
         <BoxStyled isVertical alignItems='flex-start' justifyContent='flex-start'>
           <Link
             isInUpperCase
@@ -57,7 +57,11 @@ function PostEntry() {
             {title}
           </Link>
         </BoxStyled>
+        <BoxStyled paddingTop={12}>
+          <Badge text="Product design" backgroundColorName='productDesign' />
+        </BoxStyled>
       </BoxStyled>
+
     </BoxStyled>
   )
 
