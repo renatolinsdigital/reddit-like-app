@@ -40,6 +40,7 @@ const TextStyled = styled.span<TextProps>(
     isFlexible = false,
     isStretched = false,
     isInUpperCase = false,
+    isCapitalized = false,
 
     flex = 'none',
     cursor = 'inherit',
@@ -59,6 +60,11 @@ const TextStyled = styled.span<TextProps>(
 
   }): CSSObject => {
     const { colors, transitions, fontSizes, lineHeights, fontWeights } = theme;
+
+    const textTransform =
+      isInUpperCase ? 'uppercase'
+        : isCapitalized ? 'capitalize'
+          : 'none';
 
     return {
       top,
@@ -98,6 +104,7 @@ const TextStyled = styled.span<TextProps>(
       position,
       textAlign,
       borderRadius,
+      textTransform,
       justifyContent,
 
       transition: transitions?.default,
@@ -112,7 +119,6 @@ const TextStyled = styled.span<TextProps>(
       backgroundColor: colors[backgroundColorName],
       color: colorName ? colors[colorName] : 'inherit',
       minWidth: isStretched ? 'max-content' : minWidth,
-      textTransform: isInUpperCase ? 'uppercase' : 'none',
 
       '&:hover': {
         color: hoverColorName ? colors[hoverColorName] : 'inherit',

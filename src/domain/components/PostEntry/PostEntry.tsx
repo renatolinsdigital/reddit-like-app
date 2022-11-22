@@ -1,21 +1,25 @@
-
+import { Meta, UpVote } from './sub-components';
+import { Colors } from 'src/theme/models';
 import { Badge, BoxStyled, Link } from 'src/shared/components';
-import { UpVote } from './sub-components';
+import { postTypeToLabel, removeUrlProtocol, snakeCaseToCamelCase } from './utils';
 
 function PostEntry() {
   const post = {
     id: 0,
     upVotes: 11,
     postUrl: './',
+    type: 'product_design',
     title: 'First post title',
     externalReference: 'https://medium.com',
-    postType: 'product_design'
   }
 
-  const { id, upVotes, title, externalReference, postUrl } = post;
+  const { id, upVotes, title, externalReference, postUrl, type } = post;
 
-  const externalLinkLabel =
-    externalReference.substring(externalReference.indexOf(":") + 3);
+  const postType = postTypeToLabel(type);
+  const badgeColorName = snakeCaseToCamelCase(type) as keyof Colors;
+  const externalLinkLabel = removeUrlProtocol(externalReference);
+
+  console.log(badgeColorName)
 
   const handleUpVote = (postId: number) => {
     console.log('up voted on post: ', postId);
@@ -57,8 +61,12 @@ function PostEntry() {
             {title}
           </Link>
         </BoxStyled>
-        <BoxStyled paddingTop={12}>
-          <Badge text="Product design" backgroundColorName='productDesign' />
+        <BoxStyled
+          paddingTop={12}
+          justifyContent='flex-start'
+        >
+          <Badge text={postType} backgroundColorName={badgeColorName} />
+          <Meta />
         </BoxStyled>
       </BoxStyled>
 

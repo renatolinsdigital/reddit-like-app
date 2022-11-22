@@ -27,6 +27,7 @@ type TextElementProps = BoxStyledProps & {
   flex?: number | string;
   justifyContent?: string;
   isInUpperCase?: boolean;
+  isCapitalized?: boolean;
   fontSizeName?: keyof FontSizes;
   lineHeightName?: keyof LineHeights;
   fontWeightName?: keyof FontWeights;
