@@ -1,5 +1,4 @@
 export { default as Image } from './Image/Image';
-export { default as UpVote } from './UpVote/UpVote';
 export { default as AppBody } from './AppBody/AppBody';
 export { default as UserInfo } from './UserInfo/UserInfo';
 export { default as PostEntry } from './PostEntry/PostEntry';

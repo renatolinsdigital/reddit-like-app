@@ -10,6 +10,7 @@ interface ButtonEvents {
 interface CustomButtonProps {
   isEnabled?: boolean;
   hoverChildBorderColorName?: keyof Colors;
+  disabledBackgroundColorName?: keyof Colors;
   disabledChildBorderColorName?: keyof Colors;
 }
 

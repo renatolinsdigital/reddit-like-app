@@ -1,17 +1,18 @@
 
-import { UpVote } from 'src/domain/components';
 import { BoxStyled, Link } from 'src/shared/components';
+import { UpVote } from './sub-components';
 
 function PostEntry() {
   const post = {
     id: 0,
     upVotes: 11,
-    postLink: './',
+    postUrl: './',
     title: 'First post title',
-    externalReference: 'https://medium.com'
+    externalReference: 'https://medium.com',
+    postType: 'product_design'
   }
 
-  const { id, upVotes, title, externalReference } = post;
+  const { id, upVotes, title, externalReference, postUrl } = post;
 
   const externalLinkLabel =
     externalReference.substring(externalReference.indexOf(":") + 3);
@@ -29,6 +30,7 @@ function PostEntry() {
         postId={id}
         votesCount={upVotes}
         onVoted={handleUpVote}
+        isVotedByCurrentUser={true}
       />
       <BoxStyled paddingLeft={20} paddingRight={20}>
         <BoxStyled isVertical alignItems='flex-start' justifyContent='flex-start'>
@@ -47,6 +49,7 @@ function PostEntry() {
           <Link
             marginTop={2}
             paddingLeft={0}
+            location={postUrl}
             fontSizeName='huge'
             fontWeightName='medium'
             hoverColorName='primaryDark'

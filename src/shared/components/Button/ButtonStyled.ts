@@ -30,17 +30,17 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     borderStyle = 'none',
     hoverColorName = 'white',
     borderColorName = 'transparent',
+    disabledBackgroundColorName = 'gray3',
     hoverBackgroundColorName = 'primaryDark',
     hoverChildBorderColorName = 'transparent',
     disabledChildBorderColorName = 'transparent'
+
   }): CSSObject => {
   const { colors, transitions } = theme;
 
   const enabledBackgroundColor = backgroundColorName
     ? colors[backgroundColorName]
     : colors.primaryDefault;
-
-  const disabledBackgroundColor = colors.gray3;
 
   return {
     top,
@@ -71,7 +71,7 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     borderColor: colors[borderColorName],
     cursor: isEnabled ? 'pointer' : 'default',
     color: colorName ? colors[colorName] : colors.white,
-    backgroundColor: isEnabled ? enabledBackgroundColor : disabledBackgroundColor,
+    backgroundColor: isEnabled ? enabledBackgroundColor : colors[disabledBackgroundColorName],
 
     ' div': {
       borderColor: isEnabled ? undefined : colors[disabledChildBorderColorName],
@@ -79,7 +79,7 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
 
     '&:hover': {
       color: isEnabled ? colors[hoverColorName] : colors.white,
-      backgroundColor: isEnabled ? colors[hoverBackgroundColorName] : disabledBackgroundColor,
+      backgroundColor: isEnabled ? colors[hoverBackgroundColorName] : colors[disabledBackgroundColorName],
       ' *': {
         borderColor: isEnabled ? colors[hoverChildBorderColorName] : colors[disabledChildBorderColorName],
       }

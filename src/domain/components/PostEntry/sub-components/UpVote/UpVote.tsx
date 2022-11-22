@@ -2,7 +2,7 @@ import UpVoteProps from './UpVote.model';
 import { ChevronIcon } from 'src/shared/icons';
 import { BoxStyled, Button, TextStyled } from 'src/shared/components';
 
-function UpVote({ postId, votesCount, onVoted }: UpVoteProps) {
+function UpVote({ postId, votesCount, onVoted, isVotedByCurrentUser }: UpVoteProps) {
 
   const handleUpVote = () => {
     onVoted(postId);
@@ -28,13 +28,15 @@ function UpVote({ postId, votesCount, onVoted }: UpVoteProps) {
         paddingBottom={10}
         onClick={handleUpVote}
         backgroundColorName='white'
-        hoverBackgroundColorName='gray2'
+        hoverBackgroundColorName='gray1'
+        isEnabled={!isVotedByCurrentUser}
+        disabledBackgroundColorName='gray2'
       >
         <ChevronIcon
           width={15}
           height={15}
           rotationDegrees={-90}
-          colorName='primaryDefault'
+          colorName={isVotedByCurrentUser ? 'gray3' : 'primaryDefault'}
         />
       </Button>
       <TextStyled

@@ -1,0 +1,1 @@
+export { default as UpVote } from './UpVote/UpVote'
