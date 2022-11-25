@@ -4,6 +4,7 @@ import styled, { CSSObject } from 'styled-components';
 const AnchorStyled = styled.a<TextElementProps>((
   {
     theme,
+    hasUnderline,
     isInUpperCase,
 
     marginTop = 0,
@@ -27,8 +28,9 @@ const AnchorStyled = styled.a<TextElementProps>((
     fontSizeName = 'default',
     lineHeightName = 'small',
     fontWeightName = 'regular',
+    textUnderlineOffset = '4px',
     justifyContent = 'flex-start',
-    hoverColorName = 'primaryDefault',
+    hoverColorName = 'primaryDefault'
   }
 ): CSSObject => {
   const { colors, transitions, fontWeights, fontSizes, lineHeights } = theme;
@@ -51,9 +53,11 @@ const AnchorStyled = styled.a<TextElementProps>((
     alignItems,
     fontFamily,
     justifyContent,
+    textUnderlineOffset,
     color: colors[colorName],
     transition: transitions?.default,
     display: isFlexible ? 'flex' : 'inline',
+    textDecoration: hasUnderline ? 'underline' : 'none',
 
     fontWeight: fontWeights[fontWeightName],
     lineHeight: lineHeights[lineHeightName],

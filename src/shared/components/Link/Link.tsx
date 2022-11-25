@@ -26,6 +26,7 @@ function Link(
 
     isFlexible,
     fontFamily,
+    hasUnderline,
     fontSizeName,
     isInUpperCase,
     hoverColorName,
@@ -33,6 +34,7 @@ function Link(
     fontWeightName,
     justifyContent,
     isOpeningInNewTab,
+    textUnderlineOffset,
   }: LinkProps) {
   return (
     <AnchorStyled
@@ -57,12 +59,14 @@ function Link(
       paddingRight={paddingRight}
       paddingBottom={paddingBottom}
 
+      hasUnderline={hasUnderline}
       fontSizeName={fontSizeName}
       isInUpperCase={isInUpperCase}
       justifyContent={justifyContent}
       lineHeightName={lineHeightName}
       hoverColorName={hoverColorName}
       fontWeightName={fontWeightName}
+      textUnderlineOffset={textUnderlineOffset}
       target={isOpeningInNewTab ? '_blank' : '_self'}
     >
       <>

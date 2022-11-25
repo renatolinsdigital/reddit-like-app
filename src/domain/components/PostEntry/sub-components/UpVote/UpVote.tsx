@@ -41,10 +41,10 @@ function UpVote({ postId, votesCount, onVoted, isVotedByCurrentUser }: UpVotePro
       </Button>
       <TextStyled
         minWidth="100%"
-        paddingTop={10}
+        paddingTop={15}
         paddingLeft={8}
         paddingRight={8}
-        paddingBottom={10}
+        paddingBottom={15}
         textAlign='center'
         fontWeightName='bold'
         borderTop='1px solid'

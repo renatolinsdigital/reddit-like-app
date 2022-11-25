@@ -25,6 +25,13 @@ function TextInput(
     maxLength,
     isDisabled,
 
+    isReadOnly,
+    borderStyle,
+    borderWidth,
+    fontSizeName,
+    borderRadius,
+    textColorName,
+
     marginTop = 0,
     marginLeft = 0,
     marginRight = 0,
@@ -35,12 +42,6 @@ function TextInput(
     paddingRight = 12,
     paddingBottom = 10,
 
-    isReadOnly,
-    borderStyle,
-    borderWidth,
-    fontSizeName,
-    borderRadius,
-    textColorName,
     lineHeightName,
     fontWeightName,
     borderColorName,

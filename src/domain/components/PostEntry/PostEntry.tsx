@@ -2,6 +2,7 @@ import { Meta, UpVote } from './sub-components';
 import { Colors } from 'src/theme/models';
 import { Badge, BoxStyled, Link } from 'src/shared/components';
 import { postTypeToLabel, removeUrlProtocol, snakeCaseToCamelCase } from './utils';
+import { User } from 'src/domain/models';
 
 function PostEntry() {
   const post = {
@@ -19,7 +20,12 @@ function PostEntry() {
   const badgeColorName = snakeCaseToCamelCase(type) as keyof Colors;
   const externalLinkLabel = removeUrlProtocol(externalReference);
 
-  console.log(badgeColorName)
+  const user: User = {
+    id: 1,
+    name: 'Test user',
+    username: 'testuser',
+    imageFileName: 'user_photo.png',
+  }
 
   const handleUpVote = (postId: number) => {
     console.log('up voted on post: ', postId);
@@ -66,7 +72,7 @@ function PostEntry() {
           justifyContent='flex-start'
         >
           <Badge text={postType} backgroundColorName={badgeColorName} />
-          <Meta />
+          <Meta user={user} />
         </BoxStyled>
       </BoxStyled>
 

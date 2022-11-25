@@ -25,12 +25,14 @@ type TextElementProps = BoxStyledProps & {
   isFlexible?: boolean;
   isStretched?: boolean;
   flex?: number | string;
+  hasUnderline?: boolean;
   justifyContent?: string;
   isInUpperCase?: boolean;
   isCapitalized?: boolean;
   fontSizeName?: keyof FontSizes;
   lineHeightName?: keyof LineHeights;
   fontWeightName?: keyof FontWeights;
+  textUnderlineOffset?: 'auto' | number | string;
 };
 
 export default TextElementProps;
