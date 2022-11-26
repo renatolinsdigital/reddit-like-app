@@ -1,9 +1,27 @@
-import { PostEntry } from 'src/domain/components';
-import { PageContainer, BoxStyled } from 'src/shared/components';
+import { useEffect } from 'react';
+import { User } from 'src/domain/models';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLoggedUser } from 'src/store';
 import { Button } from 'src/shared/components';
 import { LoadingIcon } from 'src/shared/icons';
+import { PostEntry } from 'src/domain/components';
+import { PageContainer, BoxStyled } from 'src/shared/components';
 
 function AppBody() {
+  const user = useSelector((state: any) => state.user);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const loggedInUser: User = {
+      id: 1,
+      name: 'Test User',
+      username: 'testuser',
+      imageFileName: 'user_photo.png'
+    }
+
+    dispatch(setLoggedUser(loggedInUser));
+  }, [dispatch]);
+
   return (
     <PageContainer>
       <BoxStyled

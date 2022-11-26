@@ -1,6 +1,6 @@
-import { Image, UserInfo, AddPostButton } from 'src/domain/components';
 import { SearchIcon, MenuIcon } from 'src/shared/icons';
 import { BoxStyled, TextInput, Button } from 'src/shared/components';
+import { Image, UserInfo, AddPostButton } from 'src/domain/components';
 
 function AppHeader() {
   const inputIcon = <SearchIcon colorName='gray3' />;
