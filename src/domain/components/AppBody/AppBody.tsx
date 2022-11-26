@@ -31,7 +31,7 @@ function AppBody() {
           hoverBackgroundColorName='gray2'
           hoverChildrenSvgColorName='primaryDark'
         >
-          <LoadingIcon marginRight={4} colorName='primaryDefault' />
+          <LoadingIcon width={30} marginRight={4} colorName='primaryDefault' />
           Load more
         </Button>
       </BoxStyled>

@@ -7,10 +7,8 @@ function AppFooter() {
       paddingLeft={15}
       paddingRight={15}
       paddingBottom={15}
-      justifyContent='flex-start'
       backgroundColorName='primaryDark'
     >
-
       <TextStyled
         paddingLeft={0}
         paddingRight={2}
