@@ -29,10 +29,13 @@ function Button(
 
     position,
     colorName,
+    fontWeightName,
+    hoverColorName,
     isEnabled = true,
     backgroundColorName,
     hoverBackgroundColorName,
     hoverChildBorderColorName,
+    hoverChildrenSvgColorName,
     disabledBackgroundColorName,
     disabledChildBorderColorName,
 
@@ -74,10 +77,13 @@ function Button(
       colorName={colorName}
       borderStyle={borderStyle}
       borderRadius={borderRadius}
+      fontWeightName={fontWeightName}
+      hoverColorName={hoverColorName}
       borderColorName={borderColorName}
       backgroundColorName={backgroundColorName}
       hoverBackgroundColorName={hoverBackgroundColorName}
       hoverChildBorderColorName={hoverChildBorderColorName}
+      hoverChildrenSvgColorName={hoverChildrenSvgColorName}
       disabledBackgroundColorName={disabledBackgroundColorName}
       disabledChildBorderColorName={disabledChildBorderColorName}
 

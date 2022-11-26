@@ -8,14 +8,6 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     right,
     bottom,
 
-    theme,
-    minWidth,
-    isEnabled,
-    minHeight,
-    colorName,
-    borderRadius = 4,
-    backgroundColorName,
-
     marginTop = 0,
     marginLeft = 0,
     marginRight = 0,
@@ -25,10 +17,21 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     paddingLeft = 24,
     paddingRight = 24,
     paddingBottom = 12,
+
+    theme,
+    minWidth,
+    isEnabled,
+    minHeight,
+    colorName,
+    backgroundColorName,
+    hoverChildrenSvgColorName,
+
+    borderRadius = 4,
     position = 'static',
     borderWidth = '1px',
     borderStyle = 'none',
     hoverColorName = 'white',
+    fontWeightName = 'regular',
     borderColorName = 'transparent',
     disabledBackgroundColorName = 'gray3',
     hoverBackgroundColorName = 'primaryDark',
@@ -36,7 +39,7 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     disabledChildBorderColorName = 'transparent'
 
   }): CSSObject => {
-  const { colors, transitions } = theme;
+  const { colors, transitions, fontWeights } = theme;
 
   const enabledBackgroundColor = backgroundColorName
     ? colors[backgroundColorName]
@@ -69,6 +72,7 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     justifyContent: 'center',
     transition: transitions?.default,
     borderColor: colors[borderColorName],
+    fontWeight: fontWeights[fontWeightName],
     cursor: isEnabled ? 'pointer' : 'default',
     color: colorName ? colors[colorName] : colors.white,
     backgroundColor: isEnabled ? enabledBackgroundColor : colors[disabledBackgroundColorName],
@@ -82,6 +86,9 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
       backgroundColor: isEnabled ? colors[hoverBackgroundColorName] : colors[disabledBackgroundColorName],
       ' *': {
         borderColor: isEnabled ? colors[hoverChildBorderColorName] : colors[disabledChildBorderColorName],
+      },
+      ' svg, path': {
+        fill: hoverChildrenSvgColorName ? colors[hoverChildrenSvgColorName] : undefined
       }
     },
   }

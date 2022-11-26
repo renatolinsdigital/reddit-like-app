@@ -1,4 +1,5 @@
 import SvgContainerProps from './SvgContainer.model';
+import SvgContainerStyled from './SvgContainer.styled';
 
 function SvgContainer({
   x,
@@ -40,7 +41,7 @@ function SvgContainer({
   };
 
   return (
-    <svg
+    <SvgContainerStyled
       x={x}
       y={y}
       id={id}
@@ -52,7 +53,7 @@ function SvgContainer({
       viewBox={viewBox || `0 0 ${DEFAULT_DIMENSION} ${DEFAULT_DIMENSION}`}
     >
       {children}
-    </svg>
+    </SvgContainerStyled>
   );
 }
 

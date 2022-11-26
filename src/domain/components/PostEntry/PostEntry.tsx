@@ -33,6 +33,8 @@ function PostEntry() {
 
   return (
     <BoxStyled
+      marginTop={30}
+      marginBottom={30}
       isStretched={false}
       justifyContent='flex-start'
     >
