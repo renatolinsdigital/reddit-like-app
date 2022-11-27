@@ -7,8 +7,9 @@ declare module 'styled-components' {
     fontSizes: FontSizes;
     lineHeights: LineHeights;
     fontWeights: FontWeights;
-    transitions?: {
-      default: string;
+    transitions: {
+      defaultAll: string;
+      defaultTime: string;
     };
   }
 }

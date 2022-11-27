@@ -5,6 +5,7 @@ export type { default as IconProps } from './IconProps.model';
 export { default as KeyboardKeys } from './KeyboardKeys.enum';
 export type { default as AlignItems } from './AlignItems.model';
 export type { default as BoxPositions } from './BoxPositions.model';
+export type { default as AnimatedIcon } from './AnimatedIcon.model';
 export type { default as BoxStyledProps } from './BoxStyledProps.model';
 export type { default as JustifyContent } from './JustifyContent.model';
 export type { default as HasDynamicProps } from './HasDynamicProps.model';

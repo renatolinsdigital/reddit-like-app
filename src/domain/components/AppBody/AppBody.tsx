@@ -4,7 +4,7 @@ import { setLoggedUser } from 'src/store';
 import { LoadingIcon } from 'src/shared/icons';
 import { PostEntry } from 'src/domain/components';
 import { useDispatch, useSelector } from 'react-redux';
-import { PageContainer, BoxStyled, Button, Spinner } from 'src/shared/components';
+import { PageContainer, BoxStyled, Button } from 'src/shared/components';
 
 function AppBody() {
   const user = useSelector((state: any) => state.user);
@@ -29,7 +29,6 @@ function AppBody() {
         alignItems='flex-start'
         justifyContent='flex-start'
       >
-        <Spinner />
         <PostEntry />
         <PostEntry />
         <PostEntry />
@@ -49,7 +48,13 @@ function AppBody() {
           hoverBackgroundColorName='gray2'
           hoverChildrenSvgColorName='primaryDark'
         >
-          <LoadingIcon width={30} marginRight={4} colorName='primaryDefault' />
+          <LoadingIcon
+            isSpinning={true} //TODO: spins only when data is being fetched
+            width={25}
+            height={25}
+            marginRight={4}
+            colorName='primaryDefault'
+          />
           Load more
         </Button>
       </BoxStyled>

@@ -31,6 +31,18 @@ An interview challenge application for Leroy Merlin
  - theme: Holds data for a 'themeable' styling approach, that can be the base for dark/light mode, switching themes based on preferences, etc. A theme is to be shared between all application domains and is considered a company's product. That way, multiple applications within the company can have the same theme (look and feel) AND/OR one single app can have multiple themes selectable under a single format agreement (object/properties/tokens) between business, designers and developers
  - service-hooks: Considering that modern React applications can have custom hooks acting as application services, this folder will store files that are both. If there is one single store (or source of truth) for the entire application, the service-hooks folder will serve the entire application. If the application has multiple stores, each application domain/module will have its own set of service hooks
 
+### Images in this project
+
+ - This application doesn't have a folder called 'assets' as this folder can interfere in application scalability. In this case, images, icons and assets in general will be inside its own folder belonging to its own application module/domain
+ - Unless there is the need of inserting pixel-based photos, this project will use the SVG format as it is standard for vector-based graphics. SVGs will enable images/icons that:
+ 
+ * Can be animated
+ * Are lightweight
+ * Can be indexed by search engines
+ * Don't loose resolution while scaling 
+ * Are exportable by most graphic programs
+ * Works pretty well alongside Javascript (and/or React components), so it's visuals and behavior/animations can be updated via code
+
 ### Overall comments
 
  - Every shared component MUST be a presentation/stateless component, meaning that wont hold logic by themselves but rather get data from either a direct father or from hooks. This way we will have components that are easy to maintain, test, share, etc. Another important thing to notice is that we can consider the idea of 'composition over inheritance' while using these components - in that case, shared components can be used to build domain components and other shared components as well
@@ -41,7 +53,6 @@ An interview challenge application for Leroy Merlin
  - Scaling this app's structure is a matter of identifying what the feature will require (e.g component, theme, icon, page, model, etc), and if these pieces will be domain related or shared.
  - Every UI element is a component, which means everything can be easily found, shared, tested, updated, etc. Doing things that way requires more time to craft each component, but later, it becomes faster to create applications. With a good set of battle-tested shared components, interfaces will be more assembled than developed
  - The shared/icons folder is to be holding hand-crafted icons provided by the UI/UX team. Icons in there will be converted to React components (icons are React components) so we can have more control over them (set variations, update at run-time, animate, run unit test over possibilities, etc.). In a scenario where we need a huge amount of icons (e.g: more than 15 icons for an application), then the suggested approach would be considering a known icons library by default, leaving the idea of 'icons as components' for just a few specific cases
- - This application doesn't have a folder called 'assets' as this folder can interfere in application scalability. In this case, images, icons and assets in general will be inside its own folder belonging to its own application module/domain
  - If a domain component needs sub-components that are not on the 'shared' folder, it can have a 'sub-components' folder and store it there. It is also important to remember that sub-components have the potential to becoming a shared component
  - This application is mocked, so every data displayed is just representative
 

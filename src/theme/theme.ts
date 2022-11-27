@@ -72,7 +72,8 @@ export const theme: DefaultTheme = {
   /* Timings */
 
   transitions: {
-    default: 'all .2s ease'
+    defaultAll: 'all .2s ease',
+    defaultTime: '.2s'
   }
 
 };

@@ -55,7 +55,7 @@ const AnchorStyled = styled.a<TextElementProps>((
     justifyContent,
     textUnderlineOffset,
     color: colors[colorName],
-    transition: transitions?.default,
+    transition: transitions.defaultAll,
     display: isFlexible ? 'flex' : 'inline',
     textDecoration: hasUnderline ? 'underline' : 'none',
 

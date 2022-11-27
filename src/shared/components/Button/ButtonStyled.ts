@@ -70,7 +70,7 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    transition: transitions?.default,
+    transition: transitions.defaultAll,
     borderColor: colors[borderColorName],
     fontWeight: fontWeights[fontWeightName],
     cursor: isEnabled ? 'pointer' : 'default',

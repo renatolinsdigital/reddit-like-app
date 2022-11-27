@@ -107,7 +107,7 @@ const TextStyled = styled.span<TextProps>(
       textTransform,
       justifyContent,
 
-      transition: transitions?.default,
+      transition: transitions.defaultAll,
       borderColor: colors[borderColorName],
       width: isStretched ? '100%' : 'auto',
       height: isStretched ? '100%' : 'auto',

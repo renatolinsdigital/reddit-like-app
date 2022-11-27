@@ -1,10 +1,11 @@
 import { theme } from 'src/theme/theme';
-import { IconProps } from "src/shared/models";
 import { SvgContainer } from "src/shared/components";
+import { AnimatedIcon, IconProps } from "src/shared/models";
 
 function LoadingIcon({
   id,
   title,
+  isSpinning,
   width = 18,
   height = 18,
   rotationDegrees,
@@ -19,9 +20,10 @@ function LoadingIcon({
   paddingLeft = 0,
   paddingRight = 0,
   paddingBottom = 0,
-}: IconProps) {
+}: IconProps & AnimatedIcon) {
   const { colors } = theme;
   return (
+
     <SvgContainer
       id={id}
       width={width}
@@ -47,7 +49,19 @@ function LoadingIcon({
         26 21 26C22.8517 26 24.6117 25.5417 26.1333 24.7167L28.81 27.3933C26.555 28.8233 23.8783 \
         29.6667 21 29.6667C12.8967 29.6667 6.33332 23.1033 6.33333 15L0.833326 15L8.16666 \
         7.66667L15.5 15L9.99999 15Z`}
-        />
+        >
+          {
+            isSpinning
+            && <animateTransform
+              dur="1s"
+              type="rotate"
+              from="0 21 15"
+              to="360 21 15"
+              repeatCount="indefinite"
+              attributeName="transform"
+            />
+          }
+        </path>
       </>
     </SvgContainer>
   );

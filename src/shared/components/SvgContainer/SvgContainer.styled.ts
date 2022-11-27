@@ -5,7 +5,7 @@ const SvgContainerStyled = styled.svg(
     const { transitions } = theme;
     return {
       ' path': {
-        transition: transitions?.default
+        transition: `fill ${transitions.defaultTime} ease`
       }
     }
   }
