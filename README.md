@@ -17,9 +17,9 @@ An interview challenge application for Leroy Merlin
 
  - React
  - Typescript
+ - Redux (w/ Redux Toolkit)
  - Sass (for global styling) 
  - Styled components (with Javascript syntax)
- - Redux (w/ Redux Toolkit) - TBD
 
 # App structure/organization overview
 
@@ -45,21 +45,31 @@ An interview challenge application for Leroy Merlin
  - If a domain component needs sub-components that are not on the 'shared' folder, it can have a 'sub-components' folder and store it there. It is also important to remember that sub-components have the potential to becoming a shared component
  - This application is mocked, so every data displayed is just representative
 
-# Tooling
+# Tooling + dependencies
 
-This application uses CRA for bundling and running in development mode. It also uses a babel plugin (__babel-plugin-styled-components__) for parsing styled components with nicer class names, helping to debug the application. For having babel plugins without ejecting the application, the tools __react-app-rewired__ and __customize-cra__ have been installed as dev dependencies.
+- Create React App: bundling and running in development mode
+- babel-plugin-styled-components: for parsing styled components with nicer class names, helping to debug the application. 
+- react-app-rewired + customize-cra: For having babel plugins without ejecting the application
 
-### What this app features
+# State management
 
- - Component-first approach
+## Practices
+
+- Avoids saving filtered data in a state in a way that original data can be used/queried by other components. Filters will be 'sliced' copies of the state
+
+# Features, approaches and techniques
+
+### Implemented
+
+ - Component-first approach: With the help of Styled components library, every UI element is mapped to a component
+ - State management: Using Redux Toolkit we are able to store and manage data that can be shared between components 
  - Linting - TBD
  - Testing - TBD
  - Routing - TBD
  - Animations - TBD
- - State management w/ Redux Toolkit + service hooks - TBD
  - Responsiveness - TBD
 
-### Out of scope (could be added in a real app)
+### Out of scope 
  
  - Translation
  - Global alerts
@@ -69,4 +79,3 @@ This application uses CRA for bundling and running in development mode. It also 
  - Dark/Light mode toggling
  - Mapping of possible errors + global error handling
  - etc
-

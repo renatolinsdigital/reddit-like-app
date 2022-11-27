@@ -9,7 +9,7 @@ import { PageContainer, BoxStyled } from 'src/shared/components';
 
 function AppBody() {
   const user = useSelector((state: any) => state.user);
-  const dispatch = useDispatch();
+  const userDispatch = useDispatch();
 
   useEffect(() => {
     const loggedInUser: User = {
@@ -19,8 +19,8 @@ function AppBody() {
       imageFileName: 'user_photo.png'
     }
 
-    dispatch(setLoggedUser(loggedInUser));
-  }, [dispatch]);
+    userDispatch(setLoggedUser(loggedInUser));
+  }, [userDispatch]);
 
   return (
     <PageContainer>
