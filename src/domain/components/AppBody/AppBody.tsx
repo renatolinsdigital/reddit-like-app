@@ -1,11 +1,10 @@
 import { useEffect } from 'react';
 import { User } from 'src/domain/models';
-import { useDispatch, useSelector } from 'react-redux';
 import { setLoggedUser } from 'src/store';
-import { Button } from 'src/shared/components';
 import { LoadingIcon } from 'src/shared/icons';
 import { PostEntry } from 'src/domain/components';
-import { PageContainer, BoxStyled } from 'src/shared/components';
+import { useDispatch, useSelector } from 'react-redux';
+import { PageContainer, BoxStyled, Button, Spinner } from 'src/shared/components';
 
 function AppBody() {
   const user = useSelector((state: any) => state.user);
@@ -30,6 +29,7 @@ function AppBody() {
         alignItems='flex-start'
         justifyContent='flex-start'
       >
+        <Spinner />
         <PostEntry />
         <PostEntry />
         <PostEntry />
