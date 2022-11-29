@@ -1,9 +1,20 @@
+import { useState } from 'react';
+import { ReactInputEvent } from 'src/shared/models';
 import { SearchIcon, MenuIcon } from 'src/shared/icons';
 import { BoxStyled, TextInput, Button } from 'src/shared/components';
 import { Image, UserInfo, AddPostButton } from 'src/domain/components';
 
 function AppHeader() {
-  const inputIcon = <SearchIcon colorName='gray3' />;
+  const [inputText, setInputText] = useState('');
+  const [inputQuery, setInputQuery] = useState('');
+
+  const onSearchByText = () => {
+    setInputQuery(inputText);
+  };
+
+  const onInputChange = (event: ReactInputEvent) => {
+    setInputText(event.target.value);
+  };
 
   return (
     <BoxStyled
@@ -52,10 +63,12 @@ function AppHeader() {
           <TextInput
             maxWidth={380}
             borderRadius={4}
-            leftIcon={inputIcon}
             lineHeightName='tall'
+            onChange={onInputChange}
             backgroundColorName='gray2'
+            onENTERKeyPress={onSearchByText}
             borderColorName='primaryDefault'
+            leftIcon={<SearchIcon colorName='gray3' />}
           ></TextInput>
         </BoxStyled>
 

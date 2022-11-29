@@ -11,7 +11,7 @@ import { PageContainer, BoxStyled, Button, TextStyled } from 'src/shared/compone
 function AppBody() {
   const { currentUser } = useLoggedUser();
   const [hookRefresher, setHookRefresher] = useState(false);
-  const { isLoading, postsEntries, hasError, totalResults } = usePostsEntries({ hookRefresher });
+  const { isLoading, originalPostsEntries, hasError, totalResults } = usePostsEntries({ hookRefresher });
 
   const userDispatch: AppDispatch = useDispatch();
   // Line below represents how logged user data could be used anywhere in this application
@@ -46,7 +46,7 @@ function AppBody() {
         justifyContent='flex-start'
       >
         {
-          postsEntries.map((postEntry: PostEntryInfo, index) => {
+          originalPostsEntries.map((postEntry: PostEntryInfo, index) => {
 
             return (
               <PostEntry
