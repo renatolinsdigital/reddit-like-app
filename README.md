@@ -55,6 +55,7 @@ An interview challenge application for Leroy Merlin
  - Every UI element is a component, which means everything can be easily found, shared, tested, updated, etc. Doing things that way requires more time to craft each component, but later, it becomes faster to create applications. With a good set of battle-tested shared components, interfaces will be more assembled than developed
  - The shared/icons folder is to be holding hand-crafted icons provided by the UI/UX team. Icons in there will be converted to React components (icons are React components) so we can have more control over them (set variations, update at run-time, animate, run unit test over possibilities, etc.). In a scenario where we need a huge amount of icons (e.g: more than 15 icons for an application), then the suggested approach would be considering a known icons library by default, leaving the idea of 'icons as components' for just a few specific cases
  - If a domain component needs sub-components that are not on the 'shared' folder, it can have a 'sub-components' folder and store it there. It is also important to remember that sub-components have the potential to becoming a shared component
+ - The way I work, nothing will be simple to create, but the intention is that it will be simple to understand, update and scale
 
 # Tooling + dependencies
 
@@ -71,6 +72,10 @@ An interview challenge application for Leroy Merlin
 
 # Features, approaches and techniques
 
+- API will hold original data in a way it will not be changed by this application. Filters will create local chunks of data for presentation only
+- The Search by text text will be a filter against post title and author name - TBD >>>>>>>>>>>>>>>>>>>>>>>>>>
+- There will be buttons to order by upvotes and number of comments - TBD >>>>>>>>>>>>>>>>>>>>>>>>>>
+
 ### Implemented
 
  - Component-first approach: With the help of Styled components, every UI element is mapped to a component
@@ -78,17 +83,27 @@ An interview challenge application for Leroy Merlin
  - Data fetching with Axios managed by a service Hook
  - Linting - TBD
  - Responsiveness - TBD
+ - Git standards HUSKY - ???????????? TBD
 
-### Out of scope 
+### What was not done (TODOS)
+
+- Parsing __created_at__ field in a way we can see how many minutes/hours/days/months/years ago the post was created. This information is hard coded at this moment
+- Testing: This would require unit test for all functions and integration tests(logic + template rendering checks) for all of the components created. Doing this should not be too complex with Jest + React testing library, but it would __cost__ a considerable amount of time and effort
+- Creating filters with dates as it requires an interface for inputting date ranges and then running data transformations, which again would __cost__ a considerable amount of time and effort
+
+### Out of scope (but could also be done)
  
  - Routing
  - Animations
+ - Breadcrumbs
  - Translation
- - Global alerts
- - Authentication
- - Pagination/Navigation/Search
- - UI feedback for messages/errors 
+ - Slider/main menu
  - Dark/Light mode toggling
- - Mapping of possible errors + global error handling
- - Testing: Just one component is being tested at this moment - TBD <<<<<<<<<<<<<<>>>>>>>>>>>>>>
+ - Authentication/Authorization
+ - Infinite Scroll and/or Pagination
+ - UI feedback using toastr messages
+ - Full Redux/Toolkit store implementation
+ - Creating full professional and modern blog UI design
+ - Error handling managed by a robust error handling approach
+ - Interacting with an actual blog API and allow posts to be created
  - etc

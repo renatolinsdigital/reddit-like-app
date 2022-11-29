@@ -5,18 +5,18 @@ import { PostEntryInfo, PostsEntriesResponse } from 'src/domain/models';
 const POSTS_ENTRIES_ENDPOINT = 'https://www.mocky.io/v2/5a6bc16631000078341b8b77';
 const axiosInstance = axios.create();
 
-function usePostsEntries() {
+function usePostsEntries({ hookRefresher }: { hookRefresher: boolean }) {
   const [hasError, setHasError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [totalResults, setTotalResults] = useState(0);
   const [postsEntries, setPostsEntries] = useState<PostEntryInfo[]>([]);
 
   useEffect(() => {
-    // This will clean old results for new usages of this hook
     setPostsEntries([]);
   }, []);
 
   useEffect(() => {
+    setPostsEntries([]);
     setIsLoading(true);
     setHasError(false);
     let canceler: Canceler;
@@ -33,10 +33,12 @@ function usePostsEntries() {
       .catch((error: any) => {
         if (axios.isCancel(error)) return;
         setHasError(true);
+        setIsLoading(false);
         throw error;
       });
     return () => canceler();
-  }, []);
+  }, [hookRefresher]);
+
   return { isLoading, postsEntries, hasError, totalResults };
 
 }

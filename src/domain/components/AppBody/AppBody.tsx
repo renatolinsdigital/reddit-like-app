@@ -1,20 +1,28 @@
-import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
+import { useEffect, useState } from 'react';
 import { isEmpty } from 'src/shared/helpers';
 import { LoadingIcon } from 'src/shared/icons';
 import { PostEntryInfo } from 'src/domain/models';
 import { PostEntry } from 'src/domain/components';
 import { AppDispatch, setLoggedUser } from 'src/store';
 import { useLoggedUser, usePostsEntries } from 'src/service-hooks';
-import { PageContainer, BoxStyled, Button } from 'src/shared/components';
+import { PageContainer, BoxStyled, Button, TextStyled } from 'src/shared/components';
 
 function AppBody() {
-  const { isLoading, postsEntries, hasError, totalResults } = usePostsEntries();
   const { currentUser } = useLoggedUser();
-  const userDispatch: AppDispatch = useDispatch();
+  const [hookRefresher, setHookRefresher] = useState(false);
+  const { isLoading, postsEntries, hasError, totalResults } = usePostsEntries({ hookRefresher });
 
+  const userDispatch: AppDispatch = useDispatch();
   // Line below represents how logged user data could be used anywhere in this application
   // const user = useSelector((state: RootState) => state.user.value)
+
+  const onPostsRefresh = () => {
+    // The line below is just illustrative on how user interaction can cause side effects
+    // that will call an API. In real world apps, refresh triggers would be data mapped 
+    // to API params such as page number, queried text, etc.
+    setHookRefresher(value => !value);
+  }
 
   useEffect(() => {
     if (!isEmpty(currentUser)) userDispatch(setLoggedUser(currentUser));
@@ -22,6 +30,15 @@ function AppBody() {
 
   return (
     <PageContainer>
+      <TextStyled
+        isFlexible
+        minWidth="100%"
+        fontSizeName='smallest'
+        fontWeightName='medium'
+        justifyContent='flex-end'
+      >
+        Displaying {totalResults} posts
+      </TextStyled>
       <BoxStyled
         isVertical
         paddingBottom={40}
@@ -44,6 +61,7 @@ function AppBody() {
           paddingTop={20}
           paddingBottom={20}
           fontWeightName='medium'
+          onClick={onPostsRefresh}
           colorName="primaryDefault"
           backgroundColorName='gray2'
           hoverColorName='primaryDark'
@@ -57,7 +75,9 @@ function AppBody() {
             isSpinning={isLoading}
             colorName='primaryDefault'
           />
-          Refresh (Reload original data)
+          {isLoading && !hasError && <TextStyled>Loading...</TextStyled>}
+          {hasError && <TextStyled>Posts entries could not be fetched</TextStyled>}
+          {!isLoading && !hasError && <TextStyled>Refresh (Reload original data)</TextStyled>}
         </Button>
       </BoxStyled>
     </PageContainer>
