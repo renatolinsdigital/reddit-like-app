@@ -4,7 +4,7 @@ interface Meta {
   author: string;
 }
 
-export interface PostEntry {
+export interface PostEntryInfo {
   meta: Meta;
   upvotes: number;
   category: string;
@@ -12,3 +12,7 @@ export interface PostEntry {
   isOwner?: boolean;
   created_at: Date | number | string;
 }
+
+export interface PostsEntriesResponse {
+  links: PostEntryInfo[];
+};

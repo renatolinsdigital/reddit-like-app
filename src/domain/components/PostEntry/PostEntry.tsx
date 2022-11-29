@@ -1,35 +1,34 @@
-import { Meta, UpVote } from './sub-components';
-import { Colors } from 'src/theme/models';
-import { Badge, BoxStyled, Link } from 'src/shared/components';
-import { postTypeToLabel, removeUrlProtocol, snakeCaseToCamelCase } from './utils';
 import { User } from 'src/domain/models';
+import { Colors } from 'src/theme/models';
+import { useEffect, useState } from 'react';
+import { postCategoryToLabel } from './utils';
+import PostEntryProps from './PostEntry.model';
+import { Meta, UpVote } from './sub-components';
+import { Badge, BoxStyled, Link } from 'src/shared/components';
 
-function PostEntry({ title }: any) {
-  const post = {
-    id: 0,
-    upVotes: 11,
-    postUrl: './',
-    type: 'product_design',
-    title: 'First post title',
-    externalReference: 'https://medium.com'
-  }
+function PostEntry({ postEntry }: PostEntryProps) {
+  const [isVotedByCurrentUser, setIsVotedByCurrentUser] = useState(false);
+  const [currentUpvotes, setCurrentUpvotes] = useState(0);
+  const { meta, upvotes, created_at, category, comments, isOwner } = postEntry;
 
-  const { id, upVotes, externalReference, postUrl, type } = post;
-
-  const postType = postTypeToLabel(type);
-  const badgeColorName = snakeCaseToCamelCase(type) as keyof Colors;
-  const externalLinkLabel = removeUrlProtocol(externalReference);
+  const postCategory = postCategoryToLabel(category);
 
   const user: User = {
-    id: 1,
-    name: 'Test user',
-    username: 'testuser',
+    id: -1,
+    name: meta.author,
     imageFileName: 'user_photo.png',
   }
 
   const handleUpVote = (postId: number) => {
-    console.log('up voted on post: ', postId);
+    console.log(`time to send upvote for post ${postId}`);
+    setCurrentUpvotes(upvotes => upvotes + 1);
+    setIsVotedByCurrentUser(true);
   }
+
+  useEffect(() => {
+    // hydrates upvotes count with initial/original data
+    setCurrentUpvotes(upvotes)
+  }, [upvotes])
 
   return (
     <BoxStyled
@@ -39,10 +38,10 @@ function PostEntry({ title }: any) {
       justifyContent='flex-start'
     >
       <UpVote
-        postId={id}
-        votesCount={upVotes}
+        postId={-1}
         onVoted={handleUpVote}
-        isVotedByCurrentUser={true}
+        votesCount={currentUpvotes}
+        isVotedByCurrentUser={isVotedByCurrentUser}
       />
       <BoxStyled isVertical paddingLeft={20} paddingRight={20}>
         <BoxStyled isVertical alignItems='flex-start' justifyContent='flex-start'>
@@ -54,27 +53,27 @@ function PostEntry({ title }: any) {
             fontSizeName='small'
             fontWeightName='medium'
             justifyContent='flex-start'
-            location={externalReference}
+            location={`https://${meta.url}`}
           >
-            {externalLinkLabel}
+            {meta.url}
           </Link>
           <Link
             marginTop={2}
             paddingLeft={0}
-            location={postUrl}
+            location='.'
             fontSizeName='huge'
             fontWeightName='medium'
             hoverColorName='primaryDark'
           >
-            {title}
+            {meta.title}
           </Link>
         </BoxStyled>
         <BoxStyled
           paddingTop={12}
           justifyContent='flex-start'
         >
-          <Badge text={postType} backgroundColorName={badgeColorName} />
-          <Meta user={user} />
+          <Badge text={postCategory} backgroundColorName={category as keyof Colors} />
+          <Meta user={user} comments={comments} isOwner={isOwner} />
         </BoxStyled>
       </BoxStyled>
 

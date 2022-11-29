@@ -1,11 +1,12 @@
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { AppDispatch, setLoggedUser } from 'src/store';
 import { isEmpty } from 'src/shared/helpers';
 import { LoadingIcon } from 'src/shared/icons';
+import { PostEntryInfo } from 'src/domain/models';
 import { PostEntry } from 'src/domain/components';
-import { PageContainer, BoxStyled, Button } from 'src/shared/components';
+import { AppDispatch, setLoggedUser } from 'src/store';
 import { useLoggedUser, usePostsEntries } from 'src/service-hooks';
+import { PageContainer, BoxStyled, Button } from 'src/shared/components';
 
 function AppBody() {
   const { isLoading, postsEntries, hasError, totalResults } = usePostsEntries();
@@ -28,12 +29,12 @@ function AppBody() {
         justifyContent='flex-start'
       >
         {
-          postsEntries.map((postEntry: any, index) => {
-            const { meta, created_at } = postEntry;
+          postsEntries.map((postEntry: PostEntryInfo, index) => {
+
             return (
               <PostEntry
-                key={`post-entry-for-${index}-${created_at}`}
-                title={meta.title}
+                postEntry={postEntry}
+                key={`post-entry-for-${index}-${postEntry.created_at}`}
               />
             )
           })

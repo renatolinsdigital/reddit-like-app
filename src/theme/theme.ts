@@ -19,6 +19,10 @@ export const theme: DefaultTheme = {
 
   colors: {
 
+    // Branding
+    primaryDark: '#CB3720',
+    primaryDefault: '#E3472F',
+
     // Neutrals
     white: '#fff',
     dark: '#131313',
@@ -28,15 +32,11 @@ export const theme: DefaultTheme = {
     inherit: 'inherit',
     transparent: 'transparent',
 
-    // Visual identity
-    primaryDark: '#CB3720',
-    primaryDefault: '#E3472F',
-
-    // App's context colors
-    opinion: '#4271D6',
-    uxTheory: '#00BBFF',
-    caseStudy: '#F4973C',
-    productDesign: '#00E2AD',
+    // Semantic
+    discussion: '#4271D6',
+    ux_ui: '#00BBFF',
+    case_study: '#F4973C',
+    product_design: '#00E2AD',
 
   },
 

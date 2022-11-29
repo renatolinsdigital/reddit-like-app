@@ -3,7 +3,7 @@ import { Image } from 'src/domain/components';
 import { MessageIcon } from 'src/shared/icons';
 import { BoxStyled, Link, TextStyled } from 'src/shared/components';
 
-function Meta({ user }: MetaProps) {
+function Meta({ user, isOwner, comments }: MetaProps) {
   const { name: creatorName, imageFileName } = user;
 
   return (
@@ -12,6 +12,7 @@ function Meta({ user }: MetaProps) {
       paddingLeft={10}
       borderLeft='2px solid'
       borderColorName='gray2'
+      justifyContent='flex-start'
     >
       <Image
         width='25'
@@ -45,7 +46,7 @@ function Meta({ user }: MetaProps) {
         isStretched={false}
         backgroundColorName='gray3'
       />
-      <BoxStyled paddingLeft={10}>
+      <BoxStyled paddingLeft={10} isStretched={false}>
         <MessageIcon
           marginTop={2}
           colorName='primaryDefault'
@@ -56,17 +57,22 @@ function Meta({ user }: MetaProps) {
           colorName='primaryDefault'
           hoverColorName='primaryDark'
         >
-          4 Comments
+          {`${comments} Comment${Number(comments) !== 1 ? 's' : ''}`}
         </Link>
       </BoxStyled>
-      <Link
-        hasUnderline
-        marginLeft={2}
-        colorName='primaryDefault'
-        hoverColorName='primaryDark'
-      >
-        Edit
-      </Link>
+      {
+        isOwner &&
+        (
+          <Link
+            hasUnderline
+            marginLeft={2}
+            colorName='primaryDefault'
+            hoverColorName='primaryDark'
+          >
+            Edit
+          </Link>
+        )
+      }
     </BoxStyled>
   )
 }
