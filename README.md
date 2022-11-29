@@ -54,7 +54,6 @@ An interview challenge application for Leroy Merlin
  - Every UI element is a component, which means everything can be easily found, shared, tested, updated, etc. Doing things that way requires more time to craft each component, but later, it becomes faster to create applications. With a good set of battle-tested shared components, interfaces will be more assembled than developed
  - The shared/icons folder is to be holding hand-crafted icons provided by the UI/UX team. Icons in there will be converted to React components (icons are React components) so we can have more control over them (set variations, update at run-time, animate, run unit test over possibilities, etc.). In a scenario where we need a huge amount of icons (e.g: more than 15 icons for an application), then the suggested approach would be considering a known icons library by default, leaving the idea of 'icons as components' for just a few specific cases
  - If a domain component needs sub-components that are not on the 'shared' folder, it can have a 'sub-components' folder and store it there. It is also important to remember that sub-components have the potential to becoming a shared component
- - This application is mocked, so every data displayed is just representative
 
 # Tooling + dependencies
 
@@ -62,31 +61,33 @@ An interview challenge application for Leroy Merlin
 - babel-plugin-styled-components: for parsing styled components with nicer class names, helping to debug the application. 
 - react-app-rewired + customize-cra: For having babel plugins without ejecting the application
 
-# State management
+# State and data management
 
-## Practices
-
-- Avoids saving filtered data in a state in a way that original data can be used/queried by other components. Filters will be 'sliced' copies of the state
+  This application is mocked, so every data displayed is just representative, inclusive the API data itself
+- Considering this application is not going to transform/update original data (posts entries) we will not consider a state management solution such as Redux toolkit. As long as the data is flowing in just one direction API => Service => Component(s) we will be using hooks that behave like services (aka service hooks). As long as we are not dealing with a parameterized API, all data will be queried at once and then filtered within component's local state
+- A fake user is being stored on a Redux toolkit store, but it is just to illustrate how logged user information could be used across the application. This app doesn't cover authentication features
+- For the sake of avoiding extra complexity regarding data transformations, all models that are common to both API and the app will be exactly the same. In this case, if the API is returning a field with snake case (eg: __created_at__), the Typescript model will respect that, even though camel case is the standard for Javascript/Typescript
 
 # Features, approaches and techniques
 
 ### Implemented
 
- - Component-first approach: With the help of Styled components library, every UI element is mapped to a component
- - State management: Using Redux Toolkit we are able to store and manage data that can be shared between components 
+ - Component-first approach: With the help of Styled components, every UI element is mapped to a component
+ - State management: Example of storing logged-in user data with Redux toolkit
+ - Data fetching with Axios managed by a service Hook
  - Linting - TBD
- - Testing - TBD
- - Routing - TBD
- - Animations - TBD
  - Responsiveness - TBD
 
 ### Out of scope 
  
+ - Routing
+ - Animations
  - Translation
  - Global alerts
- - Registering/Login
+ - Authentication
  - Pagination/Navigation/Search
  - UI feedback for messages/errors 
  - Dark/Light mode toggling
  - Mapping of possible errors + global error handling
+ - Testing: Just one component is being tested at this moment - TBD <<<<<<<<<<<<<<>>>>>>>>>>>>>>
  - etc

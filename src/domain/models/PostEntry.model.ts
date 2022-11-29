@@ -10,5 +10,5 @@ export interface PostEntry {
   category: string;
   comments: number;
   isOwner?: boolean;
-  createdAt: Date | number | string;
+  created_at: Date | number | string;
 }

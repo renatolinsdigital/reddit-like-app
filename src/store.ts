@@ -1,40 +1,42 @@
-import { PostEntry, User } from "./domain/models";
+import { User } from "./domain/models";
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Current/logged user
 
-const emptyUser = {} as User;
+export interface UserState {
+  value: User
+}
+
+const emptyUserState: UserState = {
+  value: {} as User
+};
 
 const userSlice = createSlice({
   name: "user",
-  initialState: emptyUser,
+  initialState: emptyUserState,
   reducers: {
-    setLoggedUser: (_, action: PayloadAction<User>) => action.payload,
-    setEmptyUser: () => emptyUser
+    setLoggedUser: (state: UserState, action: PayloadAction<User>) => {
+      state.value = action.payload;
+    },
+    setEmptyUser: (state: UserState) => { state.value = {} as User }
   }
 });
 
 export const { setLoggedUser, setEmptyUser } = userSlice.actions;
 
-// Post entries
-
-const emptyPostEntries = [] as PostEntry[];
-
-const postEntriesSlice = createSlice({
-  name: "postEntries",
-  initialState: emptyPostEntries,
-  reducers: {
-    setPostEntries: (_, action: PayloadAction<PostEntry[]>) => action.payload,
-  }
-});
-
-export const { setPostEntries } = postEntriesSlice.actions;
-
 // Store config
 
 export const store = configureStore({
   reducer: {
-    user: userSlice.reducer,
-    postEntries: postEntriesSlice.reducer
+    user: userSlice.reducer
   }
 });
+
+// Types
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
+
+
+

@@ -1,25 +1,23 @@
 import { useEffect } from 'react';
-import { User } from 'src/domain/models';
-import { setLoggedUser } from 'src/store';
+import { useDispatch } from 'react-redux';
+import { AppDispatch, setLoggedUser } from 'src/store';
+import { isEmpty } from 'src/shared/helpers';
 import { LoadingIcon } from 'src/shared/icons';
 import { PostEntry } from 'src/domain/components';
-import { useDispatch, useSelector } from 'react-redux';
 import { PageContainer, BoxStyled, Button } from 'src/shared/components';
+import { useLoggedUser, usePostsEntries } from 'src/service-hooks';
 
 function AppBody() {
-  const user = useSelector((state: any) => state.user);
-  const userDispatch = useDispatch();
+  const { isLoading, postsEntries, hasError, totalResults } = usePostsEntries();
+  const { currentUser } = useLoggedUser();
+  const userDispatch: AppDispatch = useDispatch();
+
+  // Line below represents how logged user data could be used anywhere in this application
+  // const user = useSelector((state: RootState) => state.user.value)
 
   useEffect(() => {
-    const loggedInUser: User = {
-      id: 1,
-      name: 'Test User',
-      username: 'testuser',
-      imageFileName: 'user_photo.png'
-    }
-
-    userDispatch(setLoggedUser(loggedInUser));
-  }, [userDispatch]);
+    if (!isEmpty(currentUser)) userDispatch(setLoggedUser(currentUser));
+  }, [currentUser, userDispatch]);
 
   return (
     <PageContainer>
@@ -29,14 +27,17 @@ function AppBody() {
         alignItems='flex-start'
         justifyContent='flex-start'
       >
-        <PostEntry />
-        <PostEntry />
-        <PostEntry />
-        <PostEntry />
-        <PostEntry />
-        <PostEntry />
-        <PostEntry />
-        <PostEntry />
+        {
+          postsEntries.map((postEntry: any, index) => {
+            const { meta, created_at } = postEntry;
+            return (
+              <PostEntry
+                key={`post-entry-for-${index}-${created_at}`}
+                title={meta.title}
+              />
+            )
+          })
+        }
         <Button
           minWidth="100%"
           paddingTop={20}
@@ -49,13 +50,13 @@ function AppBody() {
           hoverChildrenSvgColorName='primaryDark'
         >
           <LoadingIcon
-            isSpinning={true} //TODO: spins only when data is being fetched
             width={25}
             height={25}
             marginRight={4}
+            isSpinning={isLoading}
             colorName='primaryDefault'
           />
-          Load more
+          Refresh (Reload original data)
         </Button>
       </BoxStyled>
     </PageContainer>

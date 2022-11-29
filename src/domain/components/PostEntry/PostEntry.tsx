@@ -4,17 +4,17 @@ import { Badge, BoxStyled, Link } from 'src/shared/components';
 import { postTypeToLabel, removeUrlProtocol, snakeCaseToCamelCase } from './utils';
 import { User } from 'src/domain/models';
 
-function PostEntry() {
+function PostEntry({ title }: any) {
   const post = {
     id: 0,
     upVotes: 11,
     postUrl: './',
     type: 'product_design',
     title: 'First post title',
-    externalReference: 'https://medium.com',
+    externalReference: 'https://medium.com'
   }
 
-  const { id, upVotes, title, externalReference, postUrl, type } = post;
+  const { id, upVotes, externalReference, postUrl, type } = post;
 
   const postType = postTypeToLabel(type);
   const badgeColorName = snakeCaseToCamelCase(type) as keyof Colors;
