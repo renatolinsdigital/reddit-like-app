@@ -1,7 +1,7 @@
 import { PostEntryInfo } from "src/domain/models";
 
 interface PostEntryProps {
-  postEntry: PostEntryInfo
+  postEntryInfo: PostEntryInfo;
 }
 
 export default PostEntryProps;

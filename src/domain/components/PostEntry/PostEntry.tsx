@@ -1,23 +1,17 @@
-import { User } from 'src/domain/models';
 import { Colors } from 'src/theme/models';
 import { useEffect, useState } from 'react';
 import { postCategoryToLabel } from './utils';
 import PostEntryProps from './PostEntry.model';
 import { Meta, UpVote } from './sub-components';
 import { Badge, BoxStyled, Link } from 'src/shared/components';
+import { User } from 'src/domain/models';
 
-function PostEntry({ postEntry }: PostEntryProps) {
+function PostEntry({ postEntryInfo }: PostEntryProps) {
   const [isVotedByCurrentUser, setIsVotedByCurrentUser] = useState(false);
   const [currentUpvotes, setCurrentUpvotes] = useState(0);
-  const { meta, upvotes, created_at, category, comments, isOwner } = postEntry;
+  const { meta, upvotes, created_at, category, comments, isOwner, user } = postEntryInfo;
 
   const postCategory = postCategoryToLabel(category);
-
-  const user: User = {
-    id: -1,
-    name: meta.author,
-    imageFileName: 'user_photo.png',
-  }
 
   const handleUpVote = (postId: number) => {
     console.log(`time to send upvote for post ${postId}`);
@@ -73,7 +67,7 @@ function PostEntry({ postEntry }: PostEntryProps) {
           justifyContent='flex-start'
         >
           <Badge text={postCategory} backgroundColorName={category as keyof Colors} />
-          <Meta user={user} comments={comments} isOwner={isOwner} />
+          <Meta user={user || {} as User} comments={comments} isOwner={isOwner} />
         </BoxStyled>
       </BoxStyled>
 

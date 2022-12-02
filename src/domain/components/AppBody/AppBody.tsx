@@ -1,27 +1,65 @@
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-import { isEmpty } from 'src/shared/helpers';
+// import { isEmpty } from 'src/shared/helpers';
 import { LoadingIcon } from 'src/shared/icons';
-import { PostEntryInfo } from 'src/domain/models';
+import { PostEntryInfo, User } from 'src/domain/models';
 import { PostEntry } from 'src/domain/components';
-import { AppDispatch, setLoggedUser } from 'src/store';
+import { setPostEntries, setLoggedUser, RootState } from 'src/store';
 import { PageContainer, BoxStyled, Button, TextStyled } from 'src/shared/components';
 
 function AppBody() {
 
+  const userDispatch = useDispatch();
+  const postsDispatch = useDispatch();
+  const [fakeUser, _] = useState<User>({
+    id: -1,
+    name: 'Test user',
+    username: 'test_user',
+    imageFileName: 'user_photo.png'
+  });
+
+  const postEntries = useSelector((state: RootState) => state.postEntries.value)
+
   // const { isLoading, originalPostsEntries, hasError, totalResults } = usePostsEntries({ hookRefresher });
 
-  // const userDispatch: AppDispatch = useDispatch();
   // Line below represents how logged user data could be used anywhere in this application
   // const user = useSelector((state: RootState) => state.user.value)
+
+  useEffect(() => {
+
+    const fakePosts = [
+      {
+        "meta": {
+          "author": "Danil Ishutin",
+          "title": "Font Size Idea: px at Root, rem for Components, em for Text Elements",
+          "url": "css-tricks.com"
+        },
+        "category": "ux_ui",
+        "comments": 7,
+        "created_at": 1459857600,
+        "upvotes": 9
+      },
+      {
+        "meta": {
+          "author": "Christopher Alesund",
+          "title": "Case study: Redesigning the Folyo landing page",
+          "url": "medium.com"
+        },
+        "category": "case_study",
+        "comments": 0,
+        "created_at": 1460289600,
+        "upvotes": 2
+      },
+    ];
+
+    userDispatch(setLoggedUser(fakeUser));
+    postsDispatch(setPostEntries(fakePosts));
+
+  }, [userDispatch, postsDispatch, fakeUser]);
 
   const onPostsRefresh = () => {
 
   }
-
-  // useEffect(() => {
-  //   if (!isEmpty(currentUser)) userDispatch(setLoggedUser(currentUser));
-  // }, [currentUser, userDispatch]);
 
   return (
     <PageContainer>
@@ -40,17 +78,19 @@ function AppBody() {
         alignItems='flex-start'
         justifyContent='flex-start'
       >
-        {/* {
-          originalPostsEntries.map((postEntry: PostEntryInfo, index) => {
+        {
+          postEntries.map((postEntryInfo: PostEntryInfo, index) => {
 
             return (
               <PostEntry
-                postEntry={postEntry}
-                key={`post-entry-for-${index}-${postEntry.created_at}`}
+                //   Considering post entries data is not providing user ImageStyled
+                //   We will provide the fake user so meta data can show at least a fake image
+                postEntryInfo={{ ...postEntryInfo, user: fakeUser }}
+                key={`post-entry-for-${index}-${postEntryInfo.created_at}`}
               />
             )
           })
-        } */}
+        }
         <Button
           minWidth="100%"
           paddingTop={20}

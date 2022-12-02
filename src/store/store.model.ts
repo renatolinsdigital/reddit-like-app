@@ -1,4 +1,23 @@
-import { store } from './store'
+import { store } from './store';
+import { PostEntryInfo, User } from 'src/domain/models';
+
+// Responses
+
+export interface PostEntriesResponse {
+  links: PostEntryInfo[];
+};
+
+// State
+
+export interface UserState {
+  value: User;
+}
+
+export interface PostEntriesState {
+  value: PostEntryInfo[];
+}
+
+// Store utils
 
 export type RootState = ReturnType<typeof store.getState>;
 
