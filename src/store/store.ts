@@ -1,4 +1,4 @@
-import { User } from "./domain/models";
+import { User } from "../domain/models";
 import { configureStore, createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 // Current/logged user
@@ -31,12 +31,5 @@ export const store = configureStore({
     user: userSlice.reducer
   }
 });
-
-// Types
-
-export type RootState = ReturnType<typeof store.getState>;
-
-export type AppDispatch = typeof store.dispatch;
-
 
 

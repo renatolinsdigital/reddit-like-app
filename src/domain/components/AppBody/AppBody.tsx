@@ -5,28 +5,23 @@ import { LoadingIcon } from 'src/shared/icons';
 import { PostEntryInfo } from 'src/domain/models';
 import { PostEntry } from 'src/domain/components';
 import { AppDispatch, setLoggedUser } from 'src/store';
-import { useLoggedUser, usePostsEntries } from 'src/service-hooks';
 import { PageContainer, BoxStyled, Button, TextStyled } from 'src/shared/components';
 
 function AppBody() {
-  const { currentUser } = useLoggedUser();
-  const [hookRefresher, setHookRefresher] = useState(false);
-  const { isLoading, originalPostsEntries, hasError, totalResults } = usePostsEntries({ hookRefresher });
 
-  const userDispatch: AppDispatch = useDispatch();
+  // const { isLoading, originalPostsEntries, hasError, totalResults } = usePostsEntries({ hookRefresher });
+
+  // const userDispatch: AppDispatch = useDispatch();
   // Line below represents how logged user data could be used anywhere in this application
   // const user = useSelector((state: RootState) => state.user.value)
 
   const onPostsRefresh = () => {
-    // The line below is just illustrative on how user interaction can cause side effects
-    // that will call an API. In real world apps, refresh triggers would be data mapped 
-    // to API params such as page number, queried text, etc.
-    setHookRefresher(value => !value);
+
   }
 
-  useEffect(() => {
-    if (!isEmpty(currentUser)) userDispatch(setLoggedUser(currentUser));
-  }, [currentUser, userDispatch]);
+  // useEffect(() => {
+  //   if (!isEmpty(currentUser)) userDispatch(setLoggedUser(currentUser));
+  // }, [currentUser, userDispatch]);
 
   return (
     <PageContainer>
@@ -37,7 +32,7 @@ function AppBody() {
         fontWeightName='medium'
         justifyContent='flex-end'
       >
-        Displaying {totalResults} posts
+        {/* Displaying {totalResults} posts */}
       </TextStyled>
       <BoxStyled
         isVertical
@@ -45,7 +40,7 @@ function AppBody() {
         alignItems='flex-start'
         justifyContent='flex-start'
       >
-        {
+        {/* {
           originalPostsEntries.map((postEntry: PostEntryInfo, index) => {
 
             return (
@@ -55,7 +50,7 @@ function AppBody() {
               />
             )
           })
-        }
+        } */}
         <Button
           minWidth="100%"
           paddingTop={20}
@@ -72,12 +67,12 @@ function AppBody() {
             width={25}
             height={25}
             marginRight={4}
-            isSpinning={isLoading}
+            // isSpinning={isLoading}
             colorName='primaryDefault'
           />
-          {isLoading && !hasError && <TextStyled>Loading...</TextStyled>}
+          {/* {isLoading && !hasError && <TextStyled>Loading...</TextStyled>}
           {hasError && <TextStyled>Posts entries could not be fetched</TextStyled>}
-          {!isLoading && !hasError && <TextStyled>Refresh (Reload original data)</TextStyled>}
+          {!isLoading && !hasError && <TextStyled>Refresh (Reload original data)</TextStyled>} */}
         </Button>
       </BoxStyled>
     </PageContainer>

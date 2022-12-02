@@ -29,7 +29,6 @@ An interview challenge application for Leroy Merlin
  - shared: A folder representing code that is used/reused without being tied to any application's rules. This folder is not called 'common' because it does not just hold common code but also has the potential to become a private/internal library - other projects within the same company could be using a versioned flavor of this folder. Regarding the project's structure/organization, this folder is also a container for other folders, so it will hold shared components, models, icons, hooks, etc.
  - global-styles: Will reset/default core styling properties across the entire app 
  - theme: Holds data for a 'themeable' styling approach, that can be the base for dark/light mode, switching themes based on preferences, etc. A theme is to be shared between all application domains and is considered a company's product. That way, multiple applications within the company can have the same theme (look and feel) AND/OR one single app can have multiple themes selectable under a single format agreement (object/properties/tokens) between business, designers and developers
- - service-hooks: Considering that modern React applications can have custom hooks acting as application services, this folder will store files that are both. If there is one single store (or source of truth) for the entire application, the service-hooks folder will serve the entire application. If the application has multiple stores, each application domain/module will have its own set of service hooks
 
 ### Images in this project
 
@@ -47,7 +46,7 @@ An interview challenge application for Leroy Merlin
 
  - Every shared component MUST be a presentation/stateless component, meaning that wont hold logic by themselves but rather get data from either a direct father or from hooks. This way we will have components that are easy to maintain, test, share, etc. For the sake of convenience and enhanced developer experience, one line logic (one-liners) are allowed to be coded within components, however, the ideal is to convert one-liners into utilities
  - In this app, we can consider the idea of 'composition over inheritance' while using these components - in that case, shared components can be used to build domain components and other shared components as well
- - Domain components can have logic for handling both UI(e.g onClick) and lifecycle events, but they should not be used to transform data or hold specific business related logic as these things are for util functions or custom hooks. For example, if we need to transform a date and display a text based on the parsed date, we would have a date util (for transforming dates) and a custom hook (for updating texts based on that same date)
+ - Domain components can have logic for handling both UI(e.g onClick) and lifecycle events, but they should not be used to transform data or hold specific business related logic as these things are for util functions or custom hooks. For example, if we need to transform a date and display a text based on the parsed date, we would have a date util and a custom hook (for displaying domain related texts based on that date)
  - This app was created with CRA, so it can be ejected anytime for advanced env/build control
  - Pages (and page folders) will not be treated as containers for multiple pieces of code, as this only happens with domain and shared folders. Pages will be treated as normal components, with the difference that they will be rendered when we reach certain routes. That said, components and pages will use the same naming conventions, coding patterns, testing approach, etc
  - Every folder that is grouping code will have an 'index' file re-exporting them all under a single 'namespace'. Alongside with the idea of having domain and shared namespaces, we have 'baseUrl' set to project root on __tsconfig.json__ which means we can avoid confusing paths while we can use absolute imports within the project
@@ -65,10 +64,11 @@ An interview challenge application for Leroy Merlin
 
 # State and data management
 
-  This application is mocked, so every data displayed is just representative, inclusive the API data itself
-- Considering this application is not going to transform/update original data (posts entries) we will not consider a state management solution such as Redux toolkit. As long as the data is flowing in just one direction API => Service => Component(s) we will be using hooks that behave like services (aka service hooks). As long as we are not dealing with a parameterized API, all data will be queried at once and then filtered within component's local state
+- This application is mocked, so every data displayed is just representative, inclusive the API data itself
+- As long as we are not dealing with a parameterized API, all data will be queried at once and then filtered within the app
 - A fake user is being stored on a Redux toolkit store, but it is just to illustrate how logged user information could be used across the application. This app doesn't cover authentication features
 - For the sake of avoiding extra complexity regarding data transformations, all models that are common to both API and the app will be exactly the same. In this case, if the API is returning a field with snake case (eg: __created_at__), the Typescript model will respect that, even though camel case is the standard for Javascript/Typescript
+- Lifting state + prop drilling between sibling components or components with sub-components is perfectly fine. We need some room not to make development too verbose, as well as criteria not to write code that is hard to maintain
 
 # Features, approaches and techniques
 
@@ -80,7 +80,7 @@ An interview challenge application for Leroy Merlin
 
  - Component-first approach: With the help of Styled components, every UI element is mapped to a component
  - State management: Example of storing logged-in user data with Redux toolkit
- - Data fetching with Axios managed by a service Hook
+ - Data fetching with Axios Redux Toolkit
  - Linting - TBD
  - Responsiveness - TBD
  - Git standards HUSKY - ???????????? TBD

@@ -1,4 +1,4 @@
-import { store } from './store';
+import { store } from './store/store';
 import { theme } from './theme/theme';
 import { Provider } from 'react-redux';
 import globalStyles from './global-styles/index.scss';
