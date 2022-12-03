@@ -3,8 +3,8 @@ import { Image } from 'src/domain/components';
 import { MessageIcon } from 'src/shared/icons';
 import { BoxStyled, Link, TextStyled } from 'src/shared/components';
 
-function Meta({ user, isOwner, comments }: MetaProps) {
-  const { name: creatorName, imageFileName } = user;
+function Meta({ user, isOwner, author, comments }: MetaProps) {
+  const { imageFileName } = user;
 
   return (
     <BoxStyled
@@ -16,7 +16,7 @@ function Meta({ user, isOwner, comments }: MetaProps) {
     >
       <Image
         width='25'
-        alternativeText={creatorName}
+        alternativeText={author}
         domainImageFileName={imageFileName}
       />
       <Link
@@ -26,7 +26,7 @@ function Meta({ user, isOwner, comments }: MetaProps) {
         colorName='primaryDefault'
         hoverColorName='primaryDark'
       >
-        {creatorName}
+        {author}
       </Link>
       <TextStyled
         paddingLeft={5}

@@ -67,7 +67,7 @@ function PostEntry({ postEntryInfo }: PostEntryProps) {
           justifyContent='flex-start'
         >
           <Badge text={postCategory} backgroundColorName={category as keyof Colors} />
-          <Meta user={user || {} as User} comments={comments} isOwner={isOwner} />
+          <Meta user={user || {} as User} author={meta.author} comments={comments} isOwner={isOwner} />
         </BoxStyled>
       </BoxStyled>
 

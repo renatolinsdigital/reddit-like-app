@@ -14,6 +14,8 @@ export interface UserState {
 }
 
 export interface PostEntriesState {
+  hasError: boolean;
+  isLoading: boolean;
   value: PostEntryInfo[];
 }
 
