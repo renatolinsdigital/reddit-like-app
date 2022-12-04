@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-// import { isEmpty } from 'src/shared/helpers';
 import { LoadingIcon } from 'src/shared/icons';
 import { PostEntryInfo, User } from 'src/domain/models';
 import { PostEntry } from 'src/domain/components';
@@ -40,7 +39,6 @@ function AppBody() {
         fontWeightName='medium'
         justifyContent='flex-end'
       >
-        {/* Displaying {totalResults} posts */}
       </TextStyled>
       <BoxStyled
         isVertical
