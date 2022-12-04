@@ -17,7 +17,7 @@ function AppBody() {
     imageFileName: 'user_photo.png'
   });
 
-  const { value: postEntries, isLoading, hasError } = useSelector((state: RootState) => state.postEntries)
+  const { filteredValue: postEntries, isLoading, hasError } = useSelector((state: RootState) => state.postEntries)
 
   useEffect(() => {
 
@@ -46,6 +46,16 @@ function AppBody() {
         alignItems='flex-start'
         justifyContent='flex-start'
       >
+        {
+          !isLoading && !hasError && postEntries.length === 0
+          && <TextStyled
+            marginTop={20}
+            marginBottom={20}
+            fontWeightName='medium'
+            colorName='primaryDefault'
+          > - No posts found -
+          </TextStyled>
+        }
         {
           postEntries.map((postEntryInfo: PostEntryInfo, index) => {
 

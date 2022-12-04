@@ -17,6 +17,7 @@ export interface PostEntriesState {
   hasError: boolean;
   isLoading: boolean;
   value: PostEntryInfo[];
+  filteredValue: PostEntryInfo[];
 }
 
 // Store utils

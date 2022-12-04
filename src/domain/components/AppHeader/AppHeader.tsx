@@ -1,5 +1,7 @@
-import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useState, useEffect } from 'react';
 import { ReactInputEvent } from 'src/shared/models';
+import { AppDispatch, filterByText } from 'src/store';
 import { SearchIcon, MenuIcon } from 'src/shared/icons';
 import { BoxStyled, TextInput, Button } from 'src/shared/components';
 import { Image, UserInfo, AddPostButton } from 'src/domain/components';
@@ -8,6 +10,8 @@ function AppHeader() {
   const [inputText, setInputText] = useState('');
   const [inputQuery, setInputQuery] = useState('');
 
+  const postsDispatch = useDispatch<AppDispatch>();
+
   const onSearchByText = () => {
     setInputQuery(inputText);
   };
@@ -15,6 +19,14 @@ function AppHeader() {
   const onInputChange = (event: ReactInputEvent) => {
     setInputText(event.target.value);
   };
+
+  useEffect(() => {
+    if (inputQuery) {
+      postsDispatch(filterByText(inputQuery));
+    } else {
+      postsDispatch(filterByText('all'));
+    }
+  }, [inputQuery, postsDispatch])
 
   return (
     <BoxStyled

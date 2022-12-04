@@ -14,19 +14,31 @@ export const fetchPostEntries = createAsyncThunk(
 const emptyPostEntriesState: PostEntriesState = {
   hasError: false,
   isLoading: false,
-  value: [] as PostEntryInfo[]
+  value: [] as PostEntryInfo[],
+  filteredValue: [] as PostEntryInfo[]
 };
 
 export const postEntriesSlice = createSlice({
   name: "postEntries",
   initialState: emptyPostEntriesState,
   reducers: {
-    setPostEntries: (state: PostEntriesState, action: PayloadAction<PostEntryInfo[]>) => {
-      state.value = action.payload;
+    setPostEntries: (state: PostEntriesState, { payload }: PayloadAction<PostEntryInfo[]>) => {
+      state.value = payload;
+      state.filteredValue = payload;
     },
     filterByText: (state: PostEntriesState, action: PayloadAction<string>) => {
-      console.log(action.payload)
-      // state.value = action.payload;
+      const searchQuery = action.payload.toUpperCase();
+      if (searchQuery === 'ALL') {
+        state.filteredValue = [...state.value]
+        return;
+      }
+      const filteredPostEntries = state.value
+        .filter((post) => {
+          const { category } = post;
+          const { title, author, url } = post.meta;
+          return `${category} ${author} ${title} ${url}`.toUpperCase().includes(searchQuery)
+        })
+      state.filteredValue = filteredPostEntries;
     },
   },
   extraReducers: (builder) => {
@@ -37,6 +49,7 @@ export const postEntriesSlice = createSlice({
     //TODO: Add better type definitions to payload action
     builder.addCase(fetchPostEntries.fulfilled, (state, action: PayloadAction<any>) => {
       state.value = action.payload.data.links;
+      state.filteredValue = action.payload.data.links;
       state.hasError = false;
       state.isLoading = false;
     })
@@ -47,4 +60,4 @@ export const postEntriesSlice = createSlice({
   }
 });
 
-export const { setPostEntries } = postEntriesSlice.actions;
+export const { setPostEntries, filterByText } = postEntriesSlice.actions;
