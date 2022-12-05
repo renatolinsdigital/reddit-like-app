@@ -1,15 +1,14 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import { LoadingIcon } from 'src/shared/icons';
-import { PostEntryInfo, User } from 'src/domain/models';
 import { PostEntry } from 'src/domain/components';
-import { fetchPostEntries, setLoggedUser, RootState, AppDispatch } from 'src/store';
+import { useDispatch, useSelector } from 'react-redux';
+import { PostEntryInfo, User } from 'src/domain/models';
 import { PageContainer, BoxStyled, Button, TextStyled } from 'src/shared/components';
+import { fetchPostEntries, setLoggedUser, RootState, AppDispatch, orderByUpvotes, orderByComments } from 'src/store';
 
 function AppBody() {
 
-  const userDispatch = useDispatch<AppDispatch>();
-  const postsDispatch = useDispatch<AppDispatch>();
+  const dispatch = useDispatch<AppDispatch>();
   const [fakeUser] = useState<User>({
     id: -1,
     name: 'Test user',
@@ -17,17 +16,24 @@ function AppBody() {
     imageFileName: 'user_photo.png'
   });
 
-  const { filteredValue: postEntries, isLoading, hasError } = useSelector((state: RootState) => state.postEntries)
+  const { filteredValue: postEntries, isLoading, hasError }
+    = useSelector((state: RootState) => state.postEntries)
 
   useEffect(() => {
-
-    userDispatch(setLoggedUser(fakeUser));
-    postsDispatch(fetchPostEntries());
-
-  }, [userDispatch, fakeUser, postsDispatch]);
+    dispatch(setLoggedUser(fakeUser));
+    dispatch(fetchPostEntries());
+  }, [dispatch, fakeUser]);
 
   const onPostsRefresh = () => {
-    postsDispatch(fetchPostEntries());
+    dispatch(fetchPostEntries());
+  }
+
+  const onOrderByUpvotes = () => {
+    dispatch(orderByUpvotes());
+  }
+
+  const onOrderByComments = () => {
+    dispatch(orderByComments());
   }
 
   return (
@@ -46,16 +52,34 @@ function AppBody() {
         alignItems='flex-start'
         justifyContent='flex-start'
       >
-        {
-          !isLoading && !hasError && postEntries.length === 0
-          && <TextStyled
-            marginTop={20}
-            marginBottom={20}
-            fontWeightName='medium'
-            colorName='primaryDefault'
-          > - No posts found -
-          </TextStyled>
-        }
+        <BoxStyled
+          paddingBottom={15}
+          isStretched={false}
+          justifyContent='flex-start'
+        >
+          {
+            (!isLoading && !hasError && postEntries.length === 0)
+              ? (
+                <TextStyled
+                  marginTop={20}
+                  marginBottom={20}
+                  fontWeightName='medium'
+                  colorName='primaryDefault'
+                > - No posts found -
+                </TextStyled>
+              ) : (
+                <>
+                  <TextStyled
+                    paddingLeft={0}
+                  >
+                    Order results by
+                  </TextStyled>
+                  <Button onClick={onOrderByUpvotes}>Most upvoted</Button>
+                  <Button marginLeft={15} onClick={onOrderByComments}>Most commented</Button>
+                </>
+              )
+          }
+        </BoxStyled>
         {
           postEntries.map((postEntryInfo: PostEntryInfo, index) => {
 

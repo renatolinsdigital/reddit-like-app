@@ -40,6 +40,13 @@ export const postEntriesSlice = createSlice({
         })
       state.filteredValue = filteredPostEntries;
     },
+    orderByUpvotes: (state: PostEntriesState) => {
+      state.filteredValue = state.filteredValue.sort((a, b) => b.upvotes - a.upvotes);
+    },
+    orderByComments: (state: PostEntriesState) => {
+      state.filteredValue = state.filteredValue.sort((a, b) => b.comments - a.comments);
+    },
+
   },
   extraReducers: (builder) => {
     builder.addCase(
@@ -60,4 +67,4 @@ export const postEntriesSlice = createSlice({
   }
 });
 
-export const { setPostEntries, filterByText } = postEntriesSlice.actions;
+export const { setPostEntries, filterByText, orderByUpvotes, orderByComments } = postEntriesSlice.actions;
