@@ -83,7 +83,7 @@ An interview challenge application for Leroy Merlin
  - State management: Example of storing user data with Redux toolkit
  - Data fetching with Axios + Async chunks handled by Redux Toolkit
  - Linting with ESLint for code styling check + prettier as code formatter. Linting configurations here are minimum, basic and therefore illustrative
- - Configurations related to GIT: The tool Husky is configured in such a way that linting + formatting will be triggered when making commits. For this to work, you might want to enable git hooks locally with ```npx husky install```
+ - Configurations related to GIT: The tool Husky is configured in such a way that linting + formatting will be triggered when making commits
  - Responsiveness - TBD
 
 Ps. For linting and formatting to work while saving files, the VS Code settings.json should have:
