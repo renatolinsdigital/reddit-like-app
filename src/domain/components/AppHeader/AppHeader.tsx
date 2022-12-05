@@ -3,12 +3,14 @@ import { useState, useEffect } from 'react';
 import { ReactInputEvent } from 'src/shared/models';
 import { AppDispatch, filterByText } from 'src/store';
 import { SearchIcon, MenuIcon } from 'src/shared/icons';
+import { useResponsiveBooleans } from 'src/shared/hooks';
 import { BoxStyled, TextInput, Button } from 'src/shared/components';
 import { Image, UserInfo, AddPostButton } from 'src/domain/components';
 
 function AppHeader() {
   const [inputText, setInputText] = useState('');
   const [inputQuery, setInputQuery] = useState('');
+  const { isSmaller, isSuperSmall } = useResponsiveBooleans();
 
   const postsDispatch = useDispatch<AppDispatch>();
 
@@ -29,25 +31,28 @@ function AppHeader() {
   }, [inputQuery, postsDispatch]);
 
   return (
-    <BoxStyled borderColorName='gray2' borderBottom='1px solid'>
+    <BoxStyled borderColorName='gray2' borderBottom='1px solid' maxWidth="100%">
       <BoxStyled
         maxWidth={1600}
         paddingTop={20}
         paddingLeft={15}
         paddingRight={15}
         paddingBottom={25}
-        justifyContent='flex-start'
+        justifyContent='space-between'
       >
-        <BoxStyled
-          cursor='pointer'
-          paddingRight={20}
-          isStretched={false}
-          borderRight='1px solid'
-          borderColorName='gray2'
-        >
-          <Image width='50' alternativeText='Company logo' sharedImageFileName='company_logo.svg' />
-        </BoxStyled>
-        <BoxStyled paddingLeft={20} isStretched={false} justifyContent='flex-start'>
+
+        <BoxStyled paddingLeft={isSmaller ? 0 : 10} justifyContent='flex-start'>
+          <BoxStyled
+            minWidth={65}
+            cursor='pointer'
+            marginRight={15}
+            paddingRight={15}
+            isStretched={false}
+            borderRight='1px solid'
+            borderColorName='gray2'
+          >
+            <Image width='50' alternativeText='Company logo' sharedImageFileName='company_logo.svg' />
+          </BoxStyled>
           <Button
             minWidth={52}
             marginRight={15}
@@ -62,7 +67,7 @@ function AppHeader() {
             <MenuIcon width={20} height={19} />
           </Button>
           <TextInput
-            maxWidth={380}
+            maxWidth={320}
             borderRadius={4}
             lineHeightName='tall'
             onChange={onInputChange}
@@ -73,13 +78,16 @@ function AppHeader() {
           ></TextInput>
         </BoxStyled>
 
-        <BoxStyled justifyContent='flex-end' paddingRight={20}>
-          <AddPostButton />
+        <BoxStyled justifyContent='flex-end'>
+          <AddPostButton
+            isTextVisible={!isSmaller}
+            isButtonVisible={!isSuperSmall}
+          />
+          <UserInfo isVisible={!isSmaller} />
         </BoxStyled>
 
-        <UserInfo />
       </BoxStyled>
-    </BoxStyled>
+    </BoxStyled >
   );
 }
 

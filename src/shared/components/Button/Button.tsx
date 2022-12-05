@@ -28,6 +28,7 @@ function Button({
 
   position,
   colorName,
+  isVisible,
   fontWeightName,
   hoverColorName,
   isEnabled = true,
@@ -62,17 +63,18 @@ function Button({
       marginTop={marginTop}
       isEnabled={isEnabled}
       disabled={!isEnabled}
+      isVisible={isVisible}
+      colorName={colorName}
       marginLeft={marginLeft}
+      paddingTop={paddingTop}
+      borderStyle={borderStyle}
       borderWidth={borderWidth}
       marginRight={marginRight}
-      marginBottom={marginBottom}
-      paddingTop={paddingTop}
       paddingLeft={paddingLeft}
       paddingRight={paddingRight}
-      paddingBottom={paddingBottom}
-      colorName={colorName}
-      borderStyle={borderStyle}
+      marginBottom={marginBottom}
       borderRadius={borderRadius}
+      paddingBottom={paddingBottom}
       fontWeightName={fontWeightName}
       hoverColorName={hoverColorName}
       borderColorName={borderColorName}

@@ -39,7 +39,7 @@ const BoxStyled = styled.div<BoxStyledProps>(
     marginBottom = 0,
 
     borderWidth,
-    isRemoved = false,
+    isVisible = true,
     isVertical = false,
     isStretched = true,
     position = 'relative',
@@ -66,9 +66,6 @@ const BoxStyled = styled.div<BoxStyledProps>(
       borderRight,
       borderBottom,
 
-      position,
-      minWidth,
-      minHeight,
       paddingTop,
       paddingLeft,
       paddingRight,
@@ -81,24 +78,29 @@ const BoxStyled = styled.div<BoxStyledProps>(
 
       cursor,
       overflow,
+      position,
+      minWidth,
       overflowX,
       overflowY,
+      minHeight,
       transform,
       alignItems,
       borderStyle,
       borderWidth,
       borderRadius,
       justifyContent,
-      borderColor: colors[borderColorName],
 
       maxWidth: maxWidth || '100%',
       maxHeight: maxHeight || 'auto',
       flex: isStretched ? flex : 'none',
       width: isStretched ? '100%' : 'auto',
-      display: isRemoved ? 'none' : 'flex',
+      display: isVisible ? 'flex' : 'none',
+      borderColor: colors[borderColorName],
+
       height: isStretched ? '100%' : 'auto',
       flexDirection: isVertical ? 'column' : 'row',
       flexWrap: isFlexWrapping ? 'wrap' : 'nowrap',
+
       [`@media(max-width: ${verticalBreakPoint}px)`]: {
         flexDirection: 'column'
       },

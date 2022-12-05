@@ -5,10 +5,8 @@ type BoxStyledProps = BoxProps & {
   borderTop?: string;
   borderLeft?: string;
   borderRight?: string;
-  borderBottom?: string;
-
-  isRemoved?: boolean;
   isVertical?: boolean;
+  borderBottom?: string;
   isStretched?: boolean;
   flex?: number | string;
   alignItems?: AlignItems;

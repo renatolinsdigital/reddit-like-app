@@ -3,17 +3,20 @@ import { LoadingIcon } from 'src/shared/icons';
 import { PostEntry } from 'src/domain/components';
 import { useDispatch, useSelector } from 'react-redux';
 import { PostEntryInfo, User } from 'src/domain/models';
+// import { useResponsiveBooleans } from 'src/shared/hooks';
 import { PageContainer, BoxStyled, Button, TextStyled } from 'src/shared/components';
 import {
-  fetchPostEntries,
-  setLoggedUser,
   RootState,
   AppDispatch,
+  setLoggedUser,
   orderByUpvotes,
-  orderByComments
+  orderByComments,
+  fetchPostEntries
 } from 'src/store';
 
 function AppBody() {
+  // const { isSmaller } = useResponsiveBooleans();
+
   const dispatch = useDispatch<AppDispatch>();
   const [fakeUser] = useState<User>({
     id: -1,
@@ -55,7 +58,11 @@ function AppBody() {
         justifyContent='flex-end'
       ></TextStyled>
       <BoxStyled isVertical paddingBottom={40} alignItems='flex-start' justifyContent='flex-start'>
-        <BoxStyled paddingBottom={15} isStretched={false} justifyContent='flex-start'>
+        <BoxStyled
+          paddingBottom={15}
+          isStretched={false}
+          justifyContent='flex-start'
+        >
           {!isLoading && !hasError && postEntries.length === 0 ? (
             <TextStyled
               marginTop={20}
@@ -68,9 +75,9 @@ function AppBody() {
           ) : (
             <>
               <TextStyled paddingLeft={0}>Order results by</TextStyled>
-              <Button onClick={onOrderByUpvotes}>Most upvoted</Button>
+              <Button onClick={onOrderByUpvotes}>+ upvotes</Button>
               <Button marginLeft={15} onClick={onOrderByComments}>
-                Most commented
+                + comments
               </Button>
             </>
           )}

@@ -1,13 +1,21 @@
 import { Image } from 'src/domain/components';
+import UserInfoProps from './UserInfo.model';
 import { BoxStyled, TextStyled } from 'src/shared/components';
 
-function UserInfo() {
+function UserInfo({ isVisible }: UserInfoProps) {
   const notificationsCount = 5;
 
   return (
-    <BoxStyled cursor='pointer' position='relative' isStretched={false} justifyContent='flex-end'>
+    <BoxStyled
+      marginLeft={5}
+      marginRight={5}
+      cursor='pointer'
+      position='relative'
+      isStretched={false}
+      isVisible={isVisible}
+      justifyContent='flex-end'
+    >
       <TextStyled
-        left={-10}
         paddingTop={4}
         paddingLeft={8}
         paddingRight={8}

@@ -83,8 +83,7 @@ An interview challenge application for Leroy Merlin
  - State management: Example of storing user data with Redux toolkit
  - Data fetching with Axios + Async chunks handled by Redux Toolkit
  - Linting with ESLint for code styling check + prettier as code formatter. Linting configurations here are minimum, basic and therefore illustrative
- - Configurations related to GIT: The tool Husky is configured in such a way that linting + formatting will be triggered when making commits. For this to run, you might want to run ```npx husky add .husky/pre-commit "yarn lint:fix && yarn format""```
- - Responsiveness - TBD
+ - Configurations related to GIT: The tool Husky is configured in such a way that linting + formatting will be triggered when making commits. For this to run, you might want to run ```npx husky add .husky/pre-commit "yarn lint:fix && yarn format"```
 
 Ps. For linting and formatting to work while saving files, the VS Code settings.json should have:
 
@@ -92,6 +91,33 @@ Ps. For linting and formatting to work while saving files, the VS Code settings.
     "editor.codeActionsOnSave": {"source.fixAll.eslint": true},
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
+```
+
+### Responsiveness
+
+This application uses a custom hook called __useResponsiveBooleans__ for delivering responsive behavior. It is responsible of working with both application's pre-defined break points and __mobile-detect__ library for exposing size information based on Javascript instead of media queries or css mixins. With that in mind, we will be basically updating sizes and orientations based on values exposed by a custom hook. Some advantages of this approach are:
+
+ * All break-points + size ranges will be abstracted. Once we have sizes mapped to booleans, developers will only have make components react to these booleans without even caring about exact sizes
+ * There will be no need to touch CSS, specially in a component-first approach where components will handle values informed
+ * It will work fine for applications that are heavily relying on mobile behavior and/or would be ported to an actual mobile app created with Javascript
+ * Booleans will deliver a consistent sizing notion, both designers and developers call talk about this same booleans (that can be renamed as needed) and the components will adapt within a well known set of possibilities
+
+Regarding the usage, we simply grab hook values like so:
+
+```const {
+    isSmall, // is in mobile mode (as per device detection) or small screens in desktops
+    isSmaller, // window width < 560px or small screen in desktops. This size also represents when the entire app could be rotated
+    isSuperSmall, // screen width or height (either one) <= 375px
+    isInMobileMode, // mobile or tablet device detected
+    isDesktopBigScreen, // not in mobile mode and screen size is >= 1280px
+    isDesktopSmallScreen, // not in mobile mode and screen size is < 1280px
+   } = useResponsiveBooleans();
+```
+
+Then we just pass values to our components already making our calculations:
+
+```
+<MyComponent maxWidth={isSuperSmall ? 255 : 290} />
 ```
 
 ### What was not done (TODOS)
