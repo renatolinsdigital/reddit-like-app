@@ -1,6 +1,6 @@
 import { theme } from 'src/theme/theme';
-import { SvgContainer } from "src/shared/components";
-import { AnimatedIcon, IconProps } from "src/shared/models";
+import { SvgContainer } from 'src/shared/components';
+import { AnimatedIcon, IconProps } from 'src/shared/models';
 
 function LoadingIcon({
   id,
@@ -19,16 +19,15 @@ function LoadingIcon({
   paddingTop = 0,
   paddingLeft = 0,
   paddingRight = 0,
-  paddingBottom = 0,
+  paddingBottom = 0
 }: IconProps & AnimatedIcon) {
   const { colors } = theme;
   return (
-
     <SvgContainer
       id={id}
       width={width}
       height={height}
-      viewBox="0 0 42 30"
+      viewBox='0 0 42 30'
       marginTop={marginTop}
       paddingTop={paddingTop}
       marginLeft={marginLeft}
@@ -50,17 +49,16 @@ function LoadingIcon({
         29.6667 21 29.6667C12.8967 29.6667 6.33332 23.1033 6.33333 15L0.833326 15L8.16666 \
         7.66667L15.5 15L9.99999 15Z`}
         >
-          {
-            isSpinning
-            && <animateTransform
-              dur="1s"
-              type="rotate"
-              from="0 21 15"
-              to="360 21 15"
-              repeatCount="indefinite"
-              attributeName="transform"
+          {isSpinning && (
+            <animateTransform
+              dur='1s'
+              type='rotate'
+              from='0 21 15'
+              to='360 21 15'
+              repeatCount='indefinite'
+              attributeName='transform'
             />
-          }
+          )}
         </path>
       </>
     </SvgContainer>

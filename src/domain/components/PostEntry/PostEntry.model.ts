@@ -1,4 +1,4 @@
-import { PostEntryInfo } from "src/domain/models";
+import { PostEntryInfo } from 'src/domain/models';
 
 interface PostEntryProps {
   postEntryInfo: PostEntryInfo;

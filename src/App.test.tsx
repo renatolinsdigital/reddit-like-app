@@ -1,9 +1,8 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
 import App from './App';
+import { render, screen } from '@testing-library/react';
 
-// test('renders the app title', () => {
-//   render(<App />);
-//   const linkElement = screen.getByText(/app title/i);
-//   expect(linkElement).toBeInTheDocument();
-// });
+test('renders the app with a button on its header', () => {
+  render(<App />);
+  const headerButton = screen.getByText(/Add Post/i);
+  expect(headerButton).toBeInTheDocument();
+});

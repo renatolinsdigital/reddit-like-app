@@ -1,24 +1,20 @@
 import { BoxStyledProps } from 'src/shared/models';
-import { FontSizes, LineHeights, FontWeights } from "src/theme/models";
+import { FontSizes, LineHeights, FontWeights } from 'src/theme/models';
 
 type TextElementProps = BoxStyledProps & {
-  wordWrap?:
-  'normal'
-  | 'break-word'
-  | 'initial'
-  | 'inherit';
+  wordWrap?: 'normal' | 'break-word' | 'initial' | 'inherit';
 
   textAlign?:
-  'left'
-  | 'end'
-  | 'start'
-  | 'right'
-  | 'unset'
-  | 'center'
-  | 'justify'
-  | 'inherit'
-  | 'initial'
-  | 'match-parent';
+    | 'left'
+    | 'end'
+    | 'start'
+    | 'right'
+    | 'unset'
+    | 'center'
+    | 'justify'
+    | 'inherit'
+    | 'initial'
+    | 'match-parent';
 
   alignItems?: string;
   fontFamily?: string;

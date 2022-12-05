@@ -1,8 +1,8 @@
 import styled, { CSSObject } from 'styled-components';
 import { ButtonStyledProps } from './Button.model';
 
-const ButtonStyled = styled.button<ButtonStyledProps>((
-  {
+const ButtonStyled = styled.button<ButtonStyledProps>(
+  ({
     top,
     left,
     right,
@@ -37,62 +37,65 @@ const ButtonStyled = styled.button<ButtonStyledProps>((
     hoverBackgroundColorName = 'primaryDark',
     hoverChildBorderColorName = 'transparent',
     disabledChildBorderColorName = 'transparent'
-
   }): CSSObject => {
-  const { colors, transitions, fontWeights } = theme;
+    const { colors, transitions, fontWeights } = theme;
 
-  const enabledBackgroundColor = backgroundColorName
-    ? colors[backgroundColorName]
-    : colors.primaryDefault;
+    const enabledBackgroundColor = backgroundColorName
+      ? colors[backgroundColorName]
+      : colors.primaryDefault;
 
-  return {
-    top,
-    left,
-    right,
-    bottom,
-    position,
+    return {
+      top,
+      left,
+      right,
+      bottom,
+      position,
 
-    marginTop,
-    marginLeft,
-    marginRight,
-    marginBottom,
+      marginTop,
+      marginLeft,
+      marginRight,
+      marginBottom,
 
-    paddingTop,
-    paddingLeft,
-    paddingRight,
-    paddingBottom,
+      paddingTop,
+      paddingLeft,
+      paddingRight,
+      paddingBottom,
 
-    minWidth,
-    minHeight,
-    borderStyle,
-    borderWidth,
-    borderRadius,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    transition: transitions.defaultAll,
-    borderColor: colors[borderColorName],
-    fontWeight: fontWeights[fontWeightName],
-    cursor: isEnabled ? 'pointer' : 'default',
-    color: colorName ? colors[colorName] : colors.white,
-    backgroundColor: isEnabled ? enabledBackgroundColor : colors[disabledBackgroundColorName],
+      minWidth,
+      minHeight,
+      borderStyle,
+      borderWidth,
+      borderRadius,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      transition: transitions.defaultAll,
+      borderColor: colors[borderColorName],
+      fontWeight: fontWeights[fontWeightName],
+      cursor: isEnabled ? 'pointer' : 'default',
+      color: colorName ? colors[colorName] : colors.white,
+      backgroundColor: isEnabled ? enabledBackgroundColor : colors[disabledBackgroundColorName],
 
-    ' div': {
-      borderColor: isEnabled ? undefined : colors[disabledChildBorderColorName],
-    },
-
-    '&:hover': {
-      color: isEnabled ? colors[hoverColorName] : colors.white,
-      backgroundColor: isEnabled ? colors[hoverBackgroundColorName] : colors[disabledBackgroundColorName],
-      ' *': {
-        borderColor: isEnabled ? colors[hoverChildBorderColorName] : colors[disabledChildBorderColorName],
+      ' div': {
+        borderColor: isEnabled ? undefined : colors[disabledChildBorderColorName]
       },
-      ' svg, path': {
-        fill: hoverChildrenSvgColorName ? colors[hoverChildrenSvgColorName] : undefined
-      }
-    },
-  }
 
-});
+      '&:hover': {
+        color: isEnabled ? colors[hoverColorName] : colors.white,
+        backgroundColor: isEnabled
+          ? colors[hoverBackgroundColorName]
+          : colors[disabledBackgroundColorName],
+        ' *': {
+          borderColor: isEnabled
+            ? colors[hoverChildBorderColorName]
+            : colors[disabledChildBorderColorName]
+        },
+        ' svg, path': {
+          fill: hoverChildrenSvgColorName ? colors[hoverChildrenSvgColorName] : undefined
+        }
+      }
+    };
+  }
+);
 
 export default ButtonStyled;

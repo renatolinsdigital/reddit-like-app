@@ -19,7 +19,7 @@ function MenuIcon({
   paddingBottom = 0,
 
   rotationDegrees,
-  colorName = 'dark',
+  colorName = 'dark'
 }: IconProps) {
   const { colors } = theme;
 
@@ -29,7 +29,7 @@ function MenuIcon({
     strokeWidth: 5.6195,
     strokeMiterlimit: 10,
     fill: colors[colorName],
-    stroke: colors[colorName],
+    stroke: colors[colorName]
   };
 
   return (
@@ -37,7 +37,7 @@ function MenuIcon({
       id={id}
       width={width}
       height={height}
-      viewBox="0 0 32 28.5"
+      viewBox='0 0 32 28.5'
       marginTop={marginTop}
       marginLeft={marginLeft}
       paddingTop={paddingTop}
@@ -51,9 +51,9 @@ function MenuIcon({
       <>
         <title>{title || 'Menu Icon'}</title>
         <g style={styles}>
-          <line x1="0" y1="2.8" x2="32" y2="2.8" />
-          <line x1="0" y1="14.3" x2="32" y2="14.3" />
-          <line x1="0" y1="25.7" x2="32" y2="25.7" />
+          <line x1='0' y1='2.8' x2='32' y2='2.8' />
+          <line x1='0' y1='14.3' x2='32' y2='14.3' />
+          <line x1='0' y1='25.7' x2='32' y2='25.7' />
         </g>
       </>
     </SvgContainer>

@@ -33,8 +33,7 @@ const TitleStyled = styled.h1<TitleProps>(
     fontSizeName = 'default',
     justifyContent = 'center',
     fontWeightName = 'medium',
-    lineHeightName = 'default',
-
+    lineHeightName = 'default'
   }): CSSObject => {
     const { colors, fontSizes, lineHeights, fontWeights } = theme;
 
@@ -66,14 +65,13 @@ const TitleStyled = styled.h1<TitleProps>(
       maxWidth: maxWidth ? maxWidth : '100%',
       display: isFlexible ? 'flex' : 'inline',
 
-
       fontWeight: fontWeights[fontWeightName],
       lineHeight: lineHeights[lineHeightName],
       fontSize: `${fontSizes[fontSizeName]}rem`,
       minWidth: isStretched ? 'max-content' : minWidth,
-      textTransform: isInUpperCase ? 'uppercase' : 'none',
+      textTransform: isInUpperCase ? 'uppercase' : 'none'
     };
-  },
+  }
 );
 
 export default TitleStyled;

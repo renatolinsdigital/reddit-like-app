@@ -1,8 +1,8 @@
 import { TextElementProps } from 'src/shared/models';
 import styled, { CSSObject } from 'styled-components';
 
-const AnchorStyled = styled.a<TextElementProps>((
-  {
+const AnchorStyled = styled.a<TextElementProps>(
+  ({
     theme,
     hasUnderline,
     isInUpperCase,
@@ -31,43 +31,43 @@ const AnchorStyled = styled.a<TextElementProps>((
     textUnderlineOffset = '4px',
     justifyContent = 'flex-start',
     hoverColorName = 'primaryDefault'
+  }): CSSObject => {
+    const { colors, transitions, fontWeights, fontSizes, lineHeights } = theme;
+
+    return {
+      flex,
+      position,
+      wordWrap,
+      marginTop,
+      marginLeft,
+      marginRight,
+      marginBottom,
+
+      paddingTop,
+      paddingLeft,
+      paddingRight,
+      paddingBottom,
+
+      cursor,
+      alignItems,
+      fontFamily,
+      justifyContent,
+      textUnderlineOffset,
+      color: colors[colorName],
+      transition: transitions.defaultAll,
+      display: isFlexible ? 'flex' : 'inline',
+      textDecoration: hasUnderline ? 'underline' : 'none',
+
+      fontWeight: fontWeights[fontWeightName],
+      lineHeight: lineHeights[lineHeightName],
+      fontSize: `${fontSizes[fontSizeName]}rem`,
+      textTransform: isInUpperCase ? 'uppercase' : 'none',
+
+      '&:hover': {
+        color: colors[hoverColorName]
+      }
+    };
   }
-): CSSObject => {
-  const { colors, transitions, fontWeights, fontSizes, lineHeights } = theme;
-
-  return {
-    flex,
-    position,
-    wordWrap,
-    marginTop,
-    marginLeft,
-    marginRight,
-    marginBottom,
-
-    paddingTop,
-    paddingLeft,
-    paddingRight,
-    paddingBottom,
-
-    cursor,
-    alignItems,
-    fontFamily,
-    justifyContent,
-    textUnderlineOffset,
-    color: colors[colorName],
-    transition: transitions.defaultAll,
-    display: isFlexible ? 'flex' : 'inline',
-    textDecoration: hasUnderline ? 'underline' : 'none',
-
-    fontWeight: fontWeights[fontWeightName],
-    lineHeight: lineHeights[lineHeightName],
-    fontSize: `${fontSizes[fontSizeName]}rem`,
-    textTransform: isInUpperCase ? 'uppercase' : 'none',
-
-    '&:hover': {
-      color: colors[hoverColorName]
-    },
-  };
-});
+);
 
 export default AnchorStyled;

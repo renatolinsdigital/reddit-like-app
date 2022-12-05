@@ -9,12 +9,7 @@ function AppFooter() {
       paddingBottom={15}
       backgroundColorName='primaryDark'
     >
-      <TextStyled
-        paddingLeft={0}
-        paddingRight={2}
-        colorName='white'
-        hoverColorName='white'
-      >
+      <TextStyled paddingLeft={0} paddingRight={2} colorName='white' hoverColorName='white'>
         Developed by
       </TextStyled>
       <Link
@@ -27,7 +22,7 @@ function AppFooter() {
         Renato Lins
       </Link>
     </BoxStyled>
-  )
+  );
 }
 
 export default AppFooter;

@@ -1,7 +1,7 @@
-import { Colors } from "src/theme/models";
+import { Colors } from 'src/theme/models';
 
 export function postCategoryToLabel(postType: string) {
-  return postType.replace("_", " ");
+  return postType.replace('_', ' ');
 }
 
 export function snakeCaseToCamelCase(text: string): keyof Colors | string {
@@ -9,5 +9,5 @@ export function snakeCaseToCamelCase(text: string): keyof Colors | string {
 }
 
 export function removeUrlProtocol(url: string) {
-  return url.substring(url.indexOf(":") + 3);
+  return url.substring(url.indexOf(':') + 3);
 }

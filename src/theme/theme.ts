@@ -11,14 +11,12 @@ will be able to use this strong-typed custom theme.
 
 */
 
-import { DefaultTheme } from "styled-components";
+import { DefaultTheme } from 'styled-components';
 
 export const theme: DefaultTheme = {
-
   /* Company & App colors */
 
   colors: {
-
     // Branding
     primaryDark: '#CB3720',
     primaryDefault: '#E3472F',
@@ -36,8 +34,7 @@ export const theme: DefaultTheme = {
     discussion: '#4271D6',
     ux_ui: '#00BBFF',
     case_study: '#F4973C',
-    product_design: '#00E2AD',
-
+    product_design: '#00E2AD'
   },
 
   /* Typography */
@@ -50,14 +47,14 @@ export const theme: DefaultTheme = {
     extraLarge: 1.375,
     huge: 1.5,
     jumbo: 2,
-    biggest: 2.5,
+    biggest: 2.5
   },
 
   fontWeights: {
     light: 300,
     regular: 400,
     medium: 500,
-    bold: 700,
+    bold: 700
   },
 
   lineHeights: {
@@ -66,7 +63,7 @@ export const theme: DefaultTheme = {
     tall: 1.5,
     taller: 1.8,
     big: 2,
-    biggest: 2.4,
+    biggest: 2.4
   },
 
   /* Timings */
@@ -75,5 +72,4 @@ export const theme: DefaultTheme = {
     defaultAll: 'all .2s ease',
     defaultTime: '.2s'
   }
-
 };

@@ -5,7 +5,7 @@ import { PostEntryInfo, User } from 'src/domain/models';
 
 export interface PostEntriesResponse {
   links: PostEntryInfo[];
-};
+}
 
 // State
 

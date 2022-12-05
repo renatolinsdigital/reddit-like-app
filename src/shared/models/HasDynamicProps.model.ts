@@ -1,5 +1,5 @@
 interface HasDynamicProps {
-  [key: string]: any;
+  [key: string]: unknown;
 }
 
 export default HasDynamicProps;

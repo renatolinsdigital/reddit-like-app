@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { BoxProps } from "src/shared/models";
+import { BoxProps } from 'src/shared/models';
 
 type SvgContainerProps = Omit<BoxProps, 'theme'> & {
   id?: string;

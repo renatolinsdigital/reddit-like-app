@@ -1,4 +1,4 @@
-import { TextElementProps } from "../../models";
+import { TextElementProps } from '../../models';
 
 type TitleProps = TextElementProps & {
   isSubHeading?: boolean;

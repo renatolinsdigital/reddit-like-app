@@ -19,7 +19,7 @@ function SearchIcon({
   paddingBottom = 0,
 
   rotationDegrees,
-  colorName = 'dark',
+  colorName = 'dark'
 }: IconProps) {
   const { colors } = theme;
 
@@ -35,7 +35,7 @@ function SearchIcon({
       marginRight={marginRight}
       paddingRight={paddingRight}
       marginBottom={marginBottom}
-      viewBox="0 0 191.475 192.527"
+      viewBox='0 0 191.475 192.527'
       paddingBottom={paddingBottom}
       rotationDegrees={rotationDegrees}
     >
@@ -65,8 +65,8 @@ function SearchIcon({
           188.2529907226562 173.7486267089844 C 192.5487213134766 178.0443115234375 \
           192.5487213134766 185.0093994140625 188.2529907226562 189.3051300048828 C \
           186.1051788330078 191.4529418945312 183.2899475097656 192.5269012451172 \
-          180.4747619628906 192.5269012451172 Z`}>
-        </path>
+          180.4747619628906 192.5269012451172 Z`}
+        ></path>
       </>
     </SvgContainer>
   );

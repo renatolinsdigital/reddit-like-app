@@ -11,7 +11,7 @@ type InputEvents = {
   onChange?(event?: ReactInputEvent): void;
   onKeyDown?(event?: ReactInputEvent): void;
   onKeyPress?(event?: ReactInputEvent): void;
-}
+};
 
 type CustomInputProps = {
   name?: string;
@@ -31,9 +31,9 @@ type CustomInputProps = {
   fontWeightName?: keyof FontWeights;
   lineHeightName?: keyof LineHeights;
   placeHolderColorName?: keyof Colors;
-}
+};
 
-export type TextInputProps = Omit<BoxProps, "theme"> & InputEvents & CustomInputProps;
+export type TextInputProps = Omit<BoxProps, 'theme'> & InputEvents & CustomInputProps;
 
 // For Styled components
 
@@ -53,16 +53,15 @@ export type TextInputContainerStyledProps = CommonStyledProps & {
   marginLeft?: string | number;
   marginRight?: string | number;
   marginBottom?: string | number;
-}
+};
 
-export type TextInputStyledProps = CommonStyledProps & BoxProps & {
-  hasFocusOutline?: boolean;
-  placeHolderColor?: string;
-  isLeftIconRendered?: boolean;
-  isRightIconRendered?: boolean;
-  fontSizeName?: keyof FontSizes;
-  lineHeightName?: keyof LineHeights;
-  fontWeightName?: keyof FontWeights;
-}
-
-
+export type TextInputStyledProps = CommonStyledProps &
+  BoxProps & {
+    hasFocusOutline?: boolean;
+    placeHolderColor?: string;
+    isLeftIconRendered?: boolean;
+    isRightIconRendered?: boolean;
+    fontSizeName?: keyof FontSizes;
+    lineHeightName?: keyof LineHeights;
+    fontWeightName?: keyof FontWeights;
+  };

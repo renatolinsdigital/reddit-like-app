@@ -7,6 +7,6 @@ interface FontSizeNames {
   huge: number;
   jumbo: number;
   biggest: number;
-};
+}
 
 export default FontSizeNames;

@@ -10,15 +10,15 @@ function PageContainer({ children, isVertical = true }: PageContainerProps) {
       paddingLeft={15}
       paddingRight={15}
       paddingBottom={30}
-      marginLeft="auto"
-      marginRight="auto"
+      marginLeft='auto'
+      marginRight='auto'
       isVertical={isVertical}
       maxWidth={MAX_PAGE_SIZE}
       backgroundColorName='transparent'
     >
       {children}
     </BoxStyled>
-  )
+  );
 }
 
 export default PageContainer;

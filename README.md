@@ -82,14 +82,23 @@ An interview challenge application for Leroy Merlin
  - Component-first approach: With the help of Styled components, every UI element is mapped to a component
  - State management: Example of storing user data with Redux toolkit
  - Data fetching with Axios + Async chunks handled by Redux Toolkit
- - Linting with ??????????????????
+ - Linting with ESLint for code styling check + prettier as code formatter. Linting configurations here are minimum, basic and therefore illustrative
+ - Husky is configured in such a way that linting + formatting will be triggered before pushing code 
  - Responsiveness - TBD
  - Git standards HUSKY - ???????????? TBD
+
+Ps. For linting and formatting to work while saving files, the VS Code settings.json should have:
+
+```
+    "editor.codeActionsOnSave": {"source.fixAll.eslint": true},
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+```
 
 ### What was not done (TODOS)
 
 - Parsing __created_at__ field in a way we can see how many minutes/hours/days/months/years ago the post was created. This information is hard coded at this moment
-- Testing: This would require unit test for all functions and integration tests(logic + template rendering checks) for all of the components created. Doing this should not be too complex with Jest + React testing library, but it would __cost__ a considerable amount of time and effort
+- Testing: Configure Jest + Typescript + React testing library to run smoothly with no warning and stuff. Testing would require unit test for all functions and integration tests(logic + template rendering checks) for all of the components created. Doing this should not be too complex with Jest + React testing library, but it would __cost__ a considerable amount of time and effort
 - Creating filters with dates as it requires an interface for inputting date ranges and then running data transformations, which again would __cost__ a considerable amount of time and effort
 
 ### Out of scope (but could also be done)
@@ -104,7 +113,7 @@ An interview challenge application for Leroy Merlin
  - Infinite Scroll and/or Pagination
  - UI feedback using toastr messages
  - Full Redux/Toolkit store implementation
- - Creating full professional and modern blog UI design
+ - Creating full professional and modern blog UI interface
  - Error handling managed by a robust error handling approach
  - Interacting with an actual blog API and allow posts to be created
  - etc

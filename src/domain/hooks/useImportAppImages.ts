@@ -8,18 +8,20 @@ const useImportAppImages = (sharedImageFileName?: string, domainImageFileName?: 
   const isShared = sharedImageFileName !== undefined;
 
   useEffect(() => {
-
     const createStaticImageUrl = async () => {
       try {
-        const importResponse =
-          await import(`/src/${isShared ? 'shared' : 'domain'}/images/${isShared ? sharedImageFileName : domainImageFileName}`);
+        const importResponse = await import(
+          `/src/${isShared ? 'shared' : 'domain'}/images/${
+            isShared ? sharedImageFileName : domainImageFileName
+          }`
+        );
         setStaticImageUrl(importResponse.default);
       } catch (error) {
         setError(String(error));
       } finally {
         setIsLoading(false);
       }
-    }
+    };
 
     createStaticImageUrl();
   }, [sharedImageFileName, domainImageFileName, isShared]);
@@ -28,8 +30,7 @@ const useImportAppImages = (sharedImageFileName?: string, domainImageFileName?: 
     error,
     isLoading,
     staticImageUrl
-  }
-
-}
+  };
+};
 
 export default useImportAppImages;

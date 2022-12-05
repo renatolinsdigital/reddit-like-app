@@ -56,15 +56,11 @@ const TextStyled = styled.span<TextProps>(
     justifyContent = 'flex-start',
     borderColorName = 'transparent',
     backgroundColorName = 'transparent',
-    hoverBackgroundColorName = 'transparent',
-
+    hoverBackgroundColorName = 'transparent'
   }): CSSObject => {
     const { colors, transitions, fontSizes, lineHeights, fontWeights } = theme;
 
-    const textTransform =
-      isInUpperCase ? 'uppercase'
-        : isCapitalized ? 'capitalize'
-          : 'none';
+    const textTransform = isInUpperCase ? 'uppercase' : isCapitalized ? 'capitalize' : 'none';
 
     return {
       top,
@@ -125,11 +121,9 @@ const TextStyled = styled.span<TextProps>(
         backgroundColor: hoverBackgroundColorName
           ? colors[hoverBackgroundColorName]
           : colors.transparent
-      },
-    }
+      }
+    };
   }
-
 );
-
 
 export default TextStyled;

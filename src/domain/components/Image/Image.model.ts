@@ -1,4 +1,4 @@
-import { HasDynamicProps } from "src/shared/models";
+import { HasDynamicProps } from 'src/shared/models';
 
 export type ImageProps = {
   id?: string;
@@ -11,6 +11,6 @@ export type ImageProps = {
 
 export type StyledImageProps = {
   isVisible?: boolean;
-}
+};
 
 export default ImageProps;

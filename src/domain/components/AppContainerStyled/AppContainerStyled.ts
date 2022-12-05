@@ -10,7 +10,7 @@ const AppContainerStyled = styled.div(({ theme }): CSSObject => {
     minHeight: '100vh',
     color: colors.dark,
     backgroundColor: colors.white,
-    gridAutoRows: 'min-content 1fr min-content',
+    gridAutoRows: 'min-content 1fr min-content'
   };
 });
 

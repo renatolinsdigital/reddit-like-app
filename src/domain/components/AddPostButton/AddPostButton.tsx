@@ -1,5 +1,5 @@
-import { PlusIcon } from "src/shared/icons";
-import { BoxStyled, Button, TextStyled } from "src/shared/components";
+import { PlusIcon } from 'src/shared/icons';
+import { BoxStyled, Button, TextStyled } from 'src/shared/components';
 
 function AddPostButton() {
   return (
@@ -20,20 +20,16 @@ function AddPostButton() {
         paddingLeft={15}
         paddingRight={14}
         paddingBottom={10}
-        borderRight="1px solid"
+        borderRight='1px solid'
         borderColorName='primaryDark'
       >
         <PlusIcon width={15} height={15} colorName='white' />
       </BoxStyled>
-      <TextStyled
-        colorName='white'
-        hoverColorName='white'
-        fontWeightName='medium'
-      >
+      <TextStyled colorName='white' hoverColorName='white' fontWeightName='medium'>
         Add Post
       </TextStyled>
     </Button>
-  )
+  );
 }
 
 export default AddPostButton;

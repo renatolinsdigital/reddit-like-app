@@ -7,4 +7,3 @@ export interface FinancialData {
 export interface FinancialRatios {
   [key: string]: FinancialData;
 }
-

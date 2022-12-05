@@ -16,7 +16,7 @@ function Badge({ text, textColorName = 'white', backgroundColorName = 'gray2' }:
     >
       {text}
     </TextStyled>
-  )
+  );
 }
 
 export default Badge;

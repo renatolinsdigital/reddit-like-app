@@ -3,10 +3,9 @@ import { ChevronIcon } from 'src/shared/icons';
 import { BoxStyled, Button, TextStyled } from 'src/shared/components';
 
 function UpVote({ postId, votesCount, onVoted, isVotedByCurrentUser }: UpVoteProps) {
-
   const handleUpVote = () => {
     onVoted(postId);
-  }
+  };
 
   return (
     <BoxStyled
@@ -20,7 +19,7 @@ function UpVote({ postId, votesCount, onVoted, isVotedByCurrentUser }: UpVotePro
       backgroundColorName='white'
     >
       <Button
-        minWidth="100%"
+        minWidth='100%'
         paddingTop={10}
         paddingLeft={8}
         paddingRight={8}
@@ -40,7 +39,7 @@ function UpVote({ postId, votesCount, onVoted, isVotedByCurrentUser }: UpVotePro
         />
       </Button>
       <TextStyled
-        minWidth="100%"
+        minWidth='100%'
         paddingTop={15}
         paddingLeft={8}
         paddingRight={8}
@@ -54,7 +53,7 @@ function UpVote({ postId, votesCount, onVoted, isVotedByCurrentUser }: UpVotePro
         {votesCount}
       </TextStyled>
     </BoxStyled>
-  )
+  );
 }
 
 export default UpVote;

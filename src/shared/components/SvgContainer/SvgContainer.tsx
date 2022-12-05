@@ -20,7 +20,7 @@ function SvgContainer({
   paddingRight,
   paddingBottom,
 
-  rotationDegrees,
+  rotationDegrees
 }: SvgContainerProps) {
   const DEFAULT_DIMENSION = 20;
 
@@ -37,7 +37,7 @@ function SvgContainer({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
-    transform: rotationDegrees ? `rotate(${rotationDegrees}deg)` : 'rotate(0deg)',
+    transform: rotationDegrees ? `rotate(${rotationDegrees}deg)` : 'rotate(0deg)'
   };
 
   return (
@@ -46,8 +46,8 @@ function SvgContainer({
       y={y}
       id={id}
       style={styles}
-      focusable="false"
-      xmlns="http://www.w3.org/2000/svg"
+      focusable='false'
+      xmlns='http://www.w3.org/2000/svg'
       width={width || DEFAULT_DIMENSION}
       height={height || DEFAULT_DIMENSION}
       viewBox={viewBox || `0 0 ${DEFAULT_DIMENSION} ${DEFAULT_DIMENSION}`}

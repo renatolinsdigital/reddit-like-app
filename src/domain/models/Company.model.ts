@@ -3,6 +3,3 @@ export interface Company {
   company_name: string;
   country_code: string;
 }
-
-
-

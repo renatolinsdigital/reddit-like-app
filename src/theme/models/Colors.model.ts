@@ -1,5 +1,4 @@
 interface Colors {
-
   // Branding
   primaryDark: string;
   primaryDefault: string;
@@ -18,7 +17,6 @@ interface Colors {
   discussion: string;
   case_study: string;
   product_design: string;
-
 }
 
 export default Colors;

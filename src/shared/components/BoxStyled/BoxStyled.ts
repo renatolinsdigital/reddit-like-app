@@ -50,7 +50,7 @@ const BoxStyled = styled.div<BoxStyledProps>(
     isFlexWrapping = false,
     justifyContent = 'center',
     borderColorName = 'transparent',
-    backgroundColorName = 'transparent',
+    backgroundColorName = 'transparent'
   }): CSSObject => {
     const { colors } = theme;
 
@@ -100,12 +100,11 @@ const BoxStyled = styled.div<BoxStyledProps>(
       flexDirection: isVertical ? 'column' : 'row',
       flexWrap: isFlexWrapping ? 'wrap' : 'nowrap',
       [`@media(max-width: ${verticalBreakPoint}px)`]: {
-        flexDirection: 'column',
+        flexDirection: 'column'
       },
       backgroundColor: colors[backgroundColorName]
-
     };
-  },
+  }
 );
 
 export default BoxStyled;

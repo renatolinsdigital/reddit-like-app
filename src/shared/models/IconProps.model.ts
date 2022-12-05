@@ -1,4 +1,4 @@
-import { Colors } from "src/theme/models";
+import { Colors } from 'src/theme/models';
 
 interface IconProps {
   id?: string;

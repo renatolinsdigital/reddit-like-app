@@ -12,7 +12,7 @@ enum KeyboardKeys {
   'ENTER' = 13,
   'SPACE' = 32,
   'DELETE' = 46,
-  'BACKSPACE' = 8,
+  'BACKSPACE' = 8
 }
 
 export default KeyboardKeys;

@@ -16,8 +16,10 @@ interface CustomButtonProps {
   disabledChildBorderColorName?: keyof Colors;
 }
 
-export type ButtonProps = Omit<BoxProps, "theme"> & ButtonEvents & CustomButtonProps & {
-  children: ReactNode;
-};
+export type ButtonProps = Omit<BoxProps, 'theme'> &
+  ButtonEvents &
+  CustomButtonProps & {
+    children: ReactNode;
+  };
 
 export type ButtonStyledProps = BoxProps & ButtonEvents & CustomButtonProps;

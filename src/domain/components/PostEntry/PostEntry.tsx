@@ -9,28 +9,23 @@ import { User } from 'src/domain/models';
 function PostEntry({ postEntryInfo }: PostEntryProps) {
   const [isVotedByCurrentUser, setIsVotedByCurrentUser] = useState(false);
   const [currentUpvotes, setCurrentUpvotes] = useState(0);
-  const { meta, upvotes, created_at, category, comments, isOwner, user } = postEntryInfo;
+  const { meta, upvotes, category, comments, isOwner, user } = postEntryInfo;
 
   const postCategory = postCategoryToLabel(category);
 
   const handleUpVote = (postId: number) => {
     console.log(`time to send upvote for post ${postId}`);
-    setCurrentUpvotes(upvotes => upvotes + 1);
+    setCurrentUpvotes((upvotes) => upvotes + 1);
     setIsVotedByCurrentUser(true);
-  }
+  };
 
   useEffect(() => {
     // hydrates upvotes count with initial/original data
-    setCurrentUpvotes(upvotes)
-  }, [upvotes])
+    setCurrentUpvotes(upvotes);
+  }, [upvotes]);
 
   return (
-    <BoxStyled
-      marginTop={30}
-      marginBottom={30}
-      isStretched={false}
-      justifyContent='flex-start'
-    >
+    <BoxStyled marginTop={30} marginBottom={30} isStretched={false} justifyContent='flex-start'>
       <UpVote
         postId={-1}
         onVoted={handleUpVote}
@@ -62,18 +57,18 @@ function PostEntry({ postEntryInfo }: PostEntryProps) {
             {meta.title}
           </Link>
         </BoxStyled>
-        <BoxStyled
-          paddingTop={12}
-          justifyContent='flex-start'
-        >
+        <BoxStyled paddingTop={12} justifyContent='flex-start'>
           <Badge text={postCategory} backgroundColorName={category as keyof Colors} />
-          <Meta user={user || {} as User} author={meta.author} comments={comments} isOwner={isOwner} />
+          <Meta
+            user={user || ({} as User)}
+            author={meta.author}
+            comments={comments}
+            isOwner={isOwner}
+          />
         </BoxStyled>
       </BoxStyled>
-
     </BoxStyled>
-  )
-
+  );
 }
 
 export default PostEntry;

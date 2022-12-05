@@ -26,39 +26,28 @@ function AppHeader() {
     } else {
       postsDispatch(filterByText('all'));
     }
-  }, [inputQuery, postsDispatch])
+  }, [inputQuery, postsDispatch]);
 
   return (
-    <BoxStyled
-      borderColorName='gray2'
-      borderBottom="1px solid"
-    >
+    <BoxStyled borderColorName='gray2' borderBottom='1px solid'>
       <BoxStyled
         maxWidth={1600}
         paddingTop={20}
         paddingLeft={15}
         paddingRight={15}
         paddingBottom={25}
-        justifyContent="flex-start"
+        justifyContent='flex-start'
       >
         <BoxStyled
           cursor='pointer'
           paddingRight={20}
           isStretched={false}
-          borderRight="1px solid"
+          borderRight='1px solid'
           borderColorName='gray2'
         >
-          <Image
-            width='50'
-            alternativeText='Company logo'
-            sharedImageFileName="company_logo.svg"
-          />
+          <Image width='50' alternativeText='Company logo' sharedImageFileName='company_logo.svg' />
         </BoxStyled>
-        <BoxStyled
-          paddingLeft={20}
-          isStretched={false}
-          justifyContent='flex-start'
-        >
+        <BoxStyled paddingLeft={20} isStretched={false} justifyContent='flex-start'>
           <Button
             minWidth={52}
             marginRight={15}
@@ -89,9 +78,8 @@ function AppHeader() {
         </BoxStyled>
 
         <UserInfo />
-
       </BoxStyled>
-    </BoxStyled >
+    </BoxStyled>
   );
 }
 

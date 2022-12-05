@@ -1,15 +1,15 @@
-import axios from 'axios'
-import { PostEntryInfo } from "../domain/models";
-import { PostEntriesState } from "./store.model";
-import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
+import axios from 'axios';
+import { PostEntriesState } from './store.model';
+import { PostEntryInfo } from 'src/domain/models';
+import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 //TODO: Find a better place for API consts
-const POST_ENTRIES_API = 'https://www.mocky.io/v2/5a6bc16631000078341b8b77'
+const POST_ENTRIES_API = 'https://www.mocky.io/v2/5a6bc16631000078341b8b77';
 
 export const fetchPostEntries = createAsyncThunk(
   'postEntries/fetchPostEntries',
   async () => await axios.get(POST_ENTRIES_API)
-)
+);
 
 const emptyPostEntriesState: PostEntriesState = {
   hasError: false,
@@ -19,7 +19,7 @@ const emptyPostEntriesState: PostEntriesState = {
 };
 
 export const postEntriesSlice = createSlice({
-  name: "postEntries",
+  name: 'postEntries',
   initialState: emptyPostEntriesState,
   reducers: {
     setPostEntries: (state: PostEntriesState, { payload }: PayloadAction<PostEntryInfo[]>) => {
@@ -29,15 +29,14 @@ export const postEntriesSlice = createSlice({
     filterByText: (state: PostEntriesState, action: PayloadAction<string>) => {
       const searchQuery = action.payload.toUpperCase();
       if (searchQuery === 'ALL') {
-        state.filteredValue = [...state.value]
+        state.filteredValue = [...state.value];
         return;
       }
-      const filteredPostEntries = state.value
-        .filter((post) => {
-          const { category } = post;
-          const { title, author, url } = post.meta;
-          return `${category} ${author} ${title} ${url}`.toUpperCase().includes(searchQuery)
-        })
+      const filteredPostEntries = state.value.filter((post) => {
+        const { category } = post;
+        const { title, author, url } = post.meta;
+        return `${category} ${author} ${title} ${url}`.toUpperCase().includes(searchQuery);
+      });
       state.filteredValue = filteredPostEntries;
     },
     orderByUpvotes: (state: PostEntriesState) => {
@@ -45,26 +44,26 @@ export const postEntriesSlice = createSlice({
     },
     orderByComments: (state: PostEntriesState) => {
       state.filteredValue = state.filteredValue.sort((a, b) => b.comments - a.comments);
-    },
-
+    }
   },
   extraReducers: (builder) => {
-    builder.addCase(
-      fetchPostEntries.pending, (state) => {
-        state.isLoading = true;
-      });
+    builder.addCase(fetchPostEntries.pending, (state) => {
+      state.isLoading = true;
+    });
     //TODO: Add better type definitions to payload action
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     builder.addCase(fetchPostEntries.fulfilled, (state, action: PayloadAction<any>) => {
       state.value = action.payload.data.links;
       state.filteredValue = action.payload.data.links;
       state.hasError = false;
       state.isLoading = false;
-    })
+    });
     builder.addCase(fetchPostEntries.rejected, (state) => {
       state.hasError = true;
       state.isLoading = false;
-    })
+    });
   }
 });
 
-export const { setPostEntries, filterByText, orderByUpvotes, orderByComments } = postEntriesSlice.actions;
+export const { setPostEntries, filterByText, orderByUpvotes, orderByComments } =
+  postEntriesSlice.actions;

@@ -3,65 +3,63 @@ import { TextInputProps } from './TextInput.model';
 import { KeyboardKeys, ReactInputEvent } from 'src/shared/models';
 import { TextInputStyled, TextInputContainerStyled } from './TextInput.styled';
 
-function TextInput(
-  {
-    id,
-    name,
-    value,
-    flex = 1,
-    maxWidth,
-    minWidth,
-    maxHeight,
-    minHeight,
+function TextInput({
+  id,
+  name,
+  value,
+  flex = 1,
+  maxWidth,
+  minWidth,
+  maxHeight,
+  minHeight,
 
-    onKeyUp,
-    onChange,
-    onKeyDown,
-    onKeyPress,
-    onENTERKeyPress,
+  onKeyUp,
+  onChange,
+  onKeyDown,
+  onKeyPress,
+  onENTERKeyPress,
 
-    leftIcon,
-    rightIcon,
-    maxLength,
-    isDisabled,
+  leftIcon,
+  rightIcon,
+  maxLength,
+  isDisabled,
 
-    isReadOnly,
-    borderStyle,
-    borderWidth,
-    fontSizeName,
-    borderRadius,
-    textColorName,
+  isReadOnly,
+  borderStyle,
+  borderWidth,
+  fontSizeName,
+  borderRadius,
+  textColorName,
 
-    marginTop = 0,
-    marginLeft = 0,
-    marginRight = 0,
-    marginBottom = 0,
+  marginTop = 0,
+  marginLeft = 0,
+  marginRight = 0,
+  marginBottom = 0,
 
-    paddingTop = 10,
-    paddingLeft = 12,
-    paddingRight = 12,
-    paddingBottom = 10,
+  paddingTop = 10,
+  paddingLeft = 12,
+  paddingRight = 12,
+  paddingBottom = 10,
 
-    lineHeightName,
-    fontWeightName,
-    borderColorName,
-    hasFocusOutline,
-    backgroundColorName,
-    placeHolderColorName,
-    placeHolder = 'Type here',
-  }: TextInputProps) {
-
+  lineHeightName,
+  fontWeightName,
+  borderColorName,
+  hasFocusOutline,
+  backgroundColorName,
+  placeHolderColorName,
+  placeHolder = 'Type here'
+}: TextInputProps) {
   const handleOnChange = (event: ReactInputEvent) => {
     if (onChange) onChange(event);
-  }
+  };
 
   const handleKeyUp = (event: ReactInputEvent) => {
     if (onKeyUp) onKeyUp(event);
-  }
+  };
 
   const handleKeyDown = (event: ReactInputEvent) => {
     if (onKeyDown) onKeyDown(event);
-  }
+  };
 
   const handleKeyPress = (event: ReactInputEvent) => {
     if (onKeyPress) onKeyPress(event);
@@ -71,7 +69,7 @@ function TextInput(
       event.preventDefault();
       onENTERKeyPress();
     }
-  }
+  };
 
   return (
     <TextInputContainerStyled
@@ -85,17 +83,12 @@ function TextInput(
       marginRight={marginRight}
       marginBottom={marginBottom}
     >
-      <BoxStyled
-        left={12}
-        position='absolute'
-        isStretched={false}
-        top="calc(50% - 10px)"
-      >
+      <BoxStyled left={12} position='absolute' isStretched={false} top='calc(50% - 10px)'>
         {leftIcon}
       </BoxStyled>
       <TextInputStyled
         id={id}
-        type="text"
+        type='text'
         flex={flex}
         name={name}
         value={value}
@@ -129,16 +122,11 @@ function TextInput(
         isLeftIconRendered={leftIcon !== undefined}
         isRightIconRendered={rightIcon !== undefined}
       />
-      <BoxStyled
-        right={10}
-        position='absolute'
-        isStretched={false}
-        top="calc(50% - 10px)"
-      >
+      <BoxStyled right={10} position='absolute' isStretched={false} top='calc(50% - 10px)'>
         {rightIcon}
       </BoxStyled>
     </TextInputContainerStyled>
-  )
+  );
 }
 
 export default TextInput;

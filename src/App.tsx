@@ -13,7 +13,7 @@ function App() {
       <GlobalStyles />
       <Provider store={store}>
         <ThemeProvider theme={theme}>
-          <AppContainerStyled >
+          <AppContainerStyled>
             <AppHeader />
             <AppBody />
             <AppFooter />

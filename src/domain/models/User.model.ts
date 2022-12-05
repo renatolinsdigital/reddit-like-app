@@ -4,4 +4,3 @@ export interface User {
   username?: string;
   imageFileName?: string;
 }
-
