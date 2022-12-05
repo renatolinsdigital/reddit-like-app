@@ -18,7 +18,7 @@ function AppBody() {
   const [fakeUser] = useState<User>({
     id: -1,
     name: "Test user",
-    username: 'test_user',
+    username: "test_user",
     imageFileName: 'user_photo.png'
   });
 
