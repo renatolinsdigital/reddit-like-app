@@ -45,9 +45,9 @@ An interview challenge application for Leroy Merlin
 ### Overall comments
 
  - Every shared component MUST be a presentation/stateless component, meaning that wont hold logic by themselves but rather get data from either a direct father or from hooks. This way we will have components that are easy to maintain, test, share, etc. For the sake of convenience and enhanced developer experience, one line logic (one-liners) are allowed to be coded within components, however, the ideal is to convert one-liners into utilities
- - In this app, we can consider the idea of 'composition over inheritance' while using these components - in that case, shared components can be used to build domain components and other shared components as well
+ - In this app, we can consider the idea of 'composition over inheritance' while using these components - in this case, shared components can be used to build both domain and shared components
  - Domain components can have logic for handling both UI(e.g onClick) and lifecycle events, but they should not be used to transform data or hold specific business related logic as these things are for util functions or custom hooks. For example, if we need to transform a date and display a text based on the parsed date, we would have a date util and a custom hook (for displaying domain related texts based on that date)
- - This app was created with CRA, so it can be ejected anytime for advanced env/build control
+ - This app was created with CRA, so it can be ejected anytime for advanced tooling control
  - Pages (and page folders) will not be treated as containers for multiple pieces of code, as this only happens with domain and shared folders. Pages will be treated as normal components, with the difference that they will be rendered when we reach certain routes. That said, components and pages will use the same naming conventions, coding patterns, testing approach, etc
  - Every folder that is grouping code will have an 'index' file re-exporting them all under a single 'namespace'. Alongside with the idea of having domain and shared namespaces, we have 'baseUrl' set to project root on __tsconfig.json__ which means we can avoid confusing paths while we can use absolute imports within the project
  - Scaling this app's structure is a matter of identifying what the feature will require (e.g component, theme, icon, page, model, etc), and if these pieces will be domain related or shared.
@@ -66,22 +66,23 @@ An interview challenge application for Leroy Merlin
 
 - This application is mocked, so every data displayed is just representative, inclusive the API data itself
 - As long as we are not dealing with a parameterized API, all data will be queried at once and then filtered within the app
-- A fake user is being stored on a Redux toolkit store, but it is just to illustrate how logged user information could be used across the application. This app doesn't cover authentication features
-- For the sake of avoiding extra complexity regarding data transformations, all models that are common to both API and the app will be exactly the same. In this case, if the API is returning a field with snake case (eg: __created_at__), the Typescript model will respect that, even though camel case is the standard for Javascript/Typescript
+- A fake user is being put into the store, but it is just to illustrate how logged user information could be used across the application. This app doesn't cover authentication features
+- For the sake of avoiding extra complexity regarding data transformations, all models that are common to both API and the app will be exactly the same. In this case, if the API is returning a field with snake case (eg: __created_at__), the Typescript model will follow that, even though camel case is the standard for Javascript and Typescript
 - Lifting state + prop drilling between sibling components or components with sub-components is perfectly fine. We need some room not to make development too verbose, as well as criteria not to write code that is hard to maintain
 
 # Features, approaches and techniques
 
-- API will hold original data in a way it will not be changed by this application. Filters will create local chunks of data for presentation only
-- The Search by text text will be a filter against post title and author name - TBD >>>>>>>>>>>>>>>>>>>>>>>>>>
-- There will be buttons to order by upvotes and number of comments - TBD >>>>>>>>>>>>>>>>>>>>>>>>>>
+- API will hold original data in a way it will not be changed by this application, store will just hold copies of back-end data
+- Filters will be copies of the fetched value so that components can safely transform and exchange data
+- The Search by text text will be a filter against post title, author, category and url
+- There are buttons for ordering by both the most upvoted and the most commented posts. As this application is just a tech demo, these types of ordering will be considered enough
 
 ### Implemented
 
  - Component-first approach: With the help of Styled components, every UI element is mapped to a component
- - State management: Example of storing logged-in user data with Redux toolkit
- - Data fetching with Axios Redux Toolkit
- - Linting - TBD
+ - State management: Example of storing user data with Redux toolkit
+ - Data fetching with Axios + Async chunks handled by Redux Toolkit
+ - Linting with ??????????????????
  - Responsiveness - TBD
  - Git standards HUSKY - ???????????? TBD
 
