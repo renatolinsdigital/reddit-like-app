@@ -17,9 +17,9 @@ function AppBody() {
   const dispatch = useDispatch<AppDispatch>();
   const [fakeUser] = useState<User>({
     id: -1,
-    name: "Test user",
-    username: "test_user",
-    imageFileName: "user_photo.png"
+    name: 'Test user',
+    username: 'test_user',
+    imageFileName: 'user_photo.png'
   });
 
   const {
