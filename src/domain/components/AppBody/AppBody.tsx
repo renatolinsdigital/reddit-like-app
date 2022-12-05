@@ -19,7 +19,7 @@ function AppBody() {
     id: -1,
     name: "Test user",
     username: "test_user",
-    imageFileName: 'user_photo.png'
+    imageFileName: "user_photo.png"
   });
 
   const {
