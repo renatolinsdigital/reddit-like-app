@@ -1,8 +1,8 @@
 # Reddit-like app
 
-An interview challenge application for Leroy Merlin
+An interview challenge application for Leroy Merlin. This is how the app looks like:
 
-# Interview questions
+![App print](project-files/print.png)
 
 # About this app
 
@@ -11,9 +11,8 @@ An interview challenge application for Leroy Merlin
  - Installing dependencies: `yarn`
  - Running in development mode: `yarn dev`
  - Building: `yarn build`
- - Testing: `yarn test` - TBD
 
-## Main Technologies
+## Main Technologies used
 
  - React
  - Typescript
@@ -21,7 +20,7 @@ An interview challenge application for Leroy Merlin
  - Sass (for global styling) 
  - Styled components (with Javascript syntax)
 
-# App structure/organization overview
+# Structure,organization and technical overview
 
 ### Top-level folders
 
