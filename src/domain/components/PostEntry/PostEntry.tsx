@@ -31,16 +31,8 @@ function PostEntry({ postEntryInfo }: PostEntryProps) {
         votesCount={currentUpvotes}
         isVotedByCurrentUser={isVotedByCurrentUser}
       />
-      <BoxStyled
-        paddingLeft={20}
-        paddingRight={20}
-        flexDirection='column'
-      >
-        <BoxStyled
-          flexDirection='column'
-          alignItems='flex-start'
-          justifyContent='flex-start'
-        >
+      <BoxStyled paddingLeft={20} paddingRight={20} flexDirection='column'>
+        <BoxStyled flexDirection='column' alignItems='flex-start' justifyContent='flex-start'>
           <Link
             isInUpperCase
             paddingLeft={0}

@@ -85,13 +85,7 @@ An interview challenge application for Leroy Merlin
  - Linting with ESLint for code styling check + prettier as code formatter. Linting configurations here are minimum, basic and therefore illustrative
  - Configurations related to GIT: The tool Husky is configured in such a way that linting + formatting will be triggered when making commits. For this to run, you might want to run ```npx husky add .husky/pre-commit "yarn lint:fix && yarn format"```
 
-Ps. For linting and formatting to work while saving files, the VS Code settings.json should have:
-
-```
-    "editor.codeActionsOnSave": {"source.fixAll.eslint": true},
-    "editor.defaultFormatter": "esbenp.prettier-vscode",
-    "editor.formatOnSave": true
-```
+Ps. For linting and formatting to work while saving files, the do not ignore the __.vscode__ folder
 
 ### Responsiveness
 

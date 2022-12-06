@@ -14,7 +14,6 @@ import {
 } from 'src/store';
 
 function AppBody() {
-
   const dispatch = useDispatch<AppDispatch>();
   const [fakeUser] = useState<User>({
     id: -1,

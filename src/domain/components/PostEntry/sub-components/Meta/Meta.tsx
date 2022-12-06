@@ -33,15 +33,13 @@ function Meta({ user, isOwner, author, comments }: MetaProps) {
             {author}
           </Link>
         </BoxStyled>
-        <BoxStyled
-          isStretched={false}
-        >
+        <BoxStyled isStretched={false}>
           <TextStyled
             paddingLeft={5}
-            paddingRight={isSmaller ? 2 : 8}
             colorName='gray3'
             fontSizeName='small'
             hoverColorName='gray3'
+            paddingRight={isSmaller ? 2 : 8}
           >
             2 hours ago
           </TextStyled>
@@ -63,28 +61,25 @@ function Meta({ user, isOwner, author, comments }: MetaProps) {
             {!isSmaller && <MessageIcon marginTop={2} colorName='primaryDefault' />}
             <Link
               hasUnderline
-              marginLeft={isSmaller ? 0 : 5}
               colorName='primaryDefault'
               hoverColorName='primaryDark'
+              marginLeft={isSmaller ? 0 : 5}
               fontSizeName={isSmaller ? 'small' : 'default'}
             >
               {`${comments} Comment${Number(comments) !== 1 ? 's' : ''}`}
             </Link>
           </BoxStyled>
-          {
-            isOwner
-            && (
-              <Link
-                hasUnderline
-                marginLeft={2}
-                colorName='primaryDefault'
-                hoverColorName='primaryDark'
-                fontSizeName={isSmaller ? 'small' : 'default'}
-              >
-                Edit
-              </Link>
-            )
-          }
+          {isOwner && (
+            <Link
+              hasUnderline
+              marginLeft={2}
+              colorName='primaryDefault'
+              hoverColorName='primaryDark'
+              fontSizeName={isSmaller ? 'small' : 'default'}
+            >
+              Edit
+            </Link>
+          )}
         </BoxStyled>
       </BoxStyled>
     </BoxStyled>
