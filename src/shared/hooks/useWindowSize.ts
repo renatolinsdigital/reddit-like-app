@@ -6,14 +6,14 @@ function getBreakPoint(windowMeasure: number): BreakPoints {
     return windowMeasure <= 375
       ? 'ss'
       : windowMeasure < 560
-        ? 'xs'
-        : windowMeasure < 960
-          ? 'sm'
-          : windowMeasure < 1280
-            ? 'md'
-            : windowMeasure < 1920
-              ? 'lg'
-              : 'xl';
+      ? 'xs'
+      : windowMeasure < 960
+      ? 'sm'
+      : windowMeasure < 1280
+      ? 'md'
+      : windowMeasure < 1920
+      ? 'lg'
+      : 'xl';
   }
   return false;
 }
@@ -21,8 +21,12 @@ function getBreakPoint(windowMeasure: number): BreakPoints {
 function useWindowSize() {
   const isWindowClient = typeof window === 'object';
 
-  const [windowWidth, setWindowWidth] = useState(isWindowClient ? getBreakPoint(window.innerWidth) : undefined);
-  const [windowHeight, setWindowHeight] = useState(isWindowClient ? getBreakPoint(window.innerHeight) : undefined);
+  const [windowWidth, setWindowWidth] = useState(
+    isWindowClient ? getBreakPoint(window.innerWidth) : undefined
+  );
+  const [windowHeight, setWindowHeight] = useState(
+    isWindowClient ? getBreakPoint(window.innerHeight) : undefined
+  );
 
   useEffect(() => {
     function setSize() {

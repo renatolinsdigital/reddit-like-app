@@ -3,7 +3,6 @@ import { LoadingIcon } from 'src/shared/icons';
 import { PostEntry } from 'src/domain/components';
 import { useDispatch, useSelector } from 'react-redux';
 import { PostEntryInfo, User } from 'src/domain/models';
-// import { useResponsiveBooleans } from 'src/shared/hooks';
 import { PageContainer, BoxStyled, Button, TextStyled } from 'src/shared/components';
 import {
   RootState,
@@ -15,7 +14,6 @@ import {
 } from 'src/store';
 
 function AppBody() {
-  // const { isSmaller } = useResponsiveBooleans();
 
   const dispatch = useDispatch<AppDispatch>();
   const [fakeUser] = useState<User>({
@@ -57,12 +55,13 @@ function AppBody() {
         fontWeightName='medium'
         justifyContent='flex-end'
       ></TextStyled>
-      <BoxStyled isVertical paddingBottom={40} alignItems='flex-start' justifyContent='flex-start'>
-        <BoxStyled
-          paddingBottom={15}
-          isStretched={false}
-          justifyContent='flex-start'
-        >
+      <BoxStyled
+        paddingBottom={40}
+        flexDirection='column'
+        alignItems='flex-start'
+        justifyContent='flex-start'
+      >
+        <BoxStyled paddingBottom={15} isStretched={false} justifyContent='flex-start'>
           {!isLoading && !hasError && postEntries.length === 0 ? (
             <TextStyled
               marginTop={20}

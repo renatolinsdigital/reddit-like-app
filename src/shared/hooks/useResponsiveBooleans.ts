@@ -16,7 +16,7 @@ const useResponsiveBooleans = (): Record<string, boolean> => {
     isSuperSmall,
     isInMobileMode,
     isDesktopBigScreen,
-    isDesktopSmallScreen,
+    isDesktopSmallScreen
   };
 };
 

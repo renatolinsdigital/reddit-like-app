@@ -40,8 +40,8 @@ const BoxStyled = styled.div<BoxStyledProps>(
 
     borderWidth,
     isVisible = true,
-    isVertical = false,
     isStretched = true,
+    flexDirection = 'row',
     position = 'relative',
 
     verticalBreakPoint,
@@ -88,6 +88,7 @@ const BoxStyled = styled.div<BoxStyledProps>(
       borderStyle,
       borderWidth,
       borderRadius,
+      flexDirection,
       justifyContent,
 
       maxWidth: maxWidth || '100%',
@@ -98,7 +99,6 @@ const BoxStyled = styled.div<BoxStyledProps>(
       borderColor: colors[borderColorName],
 
       height: isStretched ? '100%' : 'auto',
-      flexDirection: isVertical ? 'column' : 'row',
       flexWrap: isFlexWrapping ? 'wrap' : 'nowrap',
 
       [`@media(max-width: ${verticalBreakPoint}px)`]: {

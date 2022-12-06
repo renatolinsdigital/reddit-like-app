@@ -38,16 +38,16 @@ interface BoxProps {
   hoverBackgroundColorName?: keyof Colors;
 
   borderStyle?:
-  | 'dotted'
-  | 'dashed'
-  | 'solid'
-  | 'double'
-  | 'groove'
-  | 'ridge'
-  | 'inset'
-  | 'outset'
-  | 'none'
-  | 'hidden';
+    | 'dotted'
+    | 'dashed'
+    | 'solid'
+    | 'double'
+    | 'groove'
+    | 'ridge'
+    | 'inset'
+    | 'outset'
+    | 'none'
+    | 'hidden';
 
   overflow?: 'visible' | 'hidden' | 'scroll' | 'auto';
   overflowX?: 'visible' | 'hidden' | 'scroll' | 'auto';

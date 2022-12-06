@@ -9,12 +9,12 @@ function UpVote({ postId, votesCount, onVoted, isVotedByCurrentUser }: UpVotePro
 
   return (
     <BoxStyled
-      isVertical
       minWidth={52}
       borderRadius={4}
       overflow='hidden'
       border='1px solid'
       isStretched={false}
+      flexDirection='column'
       borderColorName='gray3'
       backgroundColorName='white'
     >

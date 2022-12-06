@@ -12,7 +12,7 @@ function PageContainer({ children, isVertical = true }: PageContainerProps) {
       paddingBottom={30}
       marginLeft='auto'
       marginRight='auto'
-      isVertical={isVertical}
+      flexDirection='column'
       maxWidth={MAX_PAGE_SIZE}
       backgroundColorName='transparent'
     >

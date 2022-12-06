@@ -5,7 +5,6 @@ type BoxStyledProps = BoxProps & {
   borderTop?: string;
   borderLeft?: string;
   borderRight?: string;
-  isVertical?: boolean;
   borderBottom?: string;
   isStretched?: boolean;
   flex?: number | string;
@@ -17,6 +16,7 @@ type BoxStyledProps = BoxProps & {
   maxHeight?: string | number;
   verticalBreakPoint?: number;
   justifyContent?: JustifyContent;
+  flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse';
 };
 
 export default BoxStyledProps;

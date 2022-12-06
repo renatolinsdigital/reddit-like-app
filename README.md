@@ -101,6 +101,7 @@ This application uses a custom hook called __useResponsiveBooleans__ for deliver
  * There will be no need to touch CSS, specially in a component-first approach where components will handle values informed
  * It will work fine for applications that are heavily relying on mobile behavior and/or would be ported to an actual mobile app created with Javascript
  * Booleans will deliver a consistent sizing notion, both designers and developers call talk about this same booleans (that can be renamed as needed) and the components will adapt within a well known set of possibilities
+ * Component's responsible behavior can be controlled by both outside (as they will handle values) and by itself once we import and react to booleans inside the component
 
 Regarding the usage, we simply grab hook values like so:
 
@@ -119,6 +120,8 @@ Then we just pass values to our components already making our calculations:
 ```
 <MyComponent maxWidth={isSuperSmall ? 255 : 290} />
 ```
+
+Ps. The actual responsive behavior of this app (what changes, what hides, etc.) is just illustrative
 
 ### What was not done (TODOS)
 

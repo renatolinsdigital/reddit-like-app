@@ -3,4 +3,4 @@ interface AddPostButtonProps {
   isButtonVisible?: boolean;
 }
 
-export default AddPostButtonProps
+export default AddPostButtonProps;

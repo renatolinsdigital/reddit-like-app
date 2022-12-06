@@ -31,7 +31,7 @@ function AppHeader() {
   }, [inputQuery, postsDispatch]);
 
   return (
-    <BoxStyled borderColorName='gray2' borderBottom='1px solid' maxWidth="100%">
+    <BoxStyled borderColorName='gray2' borderBottom='1px solid' maxWidth='100%'>
       <BoxStyled
         maxWidth={1600}
         paddingTop={20}
@@ -40,7 +40,6 @@ function AppHeader() {
         paddingBottom={25}
         justifyContent='space-between'
       >
-
         <BoxStyled paddingLeft={isSmaller ? 0 : 10} justifyContent='flex-start'>
           <BoxStyled
             minWidth={65}
@@ -51,7 +50,11 @@ function AppHeader() {
             borderRight='1px solid'
             borderColorName='gray2'
           >
-            <Image width='50' alternativeText='Company logo' sharedImageFileName='company_logo.svg' />
+            <Image
+              width='50'
+              alternativeText='Company logo'
+              sharedImageFileName='company_logo.svg'
+            />
           </BoxStyled>
           <Button
             minWidth={52}
@@ -79,15 +82,11 @@ function AppHeader() {
         </BoxStyled>
 
         <BoxStyled justifyContent='flex-end'>
-          <AddPostButton
-            isTextVisible={!isSmaller}
-            isButtonVisible={!isSuperSmall}
-          />
+          <AddPostButton isTextVisible={!isSmaller} isButtonVisible={!isSuperSmall} />
           <UserInfo isVisible={!isSmaller} />
         </BoxStyled>
-
       </BoxStyled>
-    </BoxStyled >
+    </BoxStyled>
   );
 }
 

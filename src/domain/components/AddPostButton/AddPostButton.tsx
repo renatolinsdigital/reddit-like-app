@@ -23,13 +23,11 @@ function AddPostButton({ isButtonVisible, isTextVisible }: AddPostButtonProps) {
         borderColorName='primaryDark'
         paddingRight={isTextVisible ? 14 : undefined}
         borderRight={isTextVisible ? '1px solid' : undefined}
-
       >
         <PlusIcon width={15} height={15} colorName='white' />
       </BoxStyled>
-      {
-        isTextVisible
-        && <TextStyled
+      {isTextVisible && (
+        <TextStyled
           marginRight={10}
           colorName='white'
           hoverColorName='white'
@@ -37,7 +35,7 @@ function AddPostButton({ isButtonVisible, isTextVisible }: AddPostButtonProps) {
         >
           Add Post
         </TextStyled>
-      }
+      )}
     </Button>
   );
 }

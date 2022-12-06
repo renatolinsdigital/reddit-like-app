@@ -1,14 +1,14 @@
+import { User } from 'src/domain/models';
 import { Colors } from 'src/theme/models';
 import { useEffect, useState } from 'react';
 import { postCategoryToLabel } from './utils';
 import PostEntryProps from './PostEntry.model';
 import { Meta, UpVote } from './sub-components';
 import { Badge, BoxStyled, Link } from 'src/shared/components';
-import { User } from 'src/domain/models';
 
 function PostEntry({ postEntryInfo }: PostEntryProps) {
-  const [isVotedByCurrentUser, setIsVotedByCurrentUser] = useState(false);
   const [currentUpvotes, setCurrentUpvotes] = useState(0);
+  const [isVotedByCurrentUser, setIsVotedByCurrentUser] = useState(false);
   const { meta, upvotes, category, comments, isOwner, user } = postEntryInfo;
 
   const postCategory = postCategoryToLabel(category);
@@ -20,7 +20,6 @@ function PostEntry({ postEntryInfo }: PostEntryProps) {
   };
 
   useEffect(() => {
-    // hydrates upvotes count with initial/original data
     setCurrentUpvotes(upvotes);
   }, [upvotes]);
 
@@ -32,8 +31,16 @@ function PostEntry({ postEntryInfo }: PostEntryProps) {
         votesCount={currentUpvotes}
         isVotedByCurrentUser={isVotedByCurrentUser}
       />
-      <BoxStyled isVertical paddingLeft={20} paddingRight={20}>
-        <BoxStyled isVertical alignItems='flex-start' justifyContent='flex-start'>
+      <BoxStyled
+        paddingLeft={20}
+        paddingRight={20}
+        flexDirection='column'
+      >
+        <BoxStyled
+          flexDirection='column'
+          alignItems='flex-start'
+          justifyContent='flex-start'
+        >
           <Link
             isInUpperCase
             paddingLeft={0}
@@ -60,10 +67,10 @@ function PostEntry({ postEntryInfo }: PostEntryProps) {
         <BoxStyled paddingTop={12} justifyContent='flex-start'>
           <Badge text={postCategory} backgroundColorName={category as keyof Colors} />
           <Meta
-            user={user || ({} as User)}
-            author={meta.author}
-            comments={comments}
             isOwner={isOwner}
+            comments={comments}
+            author={meta.author}
+            user={user || ({} as User)}
           />
         </BoxStyled>
       </BoxStyled>
