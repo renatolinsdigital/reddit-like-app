@@ -31,15 +31,14 @@ An interview challenge application for Leroy Merlin. This is how the app looks l
 
 ### Images in this project
 
- - This application doesn't have a folder called 'assets' as this folder can interfere in application scalability. In this case, images, icons and assets in general will be inside its own folder belonging to its own application module/domain
- - Unless there is the need of inserting pixel-based photos, this project will use the SVG format as it is standard for vector-based graphics. SVGs will enable images/icons that:
+This application doesn't have a folder called 'assets' as this folder can interfere in application scalability. In this case, images, icons and assets in general will be inside its own folder belonging to its own application module/domain. Unless there is the need of inserting pixel-based photos, this project will use the SVG format as it is standard for vector-based graphics. SVGs will enable images/icons that:
  
- * Can be animated
- * Are lightweight
- * Can be indexed by search engines
- * Don't loose resolution while scaling 
- * Are exportable by most graphic programs
- * Works pretty well alongside Javascript (and/or React components), so it's visuals and behavior/animations can be updated via code
+ a) Can be animated  
+ b) Are lightweight  
+ c) Can be indexed by search engines  
+ d) Don't loose resolution while scaling  
+ e) Are exportable by most graphic programs  
+ f) Works pretty well alongside Javascript (and/or React components), so it's visuals and behavior/animations can be updated via code
 
 ### Overall comments
 
@@ -68,6 +67,7 @@ An interview challenge application for Leroy Merlin. This is how the app looks l
 - A fake user is being put into the store, but it is just to illustrate how logged user information could be used across the application. This app doesn't cover authentication features
 - For the sake of avoiding extra complexity regarding data transformations, all models that are common to both API and the app will be exactly the same. In this case, if the API is returning a field with snake case (eg: __created_at__), the Typescript model will follow that, even though camel case is the standard for Javascript and Typescript
 - Lifting state + prop drilling between sibling components or components with sub-components is perfectly fine. We need some room not to make development too verbose, as well as criteria not to write code that is hard to maintain
+- State management will consider the flow of data described here: https://whimsical.com/react-flow-of-data-LwGBJDmLRjFJAC4eq8CsYR
 
 # Features, approaches and techniques
 
